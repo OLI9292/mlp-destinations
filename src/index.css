@@ -1,0 +1,18 @@
+html, body {
+  margin: 0;
+}
+
+@font-face {
+  font-family: ATSackersGothicMedium;
+  src: url('./Library/Fonts/ATSackersGothic-Medium.ttf');
+}
+
+@font-face {
+  font-family: EBGARAMOND12REGULAR;
+  src: url('./Library/Fonts/EBGARAMOND12-REGULAR.TTF');
+}
+
+@font-face {
+  font-family: CardoItalic;
+  src: url('./Library/Fonts/Cardo-Italic.ttf');
+}
