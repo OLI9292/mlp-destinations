@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router';
 import styled from 'styled-components';
 
+import FrontCover from '../Common/frontCover';
 import colors from '../../Library/colors';
 
-class DestinationsPage extends Component {
+class IndividualDestinationPage extends Component {  
   render() {
     return (
       <div>
@@ -13,4 +14,4 @@ class DestinationsPage extends Component {
   }
 }
 
-export default DestinationsPage;
+export default IndividualDestinationPage;

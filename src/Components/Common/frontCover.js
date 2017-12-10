@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router';
 import styled from 'styled-components';
 
-import leaves from '../../Library/Images/leaf-header.jpg';
 import logo from '../../Library/Images/logo.png';
 
 class FrontCover extends Component {
@@ -28,27 +27,19 @@ class FrontCover extends Component {
       </div>;
     })();
 
-    const aboutContent = (() => {
+    const centeredContent = (() => {
       return <div style={{textAlign:'center',margin:'0 auto',width:'50%',color:'white'}}>
         <h3 style={{fontFamily:'ATSackersGothicMedium'}}>
-          ABOUT.
+          {this.props.title}
         </h3>
         <p style={{fontFamily:'CardoItalic',letterSpacing:'1px',lineHeight:'35px',fontSize:'1.35em'}}>
-          Having spent my life travelling and experiencing the world, I now want to share my knowledge with you, here are a few things I've learnt along the way.
+          {this.props.description}
         </p>
       </div>
     })();
 
-    const dynamicContent = (() => {
-      switch (this.props.page) {
-        case 'home': return homeContent;
-        case 'about': return aboutContent;
-        default: return;
-      }
-    })();
-
     return (
-      <Container>
+      <Container image={require(`../../Library/Images/${this.props.image}`)}>
         <div style={{paddingTop:'20px'}}>
           <img
             onClick={() => this.setState({ redirect: '/' })}
@@ -56,6 +47,7 @@ class FrontCover extends Component {
             style={{marginLeft:'40px',height:'150px',width:'auto',display:'inline-block',cursor:'pointer'}} />
 
           <div style={{display:'inline-block',marginTop:'50px',verticalAlign:'top'}}>
+          
             <Link onClick={() => this.setState({ redirect: '/services' })}>
               services
             </Link>
@@ -71,9 +63,10 @@ class FrontCover extends Component {
             <Link onClick={() => this.setState({ redirect: '/contact' })}>
               contact
             </Link>
+
             {this.props.page === 'home' && homeContent}
           </div>
-          {dynamicContent}
+          {this.props.page !== 'home' && centeredContent}
         </div>
       </Container>
     );
@@ -81,7 +74,7 @@ class FrontCover extends Component {
 }
 
 const Container = styled.div`
-  background-image: url(${leaves});
+  background-image: url(${props => props.image});
   background-repeat: no-repeat;
   background-size: 1300px auto;
   height: 500px;

@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import colors from '../../Library/colors';
 import coffee from '../../Library/Images/coffee.jpg';
 import lantern from '../../Library/Images/lantern.jpg';
+
+import CTA from '../Common/cta';
 import Footer from '../Common/footer';
 import FrontCover from '../Common/frontCover';
 import Destinations from '../Destinations/index';
@@ -26,7 +28,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <FrontCover page={'home'} />
+        <FrontCover page={'home'} image={'leaf-header.jpg'} />
 
         <div style={{textAlign:'center'}}>
           <p style={{fontFamily:'ATSackersGothicMedium',color:colors.red,fontSize:'0.8em',margin:'40px 0px 20px 0px'}}>
@@ -55,19 +57,7 @@ class Home extends Component {
             </TestimonialParagraph>
           </TestimonialContainer>
 
-          <ContactContainer>
-            <h1 style={{fontFamily:'CardoItalic'}}>
-              Let's talk...
-            </h1>
-
-            <p style={{fontFamily:'ATSackersGothicMedium'}}>
-              book a private consultation today to discuss your next trip.
-            </p>
-
-            <p style={{color:colors.green,fontFamily:'ATSackersGothicMedium',textDecoration:'underline',cursor:'pointer'}}>
-              contact
-            </p>
-          </ContactContainer>
+          <CTA />
 
           <Footer />
         </div>
@@ -106,13 +96,6 @@ const TestimonialParagraph = styled.p`
   width: 45%;
   letter-spacing: 1px;
   line-height: 25px;
-`
-
-const ContactContainer = styled.div`
-  display: flex;
-  height: 300px;
-  flex-direction: column;
-  justify-content: center;
 `
 
 export default Home;

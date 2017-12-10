@@ -45,14 +45,15 @@ const informations = [
   }
 ]
 
+const description = 'Having spent my life travelling and experiencing the world, ' +
+  'I now want to share my knowledge with you, here are a few things I\'ve learnt along the way.';
+
 class About extends Component {
   render() {
     return (
       <div>
-        <FrontCover page={'about'} />
-        
+        <FrontCover description={description} title='ABOUT.' image={'leaf-header.jpg'} />      
         {informations.map((i) => <InformationRow information={i} />)}
-
         <Footer />
       </div>
     );
