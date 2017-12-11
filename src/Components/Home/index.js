@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router';
 import styled from 'styled-components';
 
+import { media } from '../../Library/breakpoints';
 import colors from '../../Library/colors';
 import coffee from '../../Library/Images/coffee.jpg';
 import lantern from '../../Library/Images/lantern.jpg';
@@ -26,6 +26,7 @@ const testimonialText = 'Miranda has a unique gift for listening to and understa
 
 class Home extends Component {
   render() {
+    console.log(media.phone ? '80%' : '800px')
     return (
       <div>
         <FrontCover page={'home'} image={'leaf-header.jpg'} />
@@ -35,15 +36,15 @@ class Home extends Component {
             concept
           </p>
           
-          <p style={{fontFamily:'CardoItalic',width:'50%',margin:'0 auto',letterSpacing:'1px',lineHeight:'25px'}}>
+          <Paragraph>
             {conceptText}
-          </p>
+          </Paragraph>
 
-          <ConceptImage />
+          <ConceptImage src={coffee} />
 
-          <p style={{fontFamily:'CardoItalic',width:'50%',margin:'0 auto',letterSpacing:'1px',lineHeight:'25px'}}>
+          <Paragraph>
             {destinationText}
-          </p>
+          </Paragraph>
 
           <Destinations />
 
@@ -66,15 +67,26 @@ class Home extends Component {
   }
 }
 
-const ConceptImage = styled.div`
-  background-image: url(${coffee});
-  background-repeat: no-repeat;
-  background-size: 800px auto;
+const Paragraph = styled.p`
+  font-family: CardoItalic;
+  width: 50%;
+  margin: 0 auto;
+  letter-spacing: 1px;
+  line-height: 25px;
+  ${media.phone`
+    width: 70%;
+  `}    
+`
+
+const ConceptImage = styled.img`
   width: 800px;
-  height: 400px;
+  height: auto;
   margin: 0 auto;
   margin-top: 40px;
   margin-bottom: 40px;
+  ${media.phone`
+    width: 80%;
+  `}      
 `
 
 const TestimonialContainer = styled.div`
@@ -86,6 +98,9 @@ const TestimonialContainer = styled.div`
   font-family: ATSackersGothicMedium;
   height: 400px;
   width: 100%;
+  ${media.phone`
+    height: 250px;
+  `}    
 `
 
 const TestimonialParagraph = styled.p`
@@ -96,6 +111,13 @@ const TestimonialParagraph = styled.p`
   width: 45%;
   letter-spacing: 1px;
   line-height: 25px;
+  ${media.phone`
+    margin-left: 0px;
+    width: 80%;
+    margin: 0 auto;
+    line-height: 20px;
+    font-size: 0.75em;
+  `}   
 `
 
 export default Home;

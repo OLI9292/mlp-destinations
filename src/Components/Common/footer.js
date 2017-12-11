@@ -3,6 +3,7 @@ import { Redirect } from 'react-router';
 import styled from 'styled-components';
 
 import colors from '../../Library/colors';
+import { media } from '../../Library/breakpoints';
 
 class Footer extends Component {
   constructor(props) {
@@ -17,11 +18,12 @@ class Footer extends Component {
     
     return (
       <Container>
-        <p style={{fontFamily:'CardoItalic',color:'white',marginLeft:'50px',paddingTop:'50px'}}>
+        <SiteMapHeader>
           Site Map.
-        </p>
-        <div style={{margin:'-10px 0px 0px 50px'}}>
-          <div style={{display:'inline-block'}}>
+        </SiteMapHeader>
+
+        <InnerContainer>
+          <LinksContainer>
             <Link onClick={() => this.setState({ redirect: '/services' })}>
               services
             </Link>
@@ -37,11 +39,11 @@ class Footer extends Component {
             <Link onClick={() => this.setState({ redirect: '/contact' })}>
               contact
             </Link>            
-          </div>
-          <p style={{fontFamily:'ATSackersGothicMedium',display:'inline-block',color:'white',float:'right',margin:'5px 50px 0px 0px'}}>
+          </LinksContainer>
+          <Email>
             MIRANDA@MLPDESTINATIONS.COM
-          </p>
-        </div>
+          </Email>
+        </InnerContainer>
       </Container>
     );
   }
@@ -52,6 +54,28 @@ const Container = styled.div`
   width: 100%;
   height: 150px;
   text-align: left;
+  ${media.phone`
+    height: 100px;
+  `}  
+`
+
+const InnerContainer = styled.div`
+  margin: -10px 0px 0px 50px;
+  ${media.phone`
+    margin: 0 auto;
+    text-align: center;
+  `}  
+`
+
+const SiteMapHeader = styled.p`
+  font-family: CardoItalic;
+  color: white;
+  margin-left: 50px;
+  padding-top: 50px;
+  display: inline-block;
+  ${media.phone`
+    display: none;
+  `}    
 `
 
 const Link = styled.p`
@@ -62,6 +86,27 @@ const Link = styled.p`
   margin-right: 30px;
   cursor: pointer;
   letter-spacing: 2px;
+`
+
+const LinksContainer = styled.div`
+  display: inline-block;
+  ${media.phone`
+    display: none;
+  `}  
+`
+
+const Email = styled.p`
+  font-family: ATSackersGothicMedium;
+  display: inline-block;
+  color: white;
+  float: right;
+  margin: 5px 50px 0px 0px;
+  ${media.phone`
+    margin: 0 auto;
+    line-height: 100px;
+    float: none;
+    font-size: 0.7em;
+  `}  
 `
 
 export default Footer;

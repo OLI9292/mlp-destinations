@@ -3,6 +3,7 @@ import { Redirect } from 'react-router';
 import styled from 'styled-components';
 
 import colors from '../../Library/colors';
+import { media } from '../../Library/breakpoints';
 
 class CTA extends Component {
   constructor(props) {
@@ -39,6 +40,11 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  ${media.phone`
+    width: 90%;
+    margin: 0 auto;
+    line-height: 25px;
+  `};
 `
 
 export default CTA;

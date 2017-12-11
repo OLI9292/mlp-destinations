@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router';
 import styled from 'styled-components';
 
 import colors from '../../Library/colors';
@@ -14,7 +13,8 @@ class InformationRow extends Component {
 
     const imageBlock = (() => {
       return <div>
-        <img 
+        <img
+          alt={this.props.information.imageUrl}
           src={this.props.information.imageUrl}
           style={{width:'300px',height:'auto'}} />
       </div>;

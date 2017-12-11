@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import leaves from '../../Library/Images/leaf-header.jpg';
-
 const destinations = [
   {
     name: 'Africa',

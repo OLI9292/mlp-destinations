@@ -3,6 +3,7 @@ import { Redirect } from 'react-router';
 import styled from 'styled-components';
 
 import logo from '../../Library/Images/logo.png';
+import { media } from '../../Library/breakpoints';
 
 class FrontCover extends Component {
   constructor(props) {
@@ -16,15 +17,15 @@ class FrontCover extends Component {
     }
 
     const homeContent = (() => {
-      return <div style={{margin:'250px 0px 0px 50px',fontFamily:'EBGARAMOND12REGULAR',color:'white',letterSpacing:'2px'}}>
+      return <Tagline>
         <span>
           YOUR PERSONAL GUIDE
         </span>
         <br /><br />
-        <span style={{marginLeft:'150px'}}>
+        <TaglineSpan>
           TO PRIVATE TRAVEL...
-        </span>
-      </div>;
+        </TaglineSpan>
+      </Tagline>;
     })();
 
     const centeredContent = (() => {
@@ -40,45 +41,50 @@ class FrontCover extends Component {
 
     return (
       <Container image={require(`../../Library/Images/${this.props.image}`)}>
-        <div style={{paddingTop:'20px'}}>
-          <img
-            onClick={() => this.setState({ redirect: '/' })}
-            src={logo} 
-            style={{marginLeft:'40px',height:'150px',width:'auto',display:'inline-block',cursor:'pointer'}} />
 
-          <div style={{display:'inline-block',marginTop:'50px',verticalAlign:'top'}}>
-          
-            <Link onClick={() => this.setState({ redirect: '/services' })}>
-              services
-            </Link>
+        <Logo onClick={() => this.setState({ redirect: '/' })} src={logo} />
 
-            <Link onClick={() => this.setState({ redirect: '/destinations' })}>
-              destinations
-            </Link>
+        <div style={{display:'inline-block',marginTop:'50px',verticalAlign:'top'}}>
+        
+          <Link onClick={() => this.setState({ redirect: '/services' })}>
+            services
+          </Link>
 
-            <Link onClick={() => this.setState({ redirect: '/about' })}>
-              about
-            </Link>
+          <Link onClick={() => this.setState({ redirect: '/destinations' })}>
+            destinations
+          </Link>
 
-            <Link onClick={() => this.setState({ redirect: '/contact' })}>
-              contact
-            </Link>
+          <Link onClick={() => this.setState({ redirect: '/about' })}>
+            about
+          </Link>
 
-            {this.props.page === 'home' && homeContent}
-          </div>
-          {this.props.page !== 'home' && centeredContent}
+          <Link onClick={() => this.setState({ redirect: '/contact' })}>
+            contact
+          </Link>
+
+          {this.props.page === 'home' && homeContent}
         </div>
+
+        {this.props.page !== 'home' && centeredContent}
+
+        <br /><br /><br /><br />
+
+        {this.props.page === 'home' && <LetsTalkButton>lets talk</LetsTalkButton>}
       </Container>
     );
   }
 }
 
 const Container = styled.div`
+  padding-top: 20px;
   background-image: url(${props => props.image});
   background-repeat: no-repeat;
   background-size: 1300px auto;
   height: 500px;
   width: 100%;
+  ${media.phone`
+    text-align: center;
+  `}
 `
 
 const Link = styled.p`
@@ -89,6 +95,54 @@ const Link = styled.p`
   margin-left: 50px;
   cursor: pointer;
   letter-spacing: 2px;
+  ${media.phone`
+    display: none;
+  `}
+`
+
+const Tagline = styled.div`
+  margin: 250px 0px 0px 50px;
+  font-family: EBGARAMOND12REGULAR;
+  color: white;
+  letter-spacing: 2px;
+  ${media.phone`
+    margin: 25px 0px 0px 0px;
+    text-align: left;
+  `}  
+`
+
+const TaglineSpan = styled.span`
+  margin-left: 150px;
+  ${media.phone`
+    margin-left: 40px;
+  `}  
+`
+
+const Logo = styled.img`
+  margin-left: 40px;
+  height: 150px;
+  width: auto;
+  display: inline-block;
+  cursor: pointer;
+  ${media.phone`
+    display: block;
+    height: 125px;
+    margin: 0 auto;
+    margin-top: 50px;
+  `}
+`
+
+const LetsTalkButton = styled.p`
+  display: none;
+  ${media.phone`
+    display: inline-block;
+    font-family: ATSackersGothicMedium;
+    background-color: rgba(156, 62, 76, 0.85);
+    color: white;
+    font-size: 1.2em;
+    padding: 15px 20px 15px 20px;
+    letter-spacing: 1px;
+  `} 
 `
 
 export default FrontCover;
