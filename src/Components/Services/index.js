@@ -19,17 +19,19 @@ const generalText = 'It\'s simple. After an initial discussion where we discuss 
 
 const informations = [
   {
-    title: 'sabbaticals',
+    title: 'SABBATICALS',
     content: 'Similar to advising on an investment strategy I approach sabbaticals with a view to applying the right measure of diversification, relaxation vs activity. I also take into account the individual\'s risk tolerance vis a vis going beyond the usual travel \'boundaries\', such as living alongside native communities for a period or joining a conservation or art project. The goal is to provide the right amount of \'distance\' from your work life..',
     imageUrl: require('../../Library/Images/sabbatical.jpg'),
     frameColor: colors.red,
+    orientFrame: ['top', 'right'],
     inverted: false
   },
   {
-    title: 'small group trips',
+    title: 'SMALL GROUP TRIPS',
     content: 'These trips are ideal for single travelers as the average group size is 8 people and individual rooms are often available. I work with National Geographic photographer, Catherine Karnow and private yoga teacher, Andrea Curry who both lead their own trips each year to a variety of destinations. Please enquire for current schedules.',
     imageUrl: require('../../Library/Images/small-groups.jpg'),
     frameColor: colors.green,
+    orientFrame: ['top', 'left'],
     inverted: true
   }
 ];
@@ -39,15 +41,16 @@ class Services extends Component {
     return (
       <div>
         <FrontCover
+          darkened={0.65}
           description={description}
           title='SERVICES.'
           image={'kitchen-header.jpg'} />
 
         <div style={{textAlign:'center'}}>
-          <p style={{fontFamily:'ATSackersGothicMedium',color:colors.red,fontSize:'0.8em',margin:'40px 0px 20px 0px'}}>
-            general
+          <p style={{fontFamily:'ATSackersGothicMedium',fontSize:'1.4em',margin:'75px 0px 75px 0px',letterSpacing:'3px'}}>
+            GENERAL
           </p>
-          <p style={{fontFamily:'CardoItalic',width:'50%',margin:'0 auto',letterSpacing:'1px',lineHeight:'25px'}}>
+          <p style={{fontFamily:'CardoItalic',width:'55%',margin:'0 auto',letterSpacing:'2px',lineHeight:'30px',marginBottom:'75px'}}>
             {generalText}
           </p>
         </div>

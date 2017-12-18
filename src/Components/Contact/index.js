@@ -31,7 +31,9 @@ class Contact extends Component {
 
     return (
       <div style={{backgroundColor:colors.beige}}>
-        <FrontCover image={'contact.jpg'} />
+        <FrontCover
+          darkened={0.55}
+          image={'contact.jpg'} />
         {form}
         <Footer />
       </div>
@@ -47,6 +49,7 @@ const Form = styled.form`
   margin-bottom: 50px;
   margin-top: -200px;
   padding: 40px 0px 40px 0px;
+  z-index: 100;
 `
 
 const Input = styled.input`

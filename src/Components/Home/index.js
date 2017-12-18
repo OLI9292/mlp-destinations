@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import { media } from '../../Library/breakpoints';
 import colors from '../../Library/colors';
-import coffee from '../../Library/Images/coffee.jpg';
 import lantern from '../../Library/Images/lantern.jpg';
 
 import CTA from '../Common/cta';
@@ -18,7 +17,8 @@ const conceptText = 'To act as an \'internet\' filter to navigate you through ' 
   'years of experience.';
 
 const destinationText = 'This specialization is key to being able to provide you with ' +
-  'the best service and most up to date information on where you want to go.';
+  'the best service and most up to date information on where you want to go, for the ' +
+  'following destinations...';
 
 const testimonialText = 'Miranda has a unique gift for listening to and understanding ' +
   'her clients.  She knows that the terms holiday, travel, and exploration do not mean ' +
@@ -26,27 +26,28 @@ const testimonialText = 'Miranda has a unique gift for listening to and understa
 
 class Home extends Component {
   render() {
-    console.log(media.phone ? '80%' : '800px')
     return (
       <div>
-        <FrontCover page={'home'} image={'leaf-header.jpg'} />
+        <FrontCover page={'home'} darkened={0.4} image={'leaf-header.jpg'} />
 
         <div style={{textAlign:'center'}}>
-          <p style={{fontFamily:'ATSackersGothicMedium',color:colors.red,fontSize:'0.8em',margin:'40px 0px 20px 0px'}}>
-            concept
+          <p style={{fontFamily:'ATSackersGothicMedium',color:colors.red,fontSize:'0.7em',margin:'50px 0px 40px 0px',letterSpacing:'3px'}}>
+            CONCEPT
           </p>
           
           <Paragraph>
             {conceptText}
           </Paragraph>
 
-          <ConceptImage src={coffee} />
+          <ConceptImage image={require('../../Library/Images/coffee.jpg')} />
 
           <Paragraph>
             {destinationText}
           </Paragraph>
-
-          <Destinations />
+          
+          <div style={{marginTop:'75px'}}>
+            <Destinations />
+          </div>
 
           <TestimonialContainer>
             <TestimonialParagraph>
@@ -69,34 +70,37 @@ class Home extends Component {
 
 const Paragraph = styled.p`
   font-family: CardoItalic;
-  width: 50%;
+  font-size: 1.1em;
+  width: 55%;
   margin: 0 auto;
   letter-spacing: 1px;
-  line-height: 25px;
+  line-height: 30px;
   ${media.phone`
     width: 70%;
   `}    
 `
 
-const ConceptImage = styled.img`
-  width: 800px;
-  height: auto;
+const ConceptImage = styled.div`
+  background: url(${props => props.image}) no-repeat center center;
+  background-size: 100% auto;
+  height: 400px;
+  width: 75%;
   margin: 0 auto;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   ${media.phone`
     width: 80%;
   `}      
 `
 
 const TestimonialContainer = styled.div`
-  background-image: url(${lantern});
-  background-repeat: no-repeat;
-  background-size: 1300px auto;
+  background: url(${lantern}) no-repeat center center;
+  background-size: 100% auto;
   color: white;
   display: flex;
   font-family: ATSackersGothicMedium;
   height: 400px;
+  margin-top: 150px;
   width: 100%;
   ${media.phone`
     height: 250px;
@@ -108,8 +112,8 @@ const TestimonialParagraph = styled.p`
   flex-direction: column;
   justify-content: center;
   margin-left: 50%;
-  width: 45%;
-  letter-spacing: 1px;
+  width: 40%;
+  letter-spacing: 2px;
   line-height: 25px;
   ${media.phone`
     margin-left: 0px;

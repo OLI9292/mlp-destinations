@@ -5,35 +5,36 @@ const destinations = [
   {
     name: 'Africa',
     places: 'Botswana, Ethiopia, Kenya, Madagascar, Malawi, Mauritius, Morocco, Mozambique, Namibia, Rwanda, Seychelles, South Africa, Tanzania, Uganda, Zambia, Zimbabwe',
-    imageUrl: require('../../Library/Images/africa.jpg')
+    image: require('../../Library/Images/africa.jpg')
   },
   {
     name: 'Asia',
     places: 'Bhutan, Burma, Cambodia, India, Indonesia, Japan, Laos, Malaysia, Nepal, Sri Lanka, Thailand, The Maldives, Vietnam',
-    imageUrl: require('../../Library/Images/asia.jpg')
+    image: require('../../Library/Images/asia.jpg')
   },
   {
     name: 'Central & South America',
     places: 'Antarctica, Argentina, Belize, Bolivia, Brazil, Chile, Colombia, Costa Rica, Cuba, Ecuador, Guatemala, Mexico, Panama, Peru, The Galapagos, Turks & Caicos, Uruguay',
-    imageUrl: require('../../Library/Images/central-and-south-america.jpg')
+    image: require('../../Library/Images/central-and-south-america.jpg')
   },
   {
     name: 'Europe',
     places: 'Denmark, Finland, Greenland, Iceland, Italy, Norway, Sweden',
-    imageUrl: require('../../Library/Images/europe.jpg')
+    image: require('../../Library/Images/europe.jpg')
   },
   {
     name: 'Middle East',
     places: 'Jordan, Oman, UAE',
-    imageUrl: require('../../Library/Images/middle-east.jpg')
+    image: require('../../Library/Images/middle-east.jpg')
   },
   {
     name: 'USA & Canada',
     places: 'USA, Canada',
-    imageUrl: require('../../Library/Images/canada.jpg')
+    image: require('../../Library/Images/canada.jpg')
   }
 ]
-
+/*
+            */
 class Destinations extends Component {
   constructor(props) {
     super(props)
@@ -45,19 +46,25 @@ class Destinations extends Component {
 
   render() {
     const destinations = this.state.destinations.map((d) => {
-      return <Destination img={d.imageUrl}>
-        <h3 style={{fontFamily:'EBGARAMOND12REGULAR',color:'white',letterSpacing:'2px',paddingTop:'20px'}}>
-          {d.name.toUpperCase()}
-        </h3>
+      return <div style={{height:'100%',width:'100%',overflow:'hidden',position:'relative'}}>
+        <DestinationContainer image={d.image}>
+          <Mask />    
+        </DestinationContainer>
 
-        <PlacesParagraph>
-          {d.places}
-        </PlacesParagraph>
+        <DestinationContent>
+          <h3 style={{fontFamily:'EBGARAMOND12REGULAR',color:'white',letterSpacing:'2px',lineHeight:'25px'}}>
+            {d.name.toUpperCase()}
+          </h3>
 
-        <ReadMoreButton>
-          <p>read more</p>
-        </ReadMoreButton>
-      </Destination>
+          <PlacesParagraph>
+            {d.places}
+          </PlacesParagraph>
+
+          <ReadMoreButton>
+            <p>READ MORE</p>
+          </ReadMoreButton>            
+        </DestinationContent>              
+      </div>
     });
 
     return (
@@ -69,23 +76,50 @@ class Destinations extends Component {
 }
 
 const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  width: 90%;
+  display: grid;
+  grid-template-columns: 27.5% 27.5% 27.5%;
+  grid-template-rows: 47.5% 47.5%;
+  align-content: space-between;
+  justify-content: space-between;
   margin: 0 auto;
-  justify-content: center;
-  padding: 20px;
+  width: 75%;
+  height: 100vh;
 `
 
-const Destination = styled.div`
-  background-image: url(${props => props.img});
-  background-repeat: no-repeat;
-  background-size: 300px auto;
-  cursor: pointer;
-  height: 360px;
-  width: 240px;
-  margin: 15px;
+const Mask = styled.div`
+  width: 100%;
+  height: auto;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background:rgba(0,0,0,0.35);
+`
+
+const DestinationContainer = styled.div`
   position: relative;
+  z-index: 1;
+  background: url(${props => props.image}) no-repeat center center;
+  background-size: auto 100%;
+  width: 100%;
+  height: 100%;  
+  cursor: pointer;
+  transition-duration: 0.7s;
+  &:hover {
+    transform: scale(1.05);
+  }
+`
+
+const DestinationContent = styled.div`
+  padding-top: 20px;
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 `
 
 const PlacesParagraph = styled.p`
@@ -105,7 +139,8 @@ const ReadMoreButton = styled.div`
   position: absolute;
   width: 100%;
   bottom: 0;
-  letter-spacing: 2px;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
   font-size: 0.7em;
   line-height: 20px;
 `

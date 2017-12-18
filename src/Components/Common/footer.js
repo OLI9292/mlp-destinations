@@ -25,19 +25,19 @@ class Footer extends Component {
         <InnerContainer>
           <LinksContainer>
             <Link onClick={() => this.setState({ redirect: '/services' })}>
-              services
+              SERVICES
             </Link>
 
             <Link onClick={() => this.setState({ redirect: '/destinations' })}>
-              destinations
+              DESTINATIONS
             </Link>
 
             <Link onClick={() => this.setState({ redirect: '/about' })}>
-              about
+              ABOUT
             </Link>
 
             <Link onClick={() => this.setState({ redirect: '/contact' })}>
-              contact
+              CONTACT
             </Link>            
           </LinksContainer>
           <Email>
@@ -52,7 +52,7 @@ class Footer extends Component {
 const Container = styled.div`
   background-color: ${colors.red};
   width: 100%;
-  height: 150px;
+  height: 135px;
   text-align: left;
   ${media.phone`
     height: 100px;
@@ -60,7 +60,8 @@ const Container = styled.div`
 `
 
 const InnerContainer = styled.div`
-  margin: -10px 0px 0px 50px;
+  margin-top: -10px;
+  margin-left: 10%;
   ${media.phone`
     margin: 0 auto;
     text-align: center;
@@ -70,8 +71,9 @@ const InnerContainer = styled.div`
 const SiteMapHeader = styled.p`
   font-family: CardoItalic;
   color: white;
-  margin-left: 50px;
-  padding-top: 50px;
+  margin-left: 10%;
+  padding-top: 25px;
+  letter-spacing: 2px;
   display: inline-block;
   ${media.phone`
     display: none;
@@ -82,7 +84,7 @@ const Link = styled.p`
   display: inline-block;
   color: white;
   font-family: ATSackersGothicMedium;
-  font-size: 0.7em;
+  font-size: 0.55em;
   margin-right: 30px;
   cursor: pointer;
   letter-spacing: 2px;
@@ -90,6 +92,7 @@ const Link = styled.p`
 
 const LinksContainer = styled.div`
   display: inline-block;
+  margin-top: 5px;
   ${media.phone`
     display: none;
   `}  
@@ -100,7 +103,10 @@ const Email = styled.p`
   display: inline-block;
   color: white;
   float: right;
-  margin: 5px 50px 0px 0px;
+  letter-spacing: 2px;
+  font-size: 0.7em;
+  margin-right: 10%;
+  margin-bottom: 10px;
   ${media.phone`
     margin: 0 auto;
     line-height: 100px;

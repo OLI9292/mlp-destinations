@@ -18,17 +18,17 @@ class CTA extends Component {
     
     return (
       <Container>
-        <h1 style={{fontFamily:'CardoItalic'}}>
-          Let's talk...
+        <h1 style={{fontFamily:'CardoItalic',letterSpacing:'2px',lineHeight:'15px'}}>
+          Let's talk ...
         </h1>
 
-        <p style={{fontFamily:'ATSackersGothicMedium'}}>
-          book a private consultation today to discuss your next trip.
+        <p style={{fontFamily:'ATSackersGothicMedium',letterSpacing:'2px',lineHeight:'25px',fontSize:'0.75em'}}>
+          BOOK A PRIVATE CONSULTATION TODAY TO DISCUSS YOUR NEXT TRIP.
         </p>
 
-        <p style={{color:colors.green,fontFamily:'ATSackersGothicMedium',textDecoration:'underline',cursor:'pointer'}}>
-          contact
-        </p>      
+        <ContactButton>
+          CONTACT
+        </ContactButton>      
       </Container>
     );
   }
@@ -36,15 +36,30 @@ class CTA extends Component {
 
 const Container = styled.div`
   display: flex;
+  width: 40%;
   height: 300px;
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  margin: 0 auto;
   ${media.phone`
     width: 90%;
     margin: 0 auto;
     line-height: 25px;
   `};
+`
+
+const ContactButton = styled.p`
+  color: ${colors.green};
+  font-family: ATSackersGothicMedium;
+  border-bottom: ${`1px solid ${colors.green}`};
+  cursor: pointer;
+  line-height: 10px;
+  width: max-content;
+  font-size: 0.8em;
+  margin: 0 auto;
+  margin-top: 15px;
+  height: 17px;
 `
 
 export default CTA;
