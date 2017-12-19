@@ -16,3 +16,12 @@ html, body {
   font-family: CardoItalic;
   src: url('./Library/Fonts/Cardo-Italic.ttf');
 }
+
+@keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: black;
+  }
+}

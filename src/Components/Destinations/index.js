@@ -1,40 +1,46 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router';
 import styled from 'styled-components';
 
 const destinations = [
   {
     name: 'Africa',
     places: 'Botswana, Ethiopia, Kenya, Madagascar, Malawi, Mauritius, Morocco, Mozambique, Namibia, Rwanda, Seychelles, South Africa, Tanzania, Uganda, Zambia, Zimbabwe',
+    slug: 'africa',
     image: require('../../Library/Images/africa.jpg')
   },
   {
     name: 'Asia',
     places: 'Bhutan, Burma, Cambodia, India, Indonesia, Japan, Laos, Malaysia, Nepal, Sri Lanka, Thailand, The Maldives, Vietnam',
+    slug: 'asia',
     image: require('../../Library/Images/asia.jpg')
   },
   {
     name: 'Central & South America',
     places: 'Antarctica, Argentina, Belize, Bolivia, Brazil, Chile, Colombia, Costa Rica, Cuba, Ecuador, Guatemala, Mexico, Panama, Peru, The Galapagos, Turks & Caicos, Uruguay',
+    slug: 'central-and-south-america',
     image: require('../../Library/Images/central-and-south-america.jpg')
   },
   {
     name: 'Europe',
     places: 'Denmark, Finland, Greenland, Iceland, Italy, Norway, Sweden',
+    slug: 'europe',
     image: require('../../Library/Images/europe.jpg')
   },
   {
     name: 'Middle East',
     places: 'Jordan, Oman, UAE',
+    slug: 'middle-east',
     image: require('../../Library/Images/middle-east.jpg')
   },
   {
     name: 'USA & Canada',
     places: 'USA, Canada',
+    slug: 'usa-and-canada',
     image: require('../../Library/Images/canada.jpg')
   }
 ]
-/*
-            */
+
 class Destinations extends Component {
   constructor(props) {
     super(props)
@@ -45,9 +51,13 @@ class Destinations extends Component {
   }
 
   render() {
-    const destinations = this.state.destinations.map((d) => {
-      return <div style={{height:'100%',width:'100%',overflow:'hidden',position:'relative'}}>
-        <DestinationContainer image={d.image}>
+    if (this.state.redirect && !window.location.href.endsWith(this.state.redirect)) { 
+      return <Redirect push to={this.state.redirect} />;
+    }
+
+    const destinations = this.state.destinations.map((d,i) => {
+      return <div key={i} style={{height:'100%',width:'100%',overflow:'hidden',position:'relative'}}>
+        <DestinationContainer onClick={() => this.setState({ redirect: `/destinations/${d.slug}`})} image={d.image}>
           <Mask />    
         </DestinationContainer>
 
@@ -108,7 +118,7 @@ const DestinationContainer = styled.div`
   cursor: pointer;
   transition-duration: 0.7s;
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
   }
 `
 

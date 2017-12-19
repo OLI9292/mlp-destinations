@@ -14,7 +14,7 @@ class FrontCover extends Component {
   componentDidMount() {
     setTimeout(() => { 
       this.setState({ loaded: true }) 
-    }, 1000);
+    }, 750);
   }  
 
   random(type) {

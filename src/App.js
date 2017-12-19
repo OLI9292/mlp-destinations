@@ -15,12 +15,12 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/services' component={Services} />
-          <Route exact path='/destinations' component={Destinations} />
-          <Route exact path='/destinations/:name' component={Destination} />
-          <Route exact path='/about' component={About} />
-          <Route exact path='/contact' component={Contact} />
+          <Route exact path='/'                   component={Home} />
+          <Route exact path='/services'           component={Services} />
+          <Route exact path='/destinations'       component={Destinations} />
+          <Route exact path='/destinations/:name' component={({ match }) => <Destination name={match.params.name} />} />
+          <Route exact path='/about'              component={About} />
+          <Route exact path='/contact'            component={Contact} />
         </Switch>
       </BrowserRouter>
     );

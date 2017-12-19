@@ -1,14 +1,57 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
 import styled from 'styled-components';
+import VisibilitySensor from 'react-visibility-sensor';
 
 import colors from '../../Library/colors';
 import { media } from '../../Library/breakpoints';
 
+const ANIMATED_TEXT = 'Let\'s talk ...';
+
 class CTA extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+
+    this.state = {
+      animatedText: '',
+      contactOpacity: 0,
+      paragraphOpacity: 0
+    };
+  }
+
+  componentDidMount() {
+    if (sessionStorage.getItem('ctaAnimated')) {
+      this.setState({
+        animatedText: ANIMATED_TEXT,
+        contactOpacity: 1,
+        hideCursor: true,
+        paragraphOpacity: 1
+      })
+    }
+  }
+
+  animateText() {
+    setTimeout(() => {
+      setInterval(() => {
+        ANIMATED_TEXT === this.state.animatedText
+          ? this.setState({ hideCursor: true }, this.revealContact)
+          : this.setState({ animatedText: ANIMATED_TEXT.slice(0, this.state.animatedText.length + 1) });
+      }, 130);
+    }, 650);
+  }
+
+  onChange(visible) {
+    const didAnimate = sessionStorage.getItem('ctaAnimated');
+
+    if (visible && !didAnimate) {
+      sessionStorage.setItem('ctaAnimated', true);
+      this.animateText();
+    }
+  }
+
+  revealContact() {
+    this.setState({ paragraphOpacity: 1 });
+    setTimeout(() => { this.setState({ contactOpacity: 1 }) }, 500);
   }
 
   render() {
@@ -17,19 +60,28 @@ class CTA extends Component {
     }
     
     return (
-      <Container>
-        <h1 style={{fontFamily:'CardoItalic',letterSpacing:'2px',lineHeight:'15px'}}>
-          Let's talk ...
-        </h1>
+      <VisibilitySensor onChange={this.onChange.bind(this)}>
+        {({isVisible}) =>
 
-        <p style={{fontFamily:'ATSackersGothicMedium',letterSpacing:'2px',lineHeight:'25px',fontSize:'0.75em'}}>
-          BOOK A PRIVATE CONSULTATION TODAY TO DISCUSS YOUR NEXT TRIP.
-        </p>
+          <Container>
 
-        <ContactButton>
-          CONTACT
-        </ContactButton>      
-      </Container>
+            <h1 style={{fontFamily:'CardoItalic',letterSpacing:'2px',lineHeight:'15px'}}>
+              {this.state.animatedText}<Cursor hide={this.state.hideCursor}>|</Cursor>
+            </h1>
+
+            <Paragraph opacity={this.state.paragraphOpacity}>
+              BOOK A PRIVATE CONSULTATION TODAY TO DISCUSS YOUR NEXT TRIP.
+            </Paragraph>
+
+            <ContactButton 
+              onClick={() => this.setState({ redirect: '/contact'})} 
+              opacity={this.state.contactOpacity}>
+              CONTACT
+            </ContactButton>  
+
+          </Container>
+        }
+      </VisibilitySensor>
     );
   }
 }
@@ -49,6 +101,21 @@ const Container = styled.div`
   `};
 `
 
+const Cursor = styled.span`
+  font-family: EBGARAMOND12REGULAR;
+  animation: 0.7s blink step-end infinite;
+  visibility: ${props => props.hide ? 'hidden' : 'visible'};
+`
+
+const Paragraph = styled.p`
+  font-family: ATSackersGothicMedium;
+  letter-spacing: 2px;
+  line-height: 25px;
+  font-size: 0.75em;
+  transition-duration: 1s;
+  opacity: ${props => props.opacity};
+`
+
 const ContactButton = styled.p`
   color: ${colors.green};
   font-family: ATSackersGothicMedium;
@@ -60,6 +127,8 @@ const ContactButton = styled.p`
   margin: 0 auto;
   margin-top: 15px;
   height: 17px;
+  transition-duration: 1s;
+  opacity: ${props => props.opacity};
 `
 
 export default CTA;

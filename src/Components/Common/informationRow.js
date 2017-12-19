@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import VisibilitySensor from 'react-visibility-sensor';
 
 import colors from '../../Library/colors';
 
@@ -8,8 +9,8 @@ class InformationRow extends Component {
     super(props);
 
     this.state = {
-      width: 0,
-      height: 0
+      height: 0,
+      width: 0
     };
   }
 
@@ -17,7 +18,7 @@ class InformationRow extends Component {
     window.addEventListener('resize', this.resize.bind(this));
   }
 
-  componentDidUnmount() {
+  componentWillUnmount() {
     window.removeEventListener('resize', this.resize.bind(this));
   }  
 
@@ -27,15 +28,26 @@ class InformationRow extends Component {
     }
   }
 
+  onChange(visible) {
+    if (visible && !this.state.visible) {
+      this.setState({ visible: true });
+    }
+  }
+
+  offsetHeight() {
+    return this.img ? -this.img.offsetHeight : 0;
+  }
+
   render() {
     const imageBlock = (() => {
+      const [opacity, marginTop] = this.state.visible ? [1, '0px'] : [0, '15px'];
       return <ImageBlock>
         <img
           alt={this.props.information.title}
           onLoad={this.resize.bind(this)} 
           ref={img => {this.img = img}}
           src={this.props.information.imageUrl}
-          style={{height:'auto',width:'100%',zIndex:'10'}} />
+          style={{height:'auto',width:'100%',zIndex:'10',opacity:opacity,marginTop:marginTop,transitionDuration:'1s'}} />
         <div style={{
           backgroundColor: this.props.information.frameColor,
           height: this.state.height,
@@ -60,21 +72,25 @@ class InformationRow extends Component {
     })();
 
     return (
-      <div>
-        {
-          this.props.information.inverted
-          ?
-          <Container>
-            {textBlock}
-            {imageBlock}
-          </Container>
-          :
-          <Container>
-            {imageBlock}
-            {textBlock}
-          </Container>
+      <VisibilitySensor offset={{bottom:this.offsetHeight()}} onChange={this.onChange.bind(this)}>
+        {({isVisible}) =>
+          <div>
+            {
+              this.props.information.inverted
+              ?
+              <Container>
+                {textBlock}
+                {imageBlock}
+              </Container>
+              :
+              <Container>
+                {imageBlock}
+                {textBlock}
+              </Container>
+            }
+          </div>
         }
-      </div>
+      </VisibilitySensor>
     );
   }
 }

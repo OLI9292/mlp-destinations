@@ -37,6 +37,10 @@ const informations = [
 ];
 
 class Services extends Component {
+  componentWillMount() {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     return (
       <div>
@@ -55,7 +59,7 @@ class Services extends Component {
           </p>
         </div>
 
-        {informations.map((i) => <InformationRow information={i} />)} 
+        {informations.map((i) => <InformationRow key={i.title} information={i} />)} 
 
         <CTA />
 

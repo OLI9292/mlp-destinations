@@ -25,6 +25,10 @@ const testimonialText = 'Miranda has a unique gift for listening to and understa
   '\'one size fits all\',';
 
 class Home extends Component {
+  componentWillMount() {
+    window.scrollTo(0, 0);
+  }
+    
   render() {
     return (
       <div>
