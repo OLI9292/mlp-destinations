@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
 import colors from '../../Library/colors';
 import Footer from '../Common/footer';
@@ -63,7 +64,9 @@ class About extends Component {
           darkened={0.65}
           description={description}
           title='ABOUT.' 
-          image={'leaf-header.jpg'} />      
+          image={'leaf-header.jpg'} />
+
+        <Whitespace />
           
         {informations.map((i) => <InformationRow key={i.title} information={i} />)}
 
@@ -72,5 +75,10 @@ class About extends Component {
     );
   }
 }
+
+const Whitespace = styled.div`
+  width: 100%;
+  height: 125px;
+`
 
 export default About;

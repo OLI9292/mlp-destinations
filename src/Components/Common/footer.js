@@ -111,7 +111,7 @@ const Email = styled.p`
     margin: 0 auto;
     line-height: 100px;
     float: none;
-    font-size: 0.7em;
+    font-size: 0.55em;
   `}  
 `
 

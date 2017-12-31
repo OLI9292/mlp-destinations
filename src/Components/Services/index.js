@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
+import { media } from '../../Library/breakpoints';
 import colors from '../../Library/colors';
 
 import CTA from '../Common/cta';
 import Footer from '../Common/footer';
 import FrontCover from '../Common/frontCover';
 import InformationRow from '../Common/informationRow';
+import Header from '../Common/header';
 
 const description = 'This specialization is key to being able to provide you with the ' +
   'best service and most up to date information on where you want to go.';
@@ -51,12 +54,12 @@ class Services extends Component {
           image={'kitchen-header.jpg'} />
 
         <div style={{textAlign:'center'}}>
-          <p style={{fontFamily:'ATSackersGothicMedium',fontSize:'1.4em',margin:'75px 0px 75px 0px',letterSpacing:'3px'}}>
+          <Header>
             GENERAL
-          </p>
-          <p style={{fontFamily:'CardoItalic',width:'55%',margin:'0 auto',letterSpacing:'2px',lineHeight:'30px',marginBottom:'75px'}}>
+          </Header>
+          <Text>
             {generalText}
-          </p>
+          </Text>
         </div>
 
         {informations.map((i) => <InformationRow key={i.title} information={i} />)} 
@@ -68,5 +71,17 @@ class Services extends Component {
     );
   }
 }
+
+const Text = styled.p`
+  font-family: CardoItalic;
+  width: 55%;
+  margin: 0 auto;
+  letter-spacing: 2px;
+  line-height: 30px;
+  margin-bottom: 75px;
+  ${media.phone`
+    width: 80%;
+  `}    
+`
 
 export default Services;

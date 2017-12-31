@@ -3,12 +3,17 @@ import { Redirect } from 'react-router';
 import styled from 'styled-components';
 
 import logo from '../../Library/Images/logo.png';
+import colors from '../../Library/colors';
 import { media } from '../../Library/breakpoints';
+import MobileMenu from './mobileMenu';
 
 class FrontCover extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+
+    this.state = {
+      displayMobileMenu: false
+    };
   }
 
   componentDidMount() {
@@ -25,9 +30,7 @@ class FrontCover extends Component {
     }[type];
 
     const value = (Math.random() * (min - max) + max).toFixed(4);
-    return type === 'blur' 
-      ? `${Math.floor(value)}px`
-      : `${value}s`;
+    return type === 'blur' ? `${Math.floor(value)}px` : `${value}s`;
   }
 
   render() {
@@ -46,7 +49,7 @@ class FrontCover extends Component {
     }
 
     const homeContent = (() => {
-      return <Tagline loaded={this.state.loaded}>
+      return <Tagline hide={this.state.displayMobileMenu} loaded={this.state.loaded}>
         {['YOUR ', 'PERSONAL ', 'GUIDE'].map((text) => blurred(text))}
         <br /><br />
         <TaglineSpan>
@@ -65,42 +68,85 @@ class FrontCover extends Component {
         </p>
       </div>
     })();
+    
 
     return (
       <Container onLoad={this.handleImageLoaded} image={require(`../../Library/Images/${this.props.image}`)}>
-        <Mask darkened={this.props.darkened} />
-        <Logo onClick={() => this.setState({ redirect: '/' })} src={logo} />
-
-        <div style={{display:'inline-block',marginTop:'50px',verticalAlign:'top'}}>
         
-          <Link onClick={() => this.setState({ redirect: '/services' })}>
-            SERVICES
-          </Link>
+        <Burger 
+          hide={this.state.displayMobileMenu}
+          src={require(`../../Library/Images/${this.state.displayMobileMenu ? 'exit.png' : 'burger.png'}`)}
+          onClick={() => this.setState({ displayMobileMenu: !this.state.displayMobileMenu })} />
 
-          <Link onClick={() => this.setState({ redirect: '/destinations' })}>
-            DESTINATIONS
-          </Link>
+        <MobileMenu display={this.state.displayMobileMenu}/>
+        
+        <Mask darkened={this.props.darkened + (this.state.displayMobileMenu ? 0.2 : 0)} />
 
-          <Link onClick={() => this.setState({ redirect: '/about' })}>
-            ABOUT
-          </Link>
+        <InnerContainer>
 
-          <Link onClick={() => this.setState({ redirect: '/contact' })}>
-            CONTACT
-          </Link>
+          <LogoContainer hide={this.state.displayMobileMenu}>
+            <span style={{display:'inline-block',verticalAlign:'middle',height:'100%'}}></span>
+            <Logo onClick={() => this.setState({ redirect: '/' })} src={logo} />
+          </LogoContainer>
 
-          {this.props.page === 'home' && homeContent}
-        </div>
+          <LinksContainer>
+            <Link onClick={() => this.setState({ redirect: '/services' })}>
+              SERVICES
+            </Link>
 
-        {this.props.page !== 'home' && centeredContent}
+            <Link onClick={() => this.setState({ redirect: '/destinations' })}>
+              DESTINATIONS
+            </Link>
 
-        <br /><br /><br /><br />
+            <Link onClick={() => this.setState({ redirect: '/about' })}>
+              ABOUT
+            </Link>
 
-        {this.props.page === 'home' && <LetsTalkButton>lets talk</LetsTalkButton>}
+            <Link onClick={() => this.setState({ redirect: '/contact' })}>
+              CONTACT
+            </Link>
+          </LinksContainer>
+        </InnerContainer>
+
+        {this.props.page === 'home' ? homeContent : centeredContent}
+
+        {
+          this.props.page === 'home' && 
+          <div style={{display:'flex',width:'100%',justifyContent:'center',position:'absolute',top:'75%'}}>
+            <LetsTalkButton hide={this.state.displayMobileMenu}>lets talk</LetsTalkButton>
+          </div>
+        }
       </Container>
     );
   }
 }
+
+const Container = styled.div`
+  z-index: 1;
+  background: url(${props => props.image}) no-repeat center center;
+  background-size: 100% auto;
+  height: 550px;
+  width: 100%;
+  position: relative;
+  ${media.phone`
+    height: 100vh;
+    background-size: auto 100%;
+    text-align: center;
+  `}
+`
+
+const Burger = styled.img`
+  height: 5%;
+  background-color: rgba(156,62,76,0.85);
+  padding: 7.5px;
+  width: auto;
+  position: absolute;
+  top: 1.5%;
+  left: 2.5%;
+  ${media.phone`
+    transition-duration: 0.35s;
+  `}
+`
 
 const Mask = styled.div`
   width: 100%;
@@ -114,16 +160,48 @@ const Mask = styled.div`
   background:rgba(0,0,0,${props => props.darkened});
 `
 
-const Container = styled.div`
-  z-index: 1;
-  background: url(${props => props.image}) no-repeat center center;
-  background-size: 100% auto;
-  height: 500px;
-  width: 100%;
-  position: relative;
+const LogoContainer = styled.div`
+  margin-left: 50px;
+  width: 30%;
+  height: 200px;
+  white-space: nowrap;
   ${media.phone`
-    text-align: center;
+    transition-duration: 0.35s;
+    opacity: ${props => props.hide ? '0' : '1'};
+    width: 70%;
+    margin: 0 auto;
+    height: 0px;
+  `}  
+`
+
+const Logo = styled.img`
+  margin-left: 5%;
+  width: 100%;
+  cursor: pointer;
+  vertical-align: middle;
+  ${media.phone`
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
   `}
+`
+
+const LinksContainer = styled.div`
+  display: flex;
+  margin-left: 2.5%;
+  width: 65%;
+  justify-content: space-evenly;
+  float: right;
+  font-size: 0.95em;
+  margin-top: 80px
+`
+
+const InnerContainer = styled.div`
+  display: flex;
+  padding-top: 10px;
+  ${media.phone`
+    display: block;
+  `}  
 `
 
 const Link = styled.p`
@@ -131,7 +209,6 @@ const Link = styled.p`
   color: white;
   font-family: ATSackersGothicMedium;
   font-size: 0.7em;
-  margin-left: 50px;
   cursor: pointer;
   letter-spacing: 3px;
   ${media.phone`
@@ -147,45 +224,39 @@ const BlurredSpan = styled.span`
 `
 
 const Tagline = styled.div`
-  margin: 250px 0px 0px 50px;
+  margin-top: 150px;
+  margin-left: 42.5%;
   font-family: EBGARAMOND12REGULAR;
+  font-size: 1.2em;
   color: white;
   letter-spacing: 4px;
   ${media.phone`
-    margin: 25px 0px 0px 0px;
-    text-align: left;
+    transition-duration: 0.35s;
+    opacity: ${props => props.hide ? '0' : '1'};
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+    top: 60%;
   `}  
 `
 
 const TaglineSpan = styled.span`
   margin-left: 160px;
   ${media.phone`
-    margin-left: 40px;
+    margin: 0px;
   `}  
-`
-
-const Logo = styled.img`
-  margin-left: 40px;
-  height: 150px;
-  width: auto;
-  display: inline-block;
-  cursor: pointer;
-  ${media.phone`
-    display: block;
-    height: 125px;
-    margin: 0 auto;
-    margin-top: 50px;
-  `}
 `
 
 const LetsTalkButton = styled.p`
   display: none;
+  cursor: pointer;
   ${media.phone`
     display: inline-block;
+    transition-duration: 0.35s;
+    opacity: ${props => props.hide ? '0' : '1'};
     font-family: ATSackersGothicMedium;
     background-color: rgba(156, 62, 76, 0.85);
     color: white;
-    font-size: 1.2em;
     padding: 15px 20px 15px 20px;
     letter-spacing: 1px;
   `} 

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import { media } from '../../Library/breakpoints';
+import { media, PHONE_MAX_WIDTH } from '../../Library/breakpoints';
 import colors from '../../Library/colors';
 import lantern from '../../Library/Images/lantern.jpg';
 
 import CTA from '../Common/cta';
 import Footer from '../Common/footer';
 import FrontCover from '../Common/frontCover';
+import Header from '../Common/header';
 import Destinations from '../Destinations/index';
 
 const conceptText = 'To act as an \'internet\' filter to navigate you through ' +
@@ -28,16 +29,17 @@ class Home extends Component {
   componentWillMount() {
     window.scrollTo(0, 0);
   }
-    
+
   render() {
     return (
       <div>
         <FrontCover page={'home'} darkened={0.4} image={'leaf-header.jpg'} />
 
         <div style={{textAlign:'center'}}>
-          <p style={{fontFamily:'ATSackersGothicMedium',color:colors.red,fontSize:'0.7em',margin:'50px 0px 40px 0px',letterSpacing:'3px'}}>
+
+          <Header>
             CONCEPT
-          </p>
+          </Header>
           
           <Paragraph>
             {conceptText}
@@ -50,7 +52,7 @@ class Home extends Component {
           </Paragraph>
           
           <div style={{marginTop:'75px'}}>
-            <Destinations />
+            <Destinations mobile />
           </div>
 
           <TestimonialContainer>
@@ -80,7 +82,8 @@ const Paragraph = styled.p`
   letter-spacing: 1px;
   line-height: 30px;
   ${media.phone`
-    width: 70%;
+    width: 80%;
+    font-size: 1em;
   `}    
 `
 
@@ -94,6 +97,9 @@ const ConceptImage = styled.div`
   margin-bottom: 50px;
   ${media.phone`
     width: 80%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    height: 300px;
   `}      
 `
 

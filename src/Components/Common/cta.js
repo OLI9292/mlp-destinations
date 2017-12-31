@@ -114,6 +114,9 @@ const Paragraph = styled.p`
   font-size: 0.75em;
   transition-duration: 1s;
   opacity: ${props => props.opacity};
+  ${media.phone`
+    font-size: 0.6em;
+  `};
 `
 
 const ContactButton = styled.p`

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import colors from '../../Library/colors';
+import { media } from '../../Library/breakpoints';
 import Footer from '../Common/footer';
 import FrontCover from '../Common/frontCover';
 
@@ -55,6 +56,14 @@ const Form = styled.form`
   text-align: center;
   width: 550px;
   z-index: 100;
+
+  ${media.phone`
+    width: 80%;
+    margin: 0% 0% 0% 10%;
+    padding: 0;
+    position: absolute;
+    top: 15%;
+  `}     
 `
 
 const Input = styled.input`
