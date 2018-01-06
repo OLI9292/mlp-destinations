@@ -41,6 +41,8 @@
       function sendMail(e) {
         event.preventDefault();
 
+        console.log('SEND')
+
         Email.send("contact@mlpdestinations.com",
         "otplunkett@gmail.com",
         "This is a subject1",
@@ -59,7 +61,7 @@
         sendMail();
       }
 
-      window.onload = init;
+      window.onload = init();
     </script>    
   </body>
 </html>
