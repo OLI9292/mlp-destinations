@@ -36,5 +36,30 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script src="https://smtpjs.com/v2/smtp.js"></script>
+    <script>
+      function sendMail(e) {
+        event.preventDefault();
+
+        Email.send("contact@mlpdestinations.com",
+        "otplunkett@gmail.com",
+        "This is a subject1",
+        "this is the body",
+        {token: "2e868b19-e21a-4f98-8108-da453e6d2eff"});  
+
+
+        Email.send("contact@mlpdestinations.com",
+        "otplunkett@gmail.com",
+        "This is a subject2",
+        "this is the body",
+        {token: "b644eea4-a6fc-43e6-8210-85c74de9bfa8"});  
+      }
+
+      function init() {
+        sendMail();
+      }
+
+      window.onload = init;
+    </script>    
   </body>
 </html>
