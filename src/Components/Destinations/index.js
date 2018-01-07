@@ -38,7 +38,7 @@ class Destinations extends Component {
     })()
 
     const destinationBlocks = () => {
-      const destinations = true
+      const destinations = window.isMobile
         ? [this.state.destinations[this.state.mobileIndex]]
         : this.state.destinations;
 
@@ -46,14 +46,14 @@ class Destinations extends Component {
         return <div key={i} style={{height:'100%',width:'100%',overflow:'hidden',position:'relative'}}>
           <DestinationContainer 
             image={d.image}
-            mobile={this.props.mobile}
+            mobile={window.isMobile}
             onClick={() => this.setState({ redirect: `/destinations/${d.slug}`})}>
             <Mask />    
           </DestinationContainer>
 
-          {this.props.mobile && Navigation}
+          {window.isMobile && Navigation}
 
-          <DestinationContent mobile={this.props.mobile}>
+          <DestinationContent mobile={window.isMobile}>
             <h3 style={{fontFamily:'EBGARAMOND12REGULAR',color:'white',letterSpacing:'2px',lineHeight:'25px'}}>
               {d.name.toUpperCase()}
             </h3>
@@ -70,7 +70,7 @@ class Destinations extends Component {
       })
     }
 
-    const Container = this.props.mobile ? SingleContainer : MultiContainer;
+    const Container = window.isMobile ? SingleContainer : MultiContainer;
 
     return (
       <Container>
@@ -126,7 +126,7 @@ const Mask = styled.div`
 
 const DestinationContainer = styled.div`
   position: relative;
-  z-index: 1;
+  z-index: 0;
   background: url(${props => props.image}) no-repeat center center;
   background-size: auto 100%;
   width: ${props => props.mobile ? '80%' : '100%'};
@@ -143,7 +143,6 @@ const DestinationContent = styled.div`
   padding-top: 20px;
   position: absolute;
   margin: 0 auto;
-  z-index: 5;
   top: 0;
   width: ${props => props.mobile ? '80%' : '100%'};
   margin-left: ${props => props.mobile ? '10%' : ''};

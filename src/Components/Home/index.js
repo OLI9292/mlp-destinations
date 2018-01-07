@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import { media, PHONE_MAX_WIDTH } from '../../Library/breakpoints';
-import colors from '../../Library/colors';
+import { media } from '../../Library/breakpoints';
 import lantern from '../../Library/Images/lantern.jpg';
 
 import CTA from '../Common/cta';
@@ -14,10 +13,8 @@ import Destinations from '../Destinations/index';
 const conceptText = 'To act as an \'internet\' filter to navigate you through ' +
   'the maze of travel providers and link you to the right individual to plan your ' +
   'trip.  Over the years I have built up a network of true specialists who only ' +
-  'cover one region or country; they all run their own business and have over 15 ' +
-  'years of experience.';
-
-const destinationText = 'This specialization is key to being able to provide you with ' +
+  'cover one region or country.  They all run their own business and have over 15 ' +
+  'years of experience.  This specialization is key to being able to provide you with ' +
   'the best service and most up to date information on where you want to go, for the ' +
   'following destinations...';
 
@@ -33,7 +30,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <FrontCover page={'home'} darkened={0.4} image={'leaf-header.jpg'} />
+        <FrontCover page={'home'} darkened={0.3} image={'home/water.png'} />
 
         <div style={{textAlign:'center'}}>
 
@@ -45,14 +42,8 @@ class Home extends Component {
             {conceptText}
           </Paragraph>
 
-          <ConceptImage image={require('../../Library/Images/coffee.jpg')} />
-
-          <Paragraph>
-            {destinationText}
-          </Paragraph>
-          
           <div style={{marginTop:'75px'}}>
-            <Destinations mobile />
+            <Destinations />
           </div>
 
           <TestimonialContainer>
@@ -60,7 +51,7 @@ class Home extends Component {
               {testimonialText}
               <br /><br />
               <span style={{fontFamily:'CardoItalic',fontSize:'1.25em'}}>
-                Emily, London, UK
+                Elizabeth, London, UK
               </span>
             </TestimonialParagraph>
           </TestimonialContainer>
@@ -85,22 +76,6 @@ const Paragraph = styled.p`
     width: 80%;
     font-size: 1em;
   `}    
-`
-
-const ConceptImage = styled.div`
-  background: url(${props => props.image}) no-repeat center center;
-  background-size: 100% auto;
-  height: 400px;
-  width: 75%;
-  margin: 0 auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  ${media.phone`
-    width: 80%;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    height: 300px;
-  `}      
 `
 
 const TestimonialContainer = styled.div`

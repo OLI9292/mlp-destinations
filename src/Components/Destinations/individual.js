@@ -24,11 +24,7 @@ class IndividualDestinationPage extends Component {
   render() {
     return (
       <div style={{textAlign:'center'}}>
-        <FrontCover 
-          darkened={0.65}
-          description={'Lorem ipsum'}
-          title={this.state.name.toUpperCase()} 
-          image={'leaf-header.jpg'} />
+        <FrontCover darkened={this.state.darkenImage} image={this.state.imagePath} />
 
         <Header>
           OVERVIEW

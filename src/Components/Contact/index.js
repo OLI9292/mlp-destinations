@@ -30,15 +30,15 @@ class Contact extends Component {
         <Input extraMargin type='text' />
 
         <InputHeader>BRIEF MESSAGE :</InputHeader>
-        <Textarea />        
+        <Textarea />
+
+        <Submit type='submit' value='SEND' />    
       </Form>
     })();
 
     return (
       <div style={{backgroundColor:colors.beige}}>
-        <FrontCover
-          darkened={0.5}
-          image={'contact.jpg'} />
+        <FrontCover darkened={0.5} image={'contact.jpg'} />
         {form}
         <Footer />
       </div>
@@ -49,7 +49,7 @@ class Contact extends Component {
 const Form = styled.form`
   background-color: ${colors.green};
   margin: 0 auto;
-  margin-bottom: 50px;
+  margin-bottom: 120px;
   margin-top: -150px;
   padding: 40px 0px 40px 0px;
   position: relative;
@@ -58,11 +58,11 @@ const Form = styled.form`
   z-index: 100;
 
   ${media.phone`
-    width: 80%;
-    margin: 0% 0% 0% 10%;
+    width: 100%;
+    margin: 0;
     padding: 0;
     position: absolute;
-    top: 15%;
+    top: 10%;
   `}     
 `
 
@@ -80,6 +80,27 @@ const Input = styled.input`
   margin-bottom: ${props => props.extraMargin ? '25px' : '10px'};
 `
 
+const Submit = styled.input`
+  position: absolute;
+  bottom: -100px;
+  width: 100%;
+  left: 0;
+  height: 50px;
+  line-height: 50px;
+  border: none;
+  margin-bottom: 30px;
+  background-color: ${colors.red};
+  color: white;
+  font-size: 1.1em;
+  font-family: ATSackersGothicMedium;
+  letter-spacing: 2px;
+  cursor: pointer;
+  ${media.phone`
+    bottom: -50px;
+    margin-bottom: 0px;
+  `};  
+`
+
 const Textarea = styled.textarea`
   background-color: ${colors.beige};
   width: 80%;
@@ -92,6 +113,9 @@ const Textarea = styled.textarea`
   border: none;
   padding: 20px 30px 20px 30px;
   box-sizing: border-box;
+  ${media.phone`
+    margin-bottom: 30px;
+  `};
 `
 
 const InputHeader = styled.p`

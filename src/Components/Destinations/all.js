@@ -12,14 +12,10 @@ class AllDestinationsPage extends Component {
     
   render() {
     return (
-      <div style={{textAlign:'center'}}>
-        <FrontCover 
-          darkened={0.65}
-          description={'Lorem ipsum'}
-          title='Destinations.' 
-          image={'leaf-header.jpg'} />  
+      <div>
+        <FrontCover darkened={0.6} image={'destinations/footprints.png'} />  
 
-        <div style={{marginTop:'75px'}}>
+        <div style={{marginTop:'75px',textAlign:'center'}}>
           <Destinations />  
         </div>
 

@@ -6,7 +6,7 @@ import VisibilitySensor from 'react-visibility-sensor';
 import colors from '../../Library/colors';
 import { media } from '../../Library/breakpoints';
 
-const ANIMATED_TEXT = 'Let\'s talk ...';
+const ANIMATED_TEXT = 'Let\'s talk...';
 
 class CTA extends Component {
   constructor(props) {
@@ -34,7 +34,7 @@ class CTA extends Component {
     setTimeout(() => {
       setInterval(() => {
         ANIMATED_TEXT === this.state.animatedText
-          ? this.setState({ hideCursor: true }, this.revealContact)
+          ? this.setState({ hideCursor: true }, () => this.setState({ contactOpacity: 1 }))
           : this.setState({ animatedText: ANIMATED_TEXT.slice(0, this.state.animatedText.length + 1) });
       }, 130);
     }, 650);
@@ -49,11 +49,6 @@ class CTA extends Component {
     }
   }
 
-  revealContact() {
-    this.setState({ paragraphOpacity: 1 });
-    setTimeout(() => { this.setState({ contactOpacity: 1 }) }, 500);
-  }
-
   render() {
     if (this.state.redirect && !window.location.href.endsWith(this.state.redirect)) { 
       return <Redirect push to={this.state.redirect} />;
@@ -65,13 +60,9 @@ class CTA extends Component {
 
           <Container>
 
-            <h1 style={{fontFamily:'CardoItalic',letterSpacing:'2px',lineHeight:'15px'}}>
+            <h1 style={{fontFamily:'CardoItalic',letterSpacing:'4px',lineHeight:'15px'}}>
               {this.state.animatedText}<Cursor hide={this.state.hideCursor}>|</Cursor>
             </h1>
-
-            <Paragraph opacity={this.state.paragraphOpacity}>
-              BOOK A PRIVATE CONSULTATION TODAY TO DISCUSS YOUR NEXT TRIP.
-            </Paragraph>
 
             <ContactButton 
               onClick={() => this.setState({ redirect: '/contact'})} 
@@ -107,18 +98,6 @@ const Cursor = styled.span`
   visibility: ${props => props.hide ? 'hidden' : 'visible'};
 `
 
-const Paragraph = styled.p`
-  font-family: ATSackersGothicMedium;
-  letter-spacing: 2px;
-  line-height: 25px;
-  font-size: 0.75em;
-  transition-duration: 1s;
-  opacity: ${props => props.opacity};
-  ${media.phone`
-    font-size: 0.6em;
-  `};
-`
-
 const ContactButton = styled.p`
   color: ${colors.green};
   font-family: ATSackersGothicMedium;
@@ -126,9 +105,9 @@ const ContactButton = styled.p`
   cursor: pointer;
   line-height: 10px;
   width: max-content;
-  font-size: 0.8em;
+  font-size: 0.9em;
   margin: 0 auto;
-  margin-top: 15px;
+  margin-top: 20px;
   height: 17px;
   transition-duration: 1s;
   opacity: ${props => props.opacity};

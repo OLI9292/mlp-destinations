@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router';
 import styled from 'styled-components';
 
-import { media } from '../../Library/breakpoints';
-
 class MobileMenu extends Component {
   constructor(props) {
     super(props);
@@ -17,24 +15,33 @@ class MobileMenu extends Component {
     }
 
     return (
-      <Container display={this.props.display}>
-        <Text onClick={() => this.setState({ redirect: '/' })}>HOME</Text>
-        <Text onClick={() => this.setState({ redirect: '/services' })}>SERVICES</Text>
-        <Text onClick={() => this.setState({ redirect: '/destinations' })}>DESTINATIONS</Text>
-        <Text onClick={() => this.setState({ redirect: '/about' })}>ABOUT</Text>
-        <Text onClick={() => this.setState({ redirect: '/contact' })}>CONTACT</Text>
-      </Container>
+      <OuterContainer display={this.props.display}>
+        <InnerContainer>
+          <Text onClick={() => this.setState({ redirect: '/' })}>HOME</Text>
+          <Text onClick={() => this.setState({ redirect: '/services' })}>SERVICES</Text>
+          <Text onClick={() => this.setState({ redirect: '/destinations' })}>DESTINATIONS</Text>
+          <Text onClick={() => this.setState({ redirect: '/about' })}>ABOUT</Text>
+          <Text onClick={() => this.setState({ redirect: '/contact' })}>CONTACT</Text>
+        </InnerContainer>
+      </OuterContainer>
     );
   }
 }
 
-const Container = styled.div`
-  cursor: pointer;
-  position: absolute;
-  opacity: ${props => props.display ? '1' : '0'};
+const OuterContainer = styled.div`
   pointer-events: ${props => props.display ? 'auto' : 'none'};
+  display: ${props => props.display ? '' : 'none'};
+  position: fixed;
+  width: 100vh;
+  height: 100vh;
+  background-color:rgba(0, 0, 0, 0.85);
+  z-index: 999999999;
+`
+
+const InnerContainer = styled.div`
+  cursor: pointer;
   transition-duration: 0.35s;
-  margin: 33% 0% 0% 25%;
+  margin: 20% 0% 0% 17.5%;
   text-align: left;
 `
 
@@ -44,7 +51,7 @@ const Text = styled.p`
   line-height: 100%;
   color: white;
   font-family: ATSackersGothicMedium;
-  margin: 25% 0% 25% 0%;
+  margin: 10% 0% 10% 0%;
 `
 
 export default MobileMenu;

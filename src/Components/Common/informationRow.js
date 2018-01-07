@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import VisibilitySensor from 'react-visibility-sensor';
 
-import { media, PHONE_MAX_WIDTH } from '../../Library/breakpoints';
 import colors from '../../Library/colors';
 
 class InformationRow extends Component {
@@ -16,11 +15,7 @@ class InformationRow extends Component {
   }
 
   componentDidMount() {
-    if (document.documentElement.clientWidth < PHONE_MAX_WIDTH) {
-      console.log(document.documentElement.clientWidth)
-      this.setState({ isMobile: true, visible: true });
-    }
-
+    if (window.isMobile) { this.setState({ visible: true }); }
     window.addEventListener('resize', this.resize.bind(this));
   }
 
@@ -29,15 +24,11 @@ class InformationRow extends Component {
   }  
 
   resize(img) {
-    if (this.img) {
-      this.setState({ width: this.img.offsetWidth, height: this.img.offsetHeight });
-    }
+    if (this.img) { this.setState({ width: this.img.offsetWidth, height: this.img.offsetHeight }); }
   }
 
   onChange(visible) {
-    if (visible && !this.state.visible) {
-      this.setState({ visible: true });
-    }
+    if (visible && !this.state.visible) { this.setState({ visible: true }); }
   }
 
   offsetHeight() {
@@ -51,7 +42,7 @@ class InformationRow extends Component {
       const orientation = this.props.information.orientFrame;
       const [orientLeft, orientBottom] = [orientation[1] === 'left', orientation[0] === 'bottom']
 
-      return <ImageBlock isMobile={this.state.isMobile}>
+      return <ImageBlock isMobile={window.isMobile}>
         <img
           alt={this.props.information.title}
           onLoad={this.resize.bind(this)} 
@@ -80,7 +71,7 @@ class InformationRow extends Component {
     })();
 
     const textBlock = (() => {
-      return <TextBlock isMobile={this.state.isMobile}> 
+      return <TextBlock isMobile={window.isMobile}> 
         <p style={{fontFamily:'ATSackersGothicMedium',color:colors.red,fontSize:'0.8em',letterSpacing:'2px',lineHeight:'30px'}}>
           {this.props.information.title.toUpperCase()}
         </p>
@@ -95,14 +86,14 @@ class InformationRow extends Component {
         {({isVisible}) =>
           <div>
             {
-              !this.state.isMobile && this.props.information.inverted 
+              !window.isMobile && this.props.information.inverted 
               ?
               <Container>
                 {textBlock}
                 {imageBlock}
               </Container>
               :
-              <Container isMobile={this.state.isMobile}>
+              <Container isMobile={window.isMobile}>
                 {imageBlock}
                 {textBlock}
               </Container>

@@ -3,7 +3,7 @@ import { Redirect } from 'react-router';
 import styled from 'styled-components';
 
 import logo from '../../Library/Images/logo.png';
-import colors from '../../Library/colors';
+import underline from '../../Library/Images/brush-stroke.svg';
 import { media } from '../../Library/breakpoints';
 import MobileMenu from './mobileMenu';
 
@@ -16,75 +16,35 @@ class FrontCover extends Component {
     };
   }
 
-  componentDidMount() {
-    setTimeout(() => { 
-      this.setState({ loaded: true }) 
-    }, 750);
-  }  
-
-  random(type) {
-    const [min, max] = {
-      delay: [0.1, 0.5],
-      duration: [1.5, 2],
-      blur: [2, 6]
-    }[type];
-
-    const value = (Math.random() * (min - max) + max).toFixed(4);
-    return type === 'blur' ? `${Math.floor(value)}px` : `${value}s`;
-  }
-
   render() {
     if (this.state.redirect && !window.location.href.endsWith(this.state.redirect)) { 
       return <Redirect push to={this.state.redirect} />;
     }
-
-    const blurred = (text) => {
-      return <BlurredSpan
-        key={text}
-        delay={this.random('delay')}
-        duration={this.random('duration')}
-        blur={this.random('blur')}
-        loaded={this.state.loaded}
-      >{text}</BlurredSpan>
-    }
-
-    const homeContent = (() => {
-      return <Tagline hide={this.state.displayMobileMenu} loaded={this.state.loaded}>
-        {['YOUR ', 'PERSONAL ', 'GUIDE'].map((text) => blurred(text))}
-        <br /><br />
-        <TaglineSpan>
-          {['TO ', 'PRIVATE ', 'TRAVEL...'].map((text) => blurred(text))}
-        </TaglineSpan>
-      </Tagline>;
-    })();
 
     const centeredContent = (() => {
       return <div style={{textAlign:'center',margin:'0 auto',width:'45%',color:'white',marginTop:'50px',letterSpacing:'4px',fontSize:'0.8em'}}>
         <h3 style={{fontFamily:'ATSackersGothicMedium'}}>
           {this.props.title}
         </h3>
-        <p style={{fontFamily:'CardoItalic',letterSpacing:'2px',lineHeight:'25px',fontSize:'1.5em'}}>
-          {this.props.description}
-        </p>
       </div>
     })();
-    
 
+    const href = window.location.href;
+    
     return (
       <Container onLoad={this.handleImageLoaded} image={require(`../../Library/Images/${this.props.image}`)}>
         
         <Burger 
-          hide={this.state.displayMobileMenu}
           src={require(`../../Library/Images/${this.state.displayMobileMenu ? 'exit.png' : 'burger.png'}`)}
           onClick={() => this.setState({ displayMobileMenu: !this.state.displayMobileMenu })} />
 
         <MobileMenu display={this.state.displayMobileMenu}/>
         
-        <Mask darkened={this.props.darkened + (this.state.displayMobileMenu ? 0.2 : 0)} />
+        <Mask darkened={this.props.darkened} />
 
         <InnerContainer>
 
-          <LogoContainer hide={this.state.displayMobileMenu}>
+          <LogoContainer>
             <span style={{display:'inline-block',verticalAlign:'middle',height:'100%'}}></span>
             <Logo onClick={() => this.setState({ redirect: '/' })} src={logo} />
           </LogoContainer>
@@ -92,28 +52,40 @@ class FrontCover extends Component {
           <LinksContainer>
             <Link onClick={() => this.setState({ redirect: '/services' })}>
               SERVICES
+              <img alt={'underline'} src={underline} style={{display: href.includes('services') ? '' : 'none'}}/>
             </Link>
 
             <Link onClick={() => this.setState({ redirect: '/destinations' })}>
               DESTINATIONS
+              <img alt={'underline'} src={underline} style={{display: href.includes('destinations') ? '' : 'none'}}/>
             </Link>
 
             <Link onClick={() => this.setState({ redirect: '/about' })}>
               ABOUT
+              <img alt={'underline'} src={underline} style={{display: href.includes('about') ? '' : 'none'}}/>
             </Link>
 
             <Link onClick={() => this.setState({ redirect: '/contact' })}>
               CONTACT
+              <img alt={'underline'} src={underline} style={{display: href.includes('contact') ? '' : 'none'}}/>
             </Link>
           </LinksContainer>
         </InnerContainer>
 
-        {this.props.page === 'home' ? homeContent : centeredContent}
+        <Tagline hide={href.includes('contact')}>
+          YOUR PERSONAL GUIDE
+          <br /><br />
+          <TaglineSpan>
+            TO PRIVATE TRAVEL...
+          </TaglineSpan>
+        </Tagline>
 
         {
           this.props.page === 'home' && 
           <div style={{display:'flex',width:'100%',justifyContent:'center',position:'absolute',top:'75%'}}>
-            <LetsTalkButton hide={this.state.displayMobileMenu}>lets talk</LetsTalkButton>
+            <LetsTalkButton onClick={() => this.setState({ redirect: '/contact' })}>
+              lets talk
+            </LetsTalkButton>
           </div>
         }
       </Container>
@@ -137,14 +109,17 @@ const Container = styled.div`
 
 const Burger = styled.img`
   height: 5%;
-  background-color: rgba(156,62,76,0.85);
+  background-color: rgba(156,62,76,0.99);
   padding: 7.5px;
   width: auto;
-  position: absolute;
+  position: fixed;
   top: 1.5%;
   left: 2.5%;
+  display: none;
+  transition-duration: 0.35s;
+  z-index: 99999999999;
   ${media.phone`
-    transition-duration: 0.35s;
+    display: inline-block;
   `}
 `
 
@@ -167,7 +142,6 @@ const LogoContainer = styled.div`
   white-space: nowrap;
   ${media.phone`
     transition-duration: 0.35s;
-    opacity: ${props => props.hide ? '0' : '1'};
     width: 70%;
     margin: 0 auto;
     height: 0px;
@@ -211,16 +185,11 @@ const Link = styled.p`
   font-size: 0.7em;
   cursor: pointer;
   letter-spacing: 3px;
+  width: 130px;
+  text-align: center;
   ${media.phone`
     display: none;
   `}
-`
-
-const BlurredSpan = styled.span`
-  visibility: ${props => props.loaded ? 'visible' : 'hidden'};
-  filter: ${props => props.loaded ? 'blur(0px)' : `blur(${props.blur})`};
-  transition-duration: ${props => props.duration};
-  transition-delay: ${props => props.delay};
 `
 
 const Tagline = styled.div`
@@ -230,9 +199,9 @@ const Tagline = styled.div`
   font-size: 1.2em;
   color: white;
   letter-spacing: 4px;
+  display: ${props => props.hide ? 'none' : ''};
   ${media.phone`
     transition-duration: 0.35s;
-    opacity: ${props => props.hide ? '0' : '1'};
     position: absolute;
     width: 100%;
     margin: 0 auto;
@@ -253,7 +222,6 @@ const LetsTalkButton = styled.p`
   ${media.phone`
     display: inline-block;
     transition-duration: 0.35s;
-    opacity: ${props => props.hide ? '0' : '1'};
     font-family: ATSackersGothicMedium;
     background-color: rgba(156, 62, 76, 0.85);
     color: white;

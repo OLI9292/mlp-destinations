@@ -18,10 +18,6 @@ class Footer extends Component {
     
     return (
       <Container>
-        <SiteMapHeader>
-          Site Map.
-        </SiteMapHeader>
-
         <InnerContainer>
           <LinksContainer>
             <Link onClick={() => this.setState({ redirect: '/services' })}>
@@ -60,24 +56,13 @@ const Container = styled.div`
 `
 
 const InnerContainer = styled.div`
-  margin-top: -10px;
+  padding-top: 60px;
   margin-left: 10%;
   ${media.phone`
     margin: 0 auto;
+    padding-top: 0px;
     text-align: center;
   `}  
-`
-
-const SiteMapHeader = styled.p`
-  font-family: CardoItalic;
-  color: white;
-  margin-left: 10%;
-  padding-top: 25px;
-  letter-spacing: 2px;
-  display: inline-block;
-  ${media.phone`
-    display: none;
-  `}    
 `
 
 const Link = styled.p`
