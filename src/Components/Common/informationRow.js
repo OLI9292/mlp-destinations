@@ -128,6 +128,7 @@ const ImageBlock = styled.div`
 const TextBlock = styled.div`
   text-align: left;
   margin: ${props => props.isMobile ? '0 auto' : ''};
+  margin-top: ${props => props.isMobile ? '50px' : ''};
   width: ${props => props.isMobile ? '80%' : '35%'};
 `
 

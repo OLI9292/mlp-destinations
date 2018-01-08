@@ -7,14 +7,14 @@ export default [
     slug: 'africa',
     image: require('../../Library/Images/destinations/africa/lions.jpg'),
     imagePath: 'destinations/africa/lions.jpg',
-    darkenImage: 0.5,
+    darkenImage: 0.35,
     description: 'The breadth and scope of diversity in Africa requires a number of specialists. Aside from the individual country differences the safari options are also abundant, and it is essential to have a knowledgeable and trustworthy resource. The specialists I work with have often lived and worked in their regions of expertise and each have a deep love of Africa which translates to the service they provide. Whether it is a self-drive safari in Namibia, a tour of the souks in Fez or a gorilla trek you will be connected to a true expert.',
     informations: [
       {
         title: 'DINE',
         location: 'IKOYI, LONDON',
         content: 'For some regional west African cooking try Iyoki which has opened in London\'s Westend.  Ex-Noma chef and his childhood mate are firing up a storm with fermented chilis, plantain and smoky peppercorns in a neighborhood more familiar with shepherd\'s pie.',
-        imageUrl: require('../../Library/Images/destinations/africa/lions.jpg'),
+        imageUrl: require('../../Library/Images/destinations/africa/lamp.jpg'),
         frameColor: colors.red,
         orientFrame: ['bottom', 'right'],
         inverted: true
@@ -22,8 +22,8 @@ export default [
       {
         title: 'RELAX',
         location: 'BABYLONSTOREN SPA',
-        content: 'Our South Africa specialist has the perfect antidote for travel fatigue - a day of recuperation at Babylonstoren Spa in the Winelands.',
-        imageUrl: require('../../Library/Images/destinations/africa/lions.jpg'),
+        content: 'Our South Africa specialist has the perfect antidote for travel fatigue - a day of recuperation at Babylonstoren Spa in the Winelands.  Tea rituals can also be booked.',
+        imageUrl: require('../../Library/Images/destinations/africa/tea-leaf.jpg'),
         frameColor: colors.green,
         orientFrame: ['bottom', 'left'],
         inverted: false
@@ -46,13 +46,13 @@ export default [
     image: require('../../Library/Images/destinations/asia/boats.jpg'),
     imagePath: 'destinations/asia/boats.jpg',
     description: 'Good transport connections and feeling secure are two of the most important requisites for traveling in Asian countries. This all comes down to knowing the right people on the ground and the loyalty that can only be achieved by their long-term working relationships with the specialist. Traveling to Asia is not only about visiting cultural sites but receiving the right advice to pace your time and not overload your itinerary. For example, India is such a huge and diverse country that it is advisable to savor fewer areas for longer rather than rush around with only a day or two in each place.',
-    darkenImage: 0.45,
+    darkenImage: 0.2,
     informations: [
       {
         title: 'STAY',
         location: 'RIVERSOUL, CAMBODIA',
         content: 'One block from the river in the center of Siem Reap, Cambodia lies a peaceful oasis. The hotel\'s charming and creative manager is also responsible for the very cool interior design, and witty quotes on all the literature. Loven and his team really go out of their way to help from arranging last-minute circus tickets to personalized tiffin boxes if you are out in the countryside for lunch.',
-        imageUrl: require('../../Library/Images/destinations/asia/man.png'),
+        imageUrl: require('../../Library/Images/destinations/asia/crab.jpg'),
         frameColor: colors.green,
         orientFrame: ['bottom', 'right'],
         inverted: true
@@ -128,7 +128,7 @@ export default [
         title: 'SHOP',
         location: 'IJO DESIGN, PUGLIA',
         content: 'Puglia is my current favorite area in Italy. Ijo Design has two locations in Ostuni, and Lecce, the Baroque City. Traditional looms are used to weave their stunning creations and one is on display in the larger Lecce store. Both shops are worth a visit for women\'s fashion, accessories and home décor.',
-        imageUrl: require('../../Library/Images/destinations/europe/soup.png'),
+        imageUrl: require('../../Library/Images/destinations/europe/loom.jpg'),
         frameColor: colors.green,
         orientFrame: ['bottom', 'right'],
         inverted: true
@@ -137,7 +137,7 @@ export default [
         title: 'ACTIVITY',
         location: 'AURLAND, NORWAY',
         content: 'In the Norwegian fjords this family run estate offers plenty of activity and the best part is when you return there is a warm welcome and delicious meal waiting for you. Guided biking and hiking day trips for 2 to 6 people, kayaking or row boat expeditions, fjord skiing and fly-fishing are all on the menu.',
-        imageUrl: require('../../Library/Images/destinations/europe/colloseum.png'),
+        imageUrl: require('../../Library/Images/destinations/europe/goat.jpg'),
         frameColor: colors.red,
         orientFrame: ['bottom', 'left'],
         inverted: false
@@ -166,7 +166,7 @@ export default [
         title: 'MUSEUM',
         location: 'THE LOUVRE, ABU DHABI',
         content: 'Opened in November, 2017 this \'universal museum\' has come about through an agreement between France and the oil rich kingdom, and promises to be more than a sleek building providing shade. The design by architect Jean Nouvel contains 55 low, white buildings divided into 23 galleries. The revolving displays will come mostly from French and American national collections with the intention of developing a cultural side to the country.',
-        imageUrl: require('../../Library/Images/destinations/middle-east/camel.jpg'),
+        imageUrl: require('../../Library/Images/destinations/middle-east/jesus.jpg'),
         frameColor: colors.green,
         orientFrame: ['bottom', 'right'],
         inverted: true
@@ -175,7 +175,7 @@ export default [
   },
   {
     name: 'USA & Canada',
-    places: 'USA, Canada',
+    places: '',
     slug: 'usa-and-canada',
     image: require('../../Library/Images/destinations/usa-and-canada/lighthouse.png'),
     imagePath: 'destinations/usa-and-canada/lighthouse.png',

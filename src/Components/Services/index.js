@@ -9,6 +9,7 @@ import Footer from '../Common/footer';
 import FrontCover from '../Common/frontCover';
 import InformationRow from '../Common/informationRow';
 import Header from '../Common/header';
+import Testimonial from '../Common/testimonial';
 
 const generalText = 'It\'s simple. After an initial discussion where we talk about what sort ' +
   'of trip you are looking for, and I give you an outline of the possibilities and basics ' +
@@ -18,6 +19,10 @@ const generalText = 'It\'s simple. After an initial discussion where we talk abo
   'always in the background to refer to as additional support. In certain instances where you ' +
   'do not need a specialist I can provide an outline itinerary for you to self-book your own trip.';
 
+const testimonialText = 'Miranda assessed our wishes and tailored a trip that fully met these, ' +
+  'providing a perfect balance between private tours that allowed us to understand the history and ' +
+  'culture of Uruguay, visits to museums and vineyards as well as other activities we love, like ' +
+  'horseback riding, tennis and enjoying gourmet meals.';
 
 const informations = [
   {
@@ -46,7 +51,7 @@ class Services extends Component {
   render() {
     return (
       <div style={{backgroundColor:colors.beige}}>
-        <FrontCover darkened={0.65} image={'services/woman.jpg'} />
+        <FrontCover darkened={0.25} image={'services/woman.jpg'} />
 
         <div style={{textAlign:'center'}}>
           <Header>
@@ -58,6 +63,10 @@ class Services extends Component {
         </div>
 
         {informations.map((i,idx) => <InformationRow last={idx+1 === informations.length} key={i.title} information={i} />)}
+
+        <Testimonial
+          text={testimonialText}
+          from={'Paul, Montreal, Canada'} />        
         
         <CTA />
 

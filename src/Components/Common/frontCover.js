@@ -21,7 +21,7 @@ class FrontCover extends Component {
       return <Redirect push to={this.state.redirect} />;
     }
 
-    const href = window.location.href;
+    const path = window.location.pathname;
     
     return (
       <Container onLoad={this.handleImageLoaded} image={require(`../../Library/Images/${this.props.image}`)}>
@@ -36,7 +36,7 @@ class FrontCover extends Component {
 
         <InnerContainer>
 
-          <LogoContainer>
+          <LogoContainer hide={path.includes('destinations/')}>
             <span style={{display:'inline-block',verticalAlign:'middle',height:'100%'}}></span>
             <Logo onClick={() => this.setState({ redirect: '/' })} src={logo} />
           </LogoContainer>
@@ -44,22 +44,22 @@ class FrontCover extends Component {
           <LinksContainer>
             <Link flex={1.05} onClick={() => this.setState({ redirect: '/services' })}>
               SERVICES
-              <img alt={'underline'} src={underline} style={{display: href.includes('services') ? '' : 'none'}}/>
+              <img alt={'underline'} src={underline} style={{display: path.includes('services') ? '' : 'none'}}/>
             </Link>
 
             <Link flex={1.15} onClick={() => this.setState({ redirect: '/destinations' })}>
               DESTINATIONS
-              <img alt={'underline'} src={underline} style={{display: href.includes('destinations') ? '' : 'none'}}/>
+              <img alt={'underline'} src={underline} style={{display: path.includes('destinations') ? '' : 'none'}}/>
             </Link>
 
             <Link flex={0.9} onClick={() => this.setState({ redirect: '/about' })}>
               ABOUT
-              <img alt={'underline'} src={underline} style={{display: href.includes('about') ? '' : 'none'}}/>
+              <img alt={'underline'} src={underline} style={{display: path.includes('about') ? '' : 'none'}}/>
             </Link>
 
             <Link flex={1.1} onClick={() => this.setState({ redirect: '/contact' })}>
               CONTACT
-              <img alt={'underline'} src={underline} style={{display: href.includes('contact') ? '' : 'none'}}/>
+              <img alt={'underline'} src={underline} style={{display: path.includes('contact') ? '' : 'none'}}/>
             </Link>
           </LinksContainer>
         </InnerContainer>
@@ -76,7 +76,7 @@ class FrontCover extends Component {
             </p>
           </div>          
           :
-          <Tagline hide={href.includes('contact')}>
+          <Tagline hide={path.includes('contact')}>
             YOUR PERSONAL GUIDE
             <br /><br />
             <TaglineSpan>
@@ -146,6 +146,7 @@ const LogoContainer = styled.div`
   height: 200px;
   white-space: nowrap;
   ${media.phone`
+    display: ${props => props.hide ? 'none' : ''}; 
     transition-duration: 0.35s;
     width: 70%;
     margin: 0 auto;

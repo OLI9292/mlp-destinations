@@ -3,13 +3,13 @@ import styled from 'styled-components';
 
 import colors from '../../Library/colors';
 import { media } from '../../Library/breakpoints';
-import lantern from '../../Library/Images/lantern.jpg';
 
 import CTA from '../Common/cta';
 import Footer from '../Common/footer';
 import FrontCover from '../Common/frontCover';
 import Header from '../Common/header';
 import Destinations from '../Destinations/index';
+import Testimonial from '../Common/testimonial';
 
 const conceptText = 'To act as an \'internet\' filter to navigate you through ' +
   'the maze of travel providers and link you to the right individual to plan your ' +
@@ -47,15 +47,9 @@ class Home extends Component {
             <Destinations />
           </div>
 
-          <TestimonialContainer>
-            <TestimonialParagraph>
-              {testimonialText}
-              <br /><br />
-              <span style={{fontFamily:'CardoItalic',fontSize:'1.25em'}}>
-                Elizabeth, London, UK
-              </span>
-            </TestimonialParagraph>
-          </TestimonialContainer>
+          <Testimonial
+            text={testimonialText}
+            from={'Elizabeth, London, UK'} />
 
           <CTA />
 
@@ -77,37 +71,6 @@ const Paragraph = styled.p`
     width: 80%;
     font-size: 1em;
   `}    
-`
-
-const TestimonialContainer = styled.div`
-  background: url(${lantern}) no-repeat center center;
-  background-size: 100% auto;
-  color: white;
-  display: flex;
-  font-family: ATSackersGothicMedium;
-  height: 400px;
-  margin-top: 150px;
-  width: 100%;
-  ${media.phone`
-    height: 250px;
-  `}    
-`
-
-const TestimonialParagraph = styled.p`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 50%;
-  width: 40%;
-  letter-spacing: 2px;
-  line-height: 25px;
-  ${media.phone`
-    margin-left: 0px;
-    width: 80%;
-    margin: 0 auto;
-    line-height: 20px;
-    font-size: 0.75em;
-  `}   
 `
 
 export default Home;
