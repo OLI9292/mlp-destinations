@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import colors from '../../Library/colors';
 import CTA from '../Common/cta';
 import Footer from '../Common/footer';
 import FrontCover from '../Common/frontCover';
@@ -12,7 +13,7 @@ class AllDestinationsPage extends Component {
     
   render() {
     return (
-      <div>
+      <div style={{backgroundColor:colors.beige}}>
         <FrontCover darkened={0.6} image={'destinations/footprints.png'} />  
 
         <div style={{marginTop:'75px',textAlign:'center'}}>

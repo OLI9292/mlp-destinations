@@ -31,7 +31,7 @@ const informations = [
   {
     title: 'SMALL GROUP TRIPS',
     content: 'These trips are ideal for single travelers. The average group size is 8 people and individual accommodation is often available. I work with National Geographic photographer, Catherine Karnow and private yoga teacher, Andrea Curry who both lead their own trips each year to a variety of destinations. Please enquire for current schedules.',
-    imageUrl: require('../../Library/Images/services/dock.jpg'),
+    imageUrl: require('../../Library/Images/services/sandals.jpg'),
     frameColor: colors.green,
     orientFrame: ['top', 'left'],
     inverted: true
@@ -45,8 +45,8 @@ class Services extends Component {
 
   render() {
     return (
-      <div>
-        <FrontCover darkened={0.65} image={'services/kitchen-header.jpg'} />
+      <div style={{backgroundColor:colors.beige}}>
+        <FrontCover darkened={0.65} image={'services/woman.jpg'} />
 
         <div style={{textAlign:'center'}}>
           <Header>
@@ -57,8 +57,8 @@ class Services extends Component {
           </Text>
         </div>
 
-        {informations.map((i) => <InformationRow key={i.title} information={i} />)} 
-
+        {informations.map((i,idx) => <InformationRow last={idx+1 === informations.length} key={i.title} information={i} />)}
+        
         <CTA />
 
         <Footer />

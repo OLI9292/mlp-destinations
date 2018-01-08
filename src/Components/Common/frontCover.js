@@ -21,14 +21,6 @@ class FrontCover extends Component {
       return <Redirect push to={this.state.redirect} />;
     }
 
-    const centeredContent = (() => {
-      return <div style={{textAlign:'center',margin:'0 auto',width:'45%',color:'white',marginTop:'50px',letterSpacing:'4px',fontSize:'0.8em'}}>
-        <h3 style={{fontFamily:'ATSackersGothicMedium'}}>
-          {this.props.title}
-        </h3>
-      </div>
-    })();
-
     const href = window.location.href;
     
     return (
@@ -50,35 +42,48 @@ class FrontCover extends Component {
           </LogoContainer>
 
           <LinksContainer>
-            <Link onClick={() => this.setState({ redirect: '/services' })}>
+            <Link flex={1.05} onClick={() => this.setState({ redirect: '/services' })}>
               SERVICES
               <img alt={'underline'} src={underline} style={{display: href.includes('services') ? '' : 'none'}}/>
             </Link>
 
-            <Link onClick={() => this.setState({ redirect: '/destinations' })}>
+            <Link flex={1.15} onClick={() => this.setState({ redirect: '/destinations' })}>
               DESTINATIONS
               <img alt={'underline'} src={underline} style={{display: href.includes('destinations') ? '' : 'none'}}/>
             </Link>
 
-            <Link onClick={() => this.setState({ redirect: '/about' })}>
+            <Link flex={0.9} onClick={() => this.setState({ redirect: '/about' })}>
               ABOUT
               <img alt={'underline'} src={underline} style={{display: href.includes('about') ? '' : 'none'}}/>
             </Link>
 
-            <Link onClick={() => this.setState({ redirect: '/contact' })}>
+            <Link flex={1.1} onClick={() => this.setState({ redirect: '/contact' })}>
               CONTACT
               <img alt={'underline'} src={underline} style={{display: href.includes('contact') ? '' : 'none'}}/>
             </Link>
           </LinksContainer>
         </InnerContainer>
 
-        <Tagline hide={href.includes('contact')}>
-          YOUR PERSONAL GUIDE
-          <br /><br />
-          <TaglineSpan>
-            TO PRIVATE TRAVEL...
-          </TaglineSpan>
-        </Tagline>
+        {
+          this.props.destination
+          ?
+          <div style={{textAlign:'center',margin:'0 auto',width:'45%',color:'white',marginTop:'50px',letterSpacing:'3px'}}>
+            <h3 style={{fontFamily:'ATSackersGothicMedium',fontSize:'1.3em'}}>
+              {this.props.destination.name.toUpperCase()}
+            </h3>
+            <p style={{fontFamily:'CardoItalic',lineHeight:'30px'}}>
+              {this.props.destination.places}
+            </p>
+          </div>          
+          :
+          <Tagline hide={href.includes('contact')}>
+            YOUR PERSONAL GUIDE
+            <br /><br />
+            <TaglineSpan>
+              TO PRIVATE TRAVEL...
+            </TaglineSpan>
+          </Tagline>
+        }
 
         {
           this.props.page === 'home' && 
@@ -187,6 +192,7 @@ const Link = styled.p`
   letter-spacing: 3px;
   width: 130px;
   text-align: center;
+  flex: ${props => props.flex};
   ${media.phone`
     display: none;
   `}

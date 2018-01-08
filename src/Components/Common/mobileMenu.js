@@ -15,7 +15,7 @@ class MobileMenu extends Component {
     }
 
     return (
-      <OuterContainer display={this.props.display}>
+      <OuterContainer show={this.props.display}>
         <InnerContainer>
           <Text onClick={() => this.setState({ redirect: '/' })}>HOME</Text>
           <Text onClick={() => this.setState({ redirect: '/services' })}>SERVICES</Text>
@@ -29,8 +29,8 @@ class MobileMenu extends Component {
 }
 
 const OuterContainer = styled.div`
-  pointer-events: ${props => props.display ? 'auto' : 'none'};
-  display: ${props => props.display ? '' : 'none'};
+  pointer-events: ${props => props.show ? 'auto' : 'none'};
+  display: ${props => props.show ? '' : 'none'};
   position: fixed;
   width: 100vh;
   height: 100vh;

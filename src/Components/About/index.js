@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import colors from '../../Library/colors';
+import CTA from '../Common/cta';
 import Footer from '../Common/footer';
 import FrontCover from '../Common/frontCover';
 import InformationRow from '../Common/informationRow';
@@ -16,7 +17,7 @@ const informations = [
     inverted: false
   },
   {
-    title: 'PERSONAL PACKING PHILOSOPHY',
+    title: 'PACKING PHILOSOPHY',
     content: 'Never pack more than you can carry. I usually only take enough for a week regardless of the length of the trip as most places provide laundry. Always take a swimsuit as I\'ve missed out on some great pools in the past.',
     imageUrl: require('../../Library/Images/about/clothes.png'),
     frameColor: colors.red,
@@ -24,7 +25,7 @@ const informations = [
     inverted: true
   },
   {
-    title: 'TRAVELLING WITH TEENAGERS',
+    title: 'TRAVELING WITH TEENAGERS',
     content: 'From experience with two very different boys don\'t overload them with detail before you travel so there is an element of surprise, include a bit of spoiling as they\'ll notice and pace the culture element with plenty of down-time and good meals. Remember it\'s their vacation too.',
     imageUrl: require('../../Library/Images/about/lake.png'),
     frameColor: colors.green,
@@ -32,8 +33,8 @@ const informations = [
     inverted: false
   },
   {
-    title: 'FAVOURITE PLACES TO STAY',
-    content: 'I prefer independent hotels, the reason being they have the personal flair of the owner who is often not in the travel industry and treats you more like a house guest. I recently stayed in a charming posada in Argentina and while having dinner the owner came to join me from her house across the vineyard. She shared some extraordinary stories of her family\'s fascinating history and then proceeded to open a bottle of the house special reserve with a label designed by her sister depicting their grandfather\'s musical score composed for a Pope\'s visit.',
+    title: 'FAVORITE PLACES TO STAY',
+    content: 'I prefer independent hotels, the reason being they have the personal flair of the owner who is often not in the travel industry and treats you more like a house guest. I recently stayed in a charming posada in Argentina and while having dinner the owner came to join me from her house across the vineyard. She shared some extraordinary stories of her family\'s fascinating history and then proceeded to open a bottle of the house special reserve.',
     imageUrl: require('../../Library/Images/about/mirror.jpg'),
     frameColor: colors.red,
     orientFrame: ['top', 'right'],
@@ -56,12 +57,14 @@ class About extends Component {
     
   render() {
     return (
-      <div>
+      <div style={{backgroundColor:colors.beige}}>
         <FrontCover darkened={0.35} image={'about/painting.jpg'} />
 
         <Whitespace />
           
-        {informations.map((i) => <InformationRow key={i.title} information={i} />)}
+        {informations.map((i,idx) => <InformationRow last={idx+1 === informations.length} key={i.title} information={i} />)}
+
+        <CTA />
 
         <Footer />
       </div>

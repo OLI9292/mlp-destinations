@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+import colors from '../../Library/colors';
 import { media } from '../../Library/breakpoints';
 import lantern from '../../Library/Images/lantern.jpg';
 
@@ -13,7 +14,7 @@ import Destinations from '../Destinations/index';
 const conceptText = 'To act as an \'internet\' filter to navigate you through ' +
   'the maze of travel providers and link you to the right individual to plan your ' +
   'trip.  Over the years I have built up a network of true specialists who only ' +
-  'cover one region or country.  They all run their own business and have over 15 ' +
+  'cover one region or country.  They all run their own companies and have over 15 ' +
   'years of experience.  This specialization is key to being able to provide you with ' +
   'the best service and most up to date information on where you want to go, for the ' +
   'following destinations...';
@@ -29,7 +30,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{backgroundColor:colors.beige}}>
         <FrontCover page={'home'} darkened={0.3} image={'home/water.png'} />
 
         <div style={{textAlign:'center'}}>

@@ -36,9 +36,11 @@ class Footer extends Component {
               CONTACT
             </Link>            
           </LinksContainer>
-          <Email>
+          <ContactInfo>
             MIRANDA@MLPDESTINATIONS.COM
-          </Email>
+            <br /><br />
+            1-203-564-3974
+          </ContactInfo>
         </InnerContainer>
       </Container>
     );
@@ -57,7 +59,7 @@ const Container = styled.div`
 
 const InnerContainer = styled.div`
   padding-top: 60px;
-  margin-left: 10%;
+  margin-left: 5%;
   ${media.phone`
     margin: 0 auto;
     padding-top: 0px;
@@ -69,7 +71,7 @@ const Link = styled.p`
   display: inline-block;
   color: white;
   font-family: ATSackersGothicMedium;
-  font-size: 0.55em;
+  font-size: 0.6em;
   margin-right: 30px;
   cursor: pointer;
   letter-spacing: 2px;
@@ -83,18 +85,20 @@ const LinksContainer = styled.div`
   `}  
 `
 
-const Email = styled.p`
+const ContactInfo = styled.p`
   font-family: ATSackersGothicMedium;
   display: inline-block;
   color: white;
   float: right;
   letter-spacing: 2px;
-  font-size: 0.7em;
-  margin-right: 10%;
-  margin-bottom: 10px;
+  font-size: 0.6em;
+  margin-right: 5%;
+  margin-top: 15px;
+  text-align: right;
   ${media.phone`
     margin: 0 auto;
-    line-height: 100px;
+    margin-top: 40px;
+    text-align: center;
     float: none;
     font-size: 0.55em;
   `}  

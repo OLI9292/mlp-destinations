@@ -80,7 +80,7 @@ class CTA extends Component {
 const Container = styled.div`
   display: flex;
   width: 40%;
-  height: 300px;
+  height: 250px;
   flex-direction: column;
   justify-content: center;
   text-align: center;

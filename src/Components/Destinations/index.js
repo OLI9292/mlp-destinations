@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
 import styled from 'styled-components';
+
 import destinations from './data';
+import colors from '../../Library/colors';
 
 class Destinations extends Component {
   constructor(props) {
@@ -98,6 +100,7 @@ const MultiContainer = styled.div`
   grid-template-columns: 27.5% 27.5% 27.5%;
   grid-template-rows: 47.5% 47.5%;
   align-content: space-between;
+  min-height: 850px;
   justify-content: space-between;
   margin: 0 auto;
   width: 75%;
@@ -163,7 +166,7 @@ const PlacesParagraph = styled.p`
 
 const ReadMoreButton = styled.div`
   font-family: ATSackersGothicMedium;
-  background-color: white;
+  background-color: ${colors.beige};
   position: absolute;
   width: 100%;
   bottom: 0;

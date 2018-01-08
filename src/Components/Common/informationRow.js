@@ -48,7 +48,7 @@ class InformationRow extends Component {
           onLoad={this.resize.bind(this)} 
           ref={img => {this.img = img}}
           src={this.props.information.imageUrl}
-          style={{height:'auto',width:'100%',zIndex:'10',opacity:opacity,marginTop:marginTop,transitionDuration:'1s'}} />
+          style={{height:'auto',width:'100%',zIndex:'10',opacity:opacity,marginTop:marginTop,position:'relative',transitionDuration:'1s'}} />
 
         <div style={{
             backgroundColor: this.props.information.frameColor,
@@ -57,7 +57,7 @@ class InformationRow extends Component {
             position: 'absolute',
             top: orientBottom ? '35px' : '-35px',
             width: this.state.width,
-            zIndex: '-15'
+            zIndex: '1'
           }}>
 
           {
@@ -88,12 +88,12 @@ class InformationRow extends Component {
             {
               !window.isMobile && this.props.information.inverted 
               ?
-              <Container>
+              <Container last={this.props.last} isMobile={window.isMobile}>
                 {textBlock}
                 {imageBlock}
               </Container>
               :
-              <Container isMobile={window.isMobile}>
+              <Container last={this.props.last} isMobile={window.isMobile}>
                 {imageBlock}
                 {textBlock}
               </Container>
@@ -111,7 +111,11 @@ const Container = styled.div`
   display: ${props => props.isMobile ? 'block' : 'flex'};
   justify-content: space-between;
   margin: 0 auto;
-  margin-bottom: ${props => props.isMobile ? '100px' : '115px'};
+  margin-bottom: ${props => 
+    props.last
+    ? '0px'
+    : props.isMobile ? '100px' : '115px'
+  };
   width: 80%;
 `
 

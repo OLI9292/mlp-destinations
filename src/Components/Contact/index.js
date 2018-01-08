@@ -38,7 +38,7 @@ class Contact extends Component {
 
     return (
       <div style={{backgroundColor:colors.beige}}>
-        <FrontCover darkened={0.5} image={'contact.jpg'} />
+        <FrontCover darkened={0.5} image={'contact/monk.jpg'} />
         {form}
         <Footer />
       </div>

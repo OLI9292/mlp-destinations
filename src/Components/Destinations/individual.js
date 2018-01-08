@@ -5,6 +5,7 @@ import data from './data';
 import Footer from '../Common/footer';
 import FrontCover from '../Common/frontCover';
 import Header from '../Common/header';
+import colors from '../../Library/colors';
 import InformationRow from '../Common/informationRow';
 import { media } from '../../Library/breakpoints';
 
@@ -23,8 +24,12 @@ class IndividualDestinationPage extends Component {
 
   render() {
     return (
-      <div style={{textAlign:'center'}}>
-        <FrontCover darkened={this.state.darkenImage} image={this.state.imagePath} />
+      <div style={{textAlign:'center',backgroundColor:colors.beige}}>
+
+        <FrontCover 
+          destination={this.state} 
+          darkened={this.state.darkenImage} 
+          image={this.state.imagePath} />
 
         <Header>
           OVERVIEW

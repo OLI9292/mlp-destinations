@@ -1,8 +1,8 @@
 {
   "main.css": "static/css/main.b5a43d70.css",
   "main.css.map": "static/css/main.b5a43d70.css.map",
-  "main.js": "static/js/main.e288826a.js",
-  "main.js.map": "static/js/main.e288826a.js.map",
+  "main.js": "static/js/main.2ad68533.js",
+  "main.js.map": "static/js/main.2ad68533.js.map",
   "static/media/ATSackersGothic-Medium.ttf": "static/media/ATSackersGothic-Medium.89ff4d90.ttf",
   "static/media/Cardo-Italic.ttf": "static/media/Cardo-Italic.35e7a559.ttf",
   "static/media/EBGARAMOND12-REGULAR.TTF": "static/media/EBGARAMOND12-REGULAR.a8006b37.TTF",
@@ -15,7 +15,7 @@
   "static/media/colloseum.png": "static/media/colloseum.44a3a987.png",
   "static/media/contact.jpg": "static/media/contact.2cafbf23.jpg",
   "static/media/cowboy.png": "static/media/cowboy.42dad143.png",
-  "static/media/dancing-girl.png": "static/media/dancing-girl.52bd654a.png",
+  "static/media/dancing-girl.png": "static/media/dancing-girl.e651efd3.png",
   "static/media/dock.jpg": "static/media/dock.bddbfee9.jpg",
   "static/media/doorways.jpg": "static/media/doorways.3885be76.jpg",
   "static/media/elephant.png": "static/media/elephant.b176526e.png",
@@ -25,7 +25,6 @@
   "static/media/fruit.jpg": "static/media/fruit.d10f9f0c.jpg",
   "static/media/headshot.jpg": "static/media/headshot.341ec78e.jpg",
   "static/media/horse.jpg": "static/media/horse.d7c4ba5c.jpg",
-  "static/media/kitchen-header.jpg": "static/media/kitchen-header.e5629dce.jpg",
   "static/media/lake.jpg": "static/media/lake.025afb83.jpg",
   "static/media/lake.png": "static/media/lake.1d5e3bde.png",
   "static/media/lantern.jpg": "static/media/lantern.8647c06f.jpg",
@@ -33,11 +32,13 @@
   "static/media/lions.jpg": "static/media/lions.5fec7cc5.jpg",
   "static/media/logo.svg": "static/media/logo.7b20c1f4.svg",
   "static/media/man.png": "static/media/man.5f17837d.png",
-  "static/media/mirror.jpg": "static/media/mirror.50210cbf.jpg",
+  "static/media/mirror.jpg": "static/media/mirror.e28836c3.jpg",
+  "static/media/monk.jpg": "static/media/monk.2845d71e.jpg",
   "static/media/painting.jpg": "static/media/painting.7d03942d.jpg",
   "static/media/palace.png": "static/media/palace.6bdc45d0.png",
   "static/media/rocks.png": "static/media/rocks.68b04624.png",
+  "static/media/sandals.jpg": "static/media/sandals.c141870d.jpg",
   "static/media/soup.png": "static/media/soup.1feb7d16.png",
   "static/media/water.png": "static/media/water.3f42f732.png",
-  "static/media/woman.jpg": "static/media/woman.37397585.jpg"
+  "static/media/woman.jpg": "static/media/woman.222ae8af.jpg"
 }
