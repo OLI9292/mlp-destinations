@@ -14,7 +14,7 @@ class AllDestinationsPage extends Component {
   render() {
     return (
       <div style={{backgroundColor:colors.beige}}>
-        <FrontCover darkened={0.6} image={'destinations/footprints.png'} />  
+        <FrontCover darkened={0.45} image={'destinations/footprints.png'} />  
 
         <div style={{marginTop:'75px',textAlign:'center'}}>
           <Destinations />  

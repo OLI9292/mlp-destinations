@@ -13,7 +13,7 @@ import Testimonial from '../Common/testimonial';
 
 const generalText = 'It\'s simple. After an initial discussion where we talk about what sort ' +
   'of trip you are looking for, and I give you an outline of the possibilities and basics ' +
-  'to take into consideration I then connect you directly to the specialist. I shall have ' +
+  'to take into consideration I then connect you directly to the specialist. I will have ' +
   'sent a summary in advance so you won’t have to repeat yourself, and they will then become ' +
   'your primary source of contact, and organize your travel from start to finish but with me ' +
   'always in the background to refer to as additional support. In certain instances where you ' +
@@ -53,9 +53,9 @@ class Services extends Component {
       <div style={{backgroundColor:colors.beige}}>
         <FrontCover darkened={0.25} image={'services/woman.jpg'} />
 
-        <div style={{textAlign:'center'}}>
+        <div style={{textAlign:'center',margin:'75px 0px 150px 0px'}}>
           <Header>
-            GENERAL
+            SERVICES
           </Header>
           <Text>
             {generalText}
@@ -66,7 +66,7 @@ class Services extends Component {
 
         <Testimonial
           text={testimonialText}
-          from={'Paul, Montreal, Canada'} />        
+          from={'Paul Deutschman, Montreal'} />        
         
         <CTA />
 
@@ -78,7 +78,7 @@ class Services extends Component {
 
 const Text = styled.p`
   font-family: CardoItalic;
-  width: 55%;
+  width: 65%;
   margin: 0 auto;
   letter-spacing: 2px;
   line-height: 30px;

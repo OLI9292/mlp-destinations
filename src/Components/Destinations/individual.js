@@ -31,13 +31,15 @@ class IndividualDestinationPage extends Component {
           darkened={this.state.darkenImage} 
           image={this.state.imagePath} />
 
-        <Header>
-          OVERVIEW
-        </Header>
 
-        <Text>
-          {this.state.description}
-        </Text>
+        <div style={{textAlign:'center',margin:'75px 0px 100px 0px'}}>
+          <Header>
+            OVERVIEW
+          </Header>
+          <Text>
+            {this.state.description}
+          </Text>
+        </div>
 
         <Header italic>
           recent finds...
@@ -53,7 +55,7 @@ class IndividualDestinationPage extends Component {
 
 const Text = styled.p`
   font-family: CardoItalic;
-  width: 55%;
+  width: 65%;
   margin: 0 auto;
   letter-spacing: 2px;
   line-height: 30px;

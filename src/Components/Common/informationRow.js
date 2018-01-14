@@ -75,7 +75,7 @@ class InformationRow extends Component {
         <p style={{fontFamily:'ATSackersGothicMedium',color:colors.red,fontSize:'0.8em',letterSpacing:'2px',lineHeight:'30px'}}>
           {this.props.information.title.toUpperCase()}
         </p>
-        <p style={{fontFamily:'CardoItalic',letterSpacing:'1px',lineHeight:'25px'}}>
+        <p style={{fontFamily:'CardoItalic',letterSpacing:'2px',lineHeight:'30px'}}>
           {this.props.information.content}
         </p>
       </TextBlock>;

@@ -42,22 +42,22 @@ class FrontCover extends Component {
           </LogoContainer>
 
           <LinksContainer>
-            <Link flex={1.05} onClick={() => this.setState({ redirect: '/services' })}>
+            <Link flex={1} onClick={() => this.setState({ redirect: '/services' })}>
               SERVICES
               <img alt={'underline'} src={underline} style={{display: path.includes('services') ? '' : 'none'}}/>
             </Link>
 
-            <Link flex={1.15} onClick={() => this.setState({ redirect: '/destinations' })}>
+            <Link flex={1.2} onClick={() => this.setState({ redirect: '/destinations' })}>
               DESTINATIONS
               <img alt={'underline'} src={underline} style={{display: path.includes('destinations') ? '' : 'none'}}/>
             </Link>
 
-            <Link flex={0.9} onClick={() => this.setState({ redirect: '/about' })}>
+            <Link flex={0.85} onClick={() => this.setState({ redirect: '/about' })}>
               ABOUT
               <img alt={'underline'} src={underline} style={{display: path.includes('about') ? '' : 'none'}}/>
             </Link>
 
-            <Link flex={1.1} onClick={() => this.setState({ redirect: '/contact' })}>
+            <Link flex={1} onClick={() => this.setState({ redirect: '/contact' })}>
               CONTACT
               <img alt={'underline'} src={underline} style={{display: path.includes('contact') ? '' : 'none'}}/>
             </Link>

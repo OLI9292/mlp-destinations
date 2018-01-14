@@ -39,22 +39,36 @@
     <script src="https://smtpjs.com/v2/smtp.js"></script>
     <script>
       function sendMail() {
-        console.log('SEND')
-        
-        Email.send("contact@mlpdestinations.com",
+        const name = document.getElementById("form-name").value.trim();
+        const number = document.getElementById("form-number").value.trim();
+        const destination = document.getElementById("form-destination").value.trim();
+        const people = document.getElementById("form-people").value.trim();
+        const message = document.getElementById("form-message").value.trim();        
+
+        const subject = "New message from " + name + ".";
+
+        const body = [
+          "Name: " + name,
+          "Contact number: " + number,
+          "Interested in: " + destination,
+          "# of people: " + people,
+          "Message: " + message
+        ].join('\n');
+
+        Email.send("otplunkett@gmail.com",
         "otplunkett@gmail.com",
-        "This is a subject2",
-        "this is the body",
+        subject,
+        body,
         "smtp.elasticemail.com",
         "otplunkett@gmail.com",
         "ee8829ec-1120-4281-a7af-387ae7982f75");
       }
 
       function init() {
-        sendMail();
+        document.getElementById("form").onsubmit = sendMail;
       }
 
-      window.onload = init();
+      window.onload = init;
     </script>    
   </body>
 </html>

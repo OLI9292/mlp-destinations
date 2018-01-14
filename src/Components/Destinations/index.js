@@ -45,7 +45,7 @@ class Destinations extends Component {
         : this.state.destinations;
 
       return destinations.map((d,i) => {
-        return <div key={i} style={{height:'100%',width:'100%',overflow:'hidden',position:'relative'}}>
+        return <div key={i} style={{height:'100%',width:'100%',overflow:'hidden',position:'relative',textAlign:'center'}}>
           <DestinationContainer 
             image={d.image}
             mobile={window.isMobile}
@@ -56,7 +56,7 @@ class Destinations extends Component {
           {window.isMobile && Navigation}
 
           <DestinationContent mobile={window.isMobile}>
-            <h3 style={{fontFamily:'EBGARAMOND12REGULAR',color:'white',letterSpacing:'2px',lineHeight:'25px'}}>
+            <h3 style={{fontFamily:'EBGARAMOND12REGULAR',color:'white',letterSpacing:'3px',lineHeight:'25px'}}>
               {d.name.toUpperCase()}
             </h3>
 

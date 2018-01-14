@@ -11,12 +11,12 @@ import Header from '../Common/header';
 import Destinations from '../Destinations/index';
 import Testimonial from '../Common/testimonial';
 
-const conceptText = 'To act as an \'internet\' filter to navigate you through ' +
+const conceptText = 'To act as an internet filter to navigate you through ' +
   'the maze of travel providers and link you to the right individual to plan your ' +
   'trip.  Over the years I have built up a network of true specialists who only ' +
   'cover one region or country.  They all run their own companies and have over 15 ' +
   'years of experience.  This specialization is key to being able to provide you with ' +
-  'the best service and most up to date information on where you want to go, for the ' +
+  'the best service and most up to date information on where you want to travel, for the ' +
   'following destinations...';
 
 const testimonialText = 'Miranda has a unique gift for listening to and understanding ' +
@@ -31,45 +31,40 @@ class Home extends Component {
   render() {
     return (
       <div style={{backgroundColor:colors.beige}}>
-        <FrontCover page={'home'} darkened={0.3} image={'home/water.png'} />
+        <FrontCover page={'home'} darkened={0.35} image={'home/elephant.jpg'} />
 
-        <div style={{textAlign:'center'}}>
-
+        <div style={{textAlign:'center',margin:'75px 0px 100px 0px'}}>
           <Header>
             CONCEPT
           </Header>
-          
-          <Paragraph>
+          <Text>
             {conceptText}
-          </Paragraph>
-
-          <div style={{marginTop:'75px'}}>
-            <Destinations />
-          </div>
-
-          <Testimonial
-            text={testimonialText}
-            from={'Elizabeth, London, UK'} />
-
-          <CTA />
-
-          <Footer />
+          </Text>
         </div>
+
+        <Destinations />
+
+        <Testimonial
+          text={testimonialText}
+          from={'Elizabeth Morgan, London'} />
+
+        <CTA />
+
+        <Footer />
       </div>
     );
   }
 }
 
-const Paragraph = styled.p`
+const Text = styled.p`
   font-family: CardoItalic;
-  font-size: 1.1em;
-  width: 55%;
+  width: 65%;
   margin: 0 auto;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   line-height: 30px;
+  margin-bottom: 75px;
   ${media.phone`
     width: 80%;
-    font-size: 1em;
   `}    
 `
 

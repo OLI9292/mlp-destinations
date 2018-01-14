@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+import { media } from '../../Library/breakpoints';
 import colors from '../../Library/colors';
+import Header from '../Common/header';
 import CTA from '../Common/cta';
 import Footer from '../Common/footer';
 import FrontCover from '../Common/frontCover';
@@ -9,7 +11,7 @@ import InformationRow from '../Common/informationRow';
 
 const informations = [
   {
-    title: 'GETTING TO GRIPS WITH A NEW PLACE',
+    title: 'ON ARRIVAL',
     content: 'I always like to get the lay of the land when arriving somewhere for the first time and this is usually best done on foot. If you are in a location long enough I recommend slipping into a local church service as this will give you a real flavor of the language, dress and culture.',
     imageUrl: require('../../Library/Images/about/dancing-girl.png'),
     frameColor: colors.green,
@@ -26,7 +28,7 @@ const informations = [
   },
   {
     title: 'TRAVELING WITH TEENAGERS',
-    content: 'From experience with two very different boys don\'t overload them with detail before you travel so there is an element of surprise, include a bit of spoiling as they\'ll notice and pace the culture element with plenty of down-time and good meals. Remember it\'s their vacation too.',
+    content: 'From experience with my two very different boys don\'t overload them with detail before you travel so there is an element of surprise, include a bit of spoiling as they\'ll notice and pace the culture element with plenty of down-time and good meals.',
     imageUrl: require('../../Library/Images/about/lake.png'),
     frameColor: colors.green,
     orientFrame: ['top', 'left'],
@@ -50,6 +52,11 @@ const informations = [
   }
 ]
 
+const generalText = 'I have spent the last 40 years traveling extensively as well as working in the travel business, ' +
+  'and there is nothing I enjoy more than using the knowledge I have acquired to help advise others. When not on a ' +
+  'research trip I divide my time between North America and the UK. Below are some personal insights I have picked up ' +
+  'along the way:';
+
 class About extends Component {
   componentWillMount() {
     window.scrollTo(0, 0);
@@ -60,7 +67,14 @@ class About extends Component {
       <div style={{backgroundColor:colors.beige}}>
         <FrontCover darkened={0.35} image={'about/painting.jpg'} />
 
-        <Whitespace />
+        <div style={{textAlign:'center',margin:'75px 0px 150px 0px'}}>
+          <Header>
+            ABOUT
+          </Header>
+          <Text>
+            {generalText}
+          </Text>
+        </div>
           
         {informations.map((i,idx) => <InformationRow last={idx+1 === informations.length} key={i.title} information={i} />)}
 
@@ -72,9 +86,17 @@ class About extends Component {
   }
 }
 
-const Whitespace = styled.div`
-  width: 100%;
-  height: 125px;
+
+const Text = styled.p`
+  font-family: CardoItalic;
+  width: 65%;
+  margin: 0 auto;
+  letter-spacing: 2px;
+  line-height: 30px;
+  margin-bottom: 75px;
+  ${media.phone`
+    width: 80%;
+  `}    
 `
 
 export default About;

@@ -7,30 +7,42 @@ import Footer from '../Common/footer';
 import FrontCover from '../Common/frontCover';
 
 class Contact extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   componentWillMount() {
     window.scrollTo(0, 0);
   }
     
   render() {
     const form = (() => {
-      return <Form>
+      return <Form id="form">
         <InputHeader>NAME:</InputHeader>
-        <Input type='text' />
+        <Input type='text' id="form-name"
+          value={this.state.name || ''}
+          onChange={(e) => this.setState({ name: e.target.value })} />
 
         <InputHeader>CONTACT NUMBER:</InputHeader>
-        <Input type='text' />
+        <Input type='text' id="form-number"
+          value={this.state.number || ''}
+          onChange={(e) => this.setState({ number: e.target.value })} />
 
         <InputHeader>WHERE DO YOU WANT TO TRAVEL ?</InputHeader>
-        <Input type='text' />
-
-        <InputHeader>WHEN DO YOU WANT TO GO ?</InputHeader>
-        <Input type='text' />
+        <Input type='text' id="form-destination"
+          value={this.state.destination || ''}
+          onChange={(e) => this.setState({ destination: e.target.value })} />
 
         <InputHeader>HOW MANY PEOPLE ?</InputHeader>
-        <Input extraMargin type='text' />
+        <Input type='text' id="form-people"
+          value={this.state.people || ''}
+          onChange={(e) => this.setState({ people: e.target.value })} />
 
         <InputHeader>BRIEF MESSAGE :</InputHeader>
-        <Textarea />
+        <Textarea type='text' id="form-message"
+          value={this.state.message || ''}
+          onChange={(e) => this.setState({ message: e.target.value })} />
 
         <Submit type='submit' value='SEND' />    
       </Form>

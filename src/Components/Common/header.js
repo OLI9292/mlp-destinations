@@ -6,10 +6,10 @@ const Header = styled.p`
   font-family: ${props => props.italic ? 'CardoItalic' : 'ATSackersGothicMedium'};
   font-size: ${props => props.italic ? '2em' : '1.4em'};
   color: ${props => props.italic ? colors.green : colors.red};
-  margin: 75px 0px 75px 0px;
+  margin: 50px 0px 50px 0px;
   letter-spacing: 3px;
   ${media.phone`
-    margin: 50px 0px 50px 0px;
+    margin: 25px 0px 25px 0px;
   `}   
 `
 
