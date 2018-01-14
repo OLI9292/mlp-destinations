@@ -38,7 +38,9 @@
     -->
     <script src="https://smtpjs.com/v2/smtp.js"></script>
     <script>
-      function sendMail() {
+      window.sendMail = function(e) {
+        e.preventDefault();
+
         const name = document.getElementById("form-name").value.trim();
         const number = document.getElementById("form-number").value.trim();
         const destination = document.getElementById("form-destination").value.trim();
@@ -55,6 +57,8 @@
           "Message: " + message
         ].join('\n');
 
+        console.log(subject)
+
         Email.send("otplunkett@gmail.com",
         "otplunkett@gmail.com",
         subject,
@@ -63,12 +67,6 @@
         "otplunkett@gmail.com",
         "ee8829ec-1120-4281-a7af-387ae7982f75");
       }
-
-      function init() {
-        document.getElementById("form").onsubmit = sendMail;
-      }
-
-      window.onload = init;
     </script>    
   </body>
 </html>

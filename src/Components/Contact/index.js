@@ -18,7 +18,7 @@ class Contact extends Component {
     
   render() {
     const form = (() => {
-      return <Form id="form">
+      return <Form id="form" onSubmit={(e) => { console.log('submit'); window.sendMail(e) }}>
         <InputHeader>NAME:</InputHeader>
         <Input type='text' id="form-name"
           value={this.state.name || ''}
