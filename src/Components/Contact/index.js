@@ -61,10 +61,16 @@ class Contact extends Component {
       saveForm(this.state);      
     }
   }
+
+  handleOutsideClick() {
+    if (document.activeElement && window.isMobile) {
+      document.activeElement.blur();
+    } 
+  }
     
   render() {
     const form = (() => {
-      return <Form id="form" onSubmit={(e) => this.handleSubmit(e)}>
+      return <Form id="form" onSubmit={(e) => this.handleSubmit(e)} onClick={() => this.handleOutsideClick()}>
         <InputHeader>NAME :</InputHeader>
         <Input type='text' id="form-name"
           value={this.state.name || ''}
@@ -122,7 +128,7 @@ const FormMessage = styled.p`
   font-family: CardoItalic;
   letter-spacing: 2px;
   ${media.phone`
-    margin-top: 230px;
+    margin-top: 260px;
     margin-bottom: 35px;
   `}; 
 `
@@ -178,6 +184,7 @@ const Submit = styled.input`
   letter-spacing: 2px;
   cursor: pointer;
   border: 0;
+  border-radius: 0px;
   -webkit-appearance: none;
   outline: 0;
   ${media.phone`
@@ -196,6 +203,7 @@ const Textarea = styled.textarea`
   outline: none;
   letter-spacing: 2px;
   border: none;
+  border-radius: 0px;
   padding: 20px 30px 20px 30px;
   box-sizing: border-box;
   ${media.phone`
