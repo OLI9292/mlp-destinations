@@ -48,7 +48,7 @@ class InformationRow extends Component {
           onLoad={this.resize.bind(this)} 
           ref={img => {this.img = img}}
           src={this.props.information.imageUrl}
-          style={{height:'auto',width:'100%',zIndex:'10',opacity:opacity,marginTop:marginTop,position:'relative',transitionDuration:'1s'}} />
+          style={{height:'auto',width:'100%',zIndex:'1',opacity:opacity,marginTop:marginTop,position:'relative',transitionDuration:'1s'}} />
 
         <div style={{
             backgroundColor: this.props.information.frameColor,
@@ -57,7 +57,7 @@ class InformationRow extends Component {
             position: 'absolute',
             top: orientBottom ? '35px' : '-35px',
             width: this.state.width,
-            zIndex: '1'
+            zIndex: '0'
           }}>
 
           {

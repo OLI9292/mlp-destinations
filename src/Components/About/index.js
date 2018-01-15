@@ -71,6 +71,11 @@ class About extends Component {
           <Header>
             ABOUT
           </Header>
+
+          <ImageCropper>
+            <Headshot src={require('../../Library/Images/about/miranda.jpg')} />
+          </ImageCropper>
+
           <Text>
             {generalText}
           </Text>
@@ -86,6 +91,25 @@ class About extends Component {
   }
 }
 
+const ImageCropper = styled.div`
+  width: 125px;
+  height: 125px;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  border-radius: 50%;
+  margin: 0 auto;
+  border: 3px solid ${colors.red};
+  margin-top: 40px;
+  margin-bottom: 40px;
+`
+
+const Headshot = styled.img`
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+`
 
 const Text = styled.p`
   font-family: CardoItalic;

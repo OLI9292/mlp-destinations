@@ -24,7 +24,10 @@ class FrontCover extends Component {
     const path = window.location.pathname;
     
     return (
-      <Container onLoad={this.handleImageLoaded} image={require(`../../Library/Images/${this.props.image}`)}>
+      <Container 
+        onLoad={this.handleImageLoaded} 
+        image={require(`../../Library/Images/${this.props.image}`)}
+        isContact={path.includes('contact')}>
         
         <Burger 
           src={require(`../../Library/Images/${this.state.displayMobileMenu ? 'exit.png' : 'burger.png'}`)}
@@ -32,11 +35,11 @@ class FrontCover extends Component {
 
         <MobileMenu display={this.state.displayMobileMenu}/>
         
-        <Mask darkened={this.props.darkened} />
+        <Mask isContact={path.includes('contact')} darkened={this.props.darkened} />
 
         <InnerContainer>
 
-          <LogoContainer hide={path.includes('destinations/')}>
+          <LogoContainer hide={path.includes('destinations/') || path.includes('contact')}>
             <span style={{display:'inline-block',verticalAlign:'middle',height:'100%'}}></span>
             <Logo onClick={() => this.setState({ redirect: '/' })} src={logo} />
           </LogoContainer>
@@ -71,9 +74,9 @@ class FrontCover extends Component {
             <h3 style={{fontFamily:'ATSackersGothicMedium',fontSize:'1.3em'}}>
               {this.props.destination.name.toUpperCase()}
             </h3>
-            <p style={{fontFamily:'CardoItalic',lineHeight:'30px'}}>
+            <Places>
               {this.props.destination.places}
-            </p>
+            </Places>
           </div>          
           :
           <Tagline hide={path.includes('contact')}>
@@ -99,7 +102,7 @@ class FrontCover extends Component {
 }
 
 const Container = styled.div`
-  z-index: 1;
+  z-index: 100;
   background: url(${props => props.image}) no-repeat center center;
   background-size: 100% auto;
   height: 550px;
@@ -108,7 +111,17 @@ const Container = styled.div`
   ${media.phone`
     height: 100vh;
     background-size: auto 100%;
+    z-index: ${props => props.isContact ? '150' : '100'};
+    background: ${props => props.isContact ? 'none' : `url(${props => props.image}) no-repeat center center`};
     text-align: center;
+  `}
+`
+
+const Places = styled.p`
+  font-family: CardoItalic;
+  line-height: 30px;
+  ${media.phone`
+    margin-top: 20%;
   `}
 `
 
@@ -118,8 +131,8 @@ const Burger = styled.img`
   padding: 7.5px;
   width: auto;
   position: fixed;
-  top: 1.5%;
-  left: 2.5%;
+  top: 3.5%;
+  left: 4.5%;
   display: none;
   transition-duration: 0.35s;
   z-index: 99999999999;
@@ -138,6 +151,9 @@ const Mask = styled.div`
   left: 0;
   bottom: 0;
   background:rgba(0,0,0,${props => props.darkened});
+  ${media.phone`
+    background: rgba(0,0,0,${props => props.isContact ? 0 : props.darkened});
+  `}
 `
 
 const LogoContainer = styled.div`

@@ -48,8 +48,8 @@ const TestimonialParagraph = styled.p`
     margin-left: 0px;
     width: 80%;
     margin: 0 auto;
-    line-height: 17px;
-    font-size: 0.725em;
+    line-height: 20px;
+    font-size: 0.8em;
   `}   
 `
 export default Testimonial;

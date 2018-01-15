@@ -43,6 +43,7 @@ const InnerContainer = styled.div`
   transition-duration: 0.35s;
   margin: 20% 0% 0% 17.5%;
   text-align: left;
+  z-index: 999999999;
 `
 
 const Text = styled.p`

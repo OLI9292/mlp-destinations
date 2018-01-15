@@ -1,8 +1,8 @@
 {
   "main.css": "static/css/main.b5a43d70.css",
   "main.css.map": "static/css/main.b5a43d70.css.map",
-  "main.js": "static/js/main.baabf736.js",
-  "main.js.map": "static/js/main.baabf736.js.map",
+  "main.js": "static/js/main.3b62fd3a.js",
+  "main.js.map": "static/js/main.3b62fd3a.js.map",
   "static/media/ATSackersGothic-Medium.ttf": "static/media/ATSackersGothic-Medium.89ff4d90.ttf",
   "static/media/Cardo-Italic.ttf": "static/media/Cardo-Italic.35e7a559.ttf",
   "static/media/EBGARAMOND12-REGULAR.TTF": "static/media/EBGARAMOND12-REGULAR.a8006b37.TTF",
@@ -26,7 +26,6 @@
   "static/media/footprints.png": "static/media/footprints.a731b277.png",
   "static/media/fruit.jpg": "static/media/fruit.24264c6b.jpg",
   "static/media/goat.jpg": "static/media/goat.920f81a0.jpg",
-  "static/media/headshot.jpg": "static/media/headshot.341ec78e.jpg",
   "static/media/horse.jpg": "static/media/horse.28fc0d57.jpg",
   "static/media/jesus.jpg": "static/media/jesus.1ba4601b.jpg",
   "static/media/lake.jpg": "static/media/lake.025afb83.jpg",
@@ -37,6 +36,7 @@
   "static/media/lions.jpg": "static/media/lions.5fec7cc5.jpg",
   "static/media/logo.svg": "static/media/logo.7b20c1f4.svg",
   "static/media/man.png": "static/media/man.5f17837d.png",
+  "static/media/miranda.jpg": "static/media/miranda.413be452.jpg",
   "static/media/mirror.jpg": "static/media/mirror.e28836c3.jpg",
   "static/media/monk.jpg": "static/media/monk.2845d71e.jpg",
   "static/media/mortar.png": "static/media/mortar.8c18c84b.png",
@@ -46,5 +46,5 @@
   "static/media/sandals.jpg": "static/media/sandals.c141870d.jpg",
   "static/media/soup.png": "static/media/soup.1feb7d16.png",
   "static/media/water.png": "static/media/water.3f42f732.png",
-  "static/media/woman.jpg": "static/media/woman.222ae8af.jpg"
+  "static/media/woman.jpg": "static/media/woman.b1e4886e.jpg"
 }

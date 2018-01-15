@@ -138,7 +138,7 @@ const DestinationContainer = styled.div`
   cursor: pointer;
   transition-duration: ${props => props.mobile ? '0' : '0.7s'};
   &:hover {
-    transform: scale(1.1);
+    transform: ${props => props.mobile ? 'scale(1)' : 'scale(1.1)'};
   }
 `
 

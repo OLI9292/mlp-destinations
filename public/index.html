@@ -39,8 +39,6 @@
     <script src="https://smtpjs.com/v2/smtp.js"></script>
     <script>
       window.sendMail = function(e) {
-        e.preventDefault();
-
         const name = document.getElementById("form-name").value.trim();
         const number = document.getElementById("form-number").value.trim();
         const destination = document.getElementById("form-destination").value.trim();
@@ -49,13 +47,10 @@
 
         const subject = "New message from " + name + ".";
 
-        const body = [
-          "Name: " + name,
-          "Contact number: " + number,
-          "Interested in: " + destination,
-          "# of people: " + people,
-          "Message: " + message
-        ].join('\n');
+        let body = "Name: " + name + ", Contact number: " + number;
+        if (destination.length) { body += ", Interested in: " + destination}
+        if (people.length)      { body += ", # of people: " + people}
+        if (message.length)     { body += ", Message: " + message}
 
         Email.send("miranda@mlpdestinations.com",
         "miranda@mlpdestinations.com",
@@ -65,7 +60,7 @@
         "otplunkett@gmail.com",
         "ee8829ec-1120-4281-a7af-387ae7982f75");
 
-        console.log('Form submitted.');
+        console.log('Form submitted to smtp.');
       }
     </script>    
   </body>

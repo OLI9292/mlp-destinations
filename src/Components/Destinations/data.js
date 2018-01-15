@@ -58,7 +58,7 @@ export default [
         inverted: true
       },
       {
-        title: 'CULTURE',
+        title: 'ART',
         location: 'SUZANNE LECHT, VIETNAM',
         content: 'Vietnam\'s contemporary art scene cannot be explored without coming across Suzanne Lecht’s name. Arriving from America via Hong Kong over 20 years ago this remarkable lady decided to acquaint herself with a small group of young artists whom she then began to promote and represent. The Gang of Five is now recognized internationally, and Suzanne continues to organize exhibitions in her adopted home of Hanoi.',
         imageUrl: require('../../Library/Images/destinations/asia/woman.jpg'),

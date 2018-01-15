@@ -20,9 +20,8 @@ const generalText = 'It\'s simple. After an initial discussion where we talk abo
   'do not need a specialist I can provide an outline itinerary for you to self-book your own trip.';
 
 const testimonialText = 'Miranda assessed our wishes and tailored a trip that fully met these, ' +
-  'providing a perfect balance between private tours that allowed us to understand the history and ' +
-  'culture of Uruguay, visits to museums and vineyards as well as other activities we love, like ' +
-  'horseback riding, tennis and enjoying gourmet meals.';
+  'providing a perfect balance between private tours and activities we love, like horseback riding, ' +
+  'tennis and enjoying gourmet meals.';
 
 const informations = [
   {
