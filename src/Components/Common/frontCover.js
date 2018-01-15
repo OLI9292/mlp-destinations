@@ -111,6 +111,7 @@ const Container = styled.div`
   ${media.phone`
     height: 100vh;
     background-size: auto 100%;
+    pointer-events: ${props => props.isContact ? 'none' : 'auto'};
     z-index: ${props => props.isContact ? '150' : '100'};
     background: ${props => props.isContact ? 'none' : `url(${props => props.image}) no-repeat center center`};
     text-align: center;
@@ -126,6 +127,7 @@ const Places = styled.p`
 `
 
 const Burger = styled.img`
+  pointer-events: auto;
   height: 5%;
   background-color: rgba(156,62,76,0.99);
   padding: 7.5px;

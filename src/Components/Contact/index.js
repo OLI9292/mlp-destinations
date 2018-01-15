@@ -122,7 +122,7 @@ const FormMessage = styled.p`
   font-family: CardoItalic;
   letter-spacing: 2px;
   ${media.phone`
-    margin-top: 120px;
+    margin-top: 230px;
     margin-bottom: 35px;
   `}; 
 `
@@ -156,6 +156,7 @@ const Input = styled.input`
   font-family: CardoItalic;
   outline: none;
   border: none;
+  border-radius: 0px;
   height: 40px;
   font-size: 1.05em;
   margin-bottom: ${props => props.extraMargin ? '25px' : '10px'};
@@ -177,6 +178,7 @@ const Submit = styled.input`
   letter-spacing: 2px;
   cursor: pointer;
   border: 0;
+  -webkit-appearance: none;
   outline: 0;
   ${media.phone`
     bottom: -50px;
