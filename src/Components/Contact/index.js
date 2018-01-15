@@ -49,6 +49,7 @@ class Contact extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.removeKeyboard();
 
     const formError = this.formError();
 
@@ -62,7 +63,7 @@ class Contact extends Component {
     }
   }
 
-  handleOutsideClick() {
+  removeKeyboard() {
     if (document.activeElement && window.isMobile) {
       document.activeElement.blur();
     } 
@@ -70,7 +71,7 @@ class Contact extends Component {
     
   render() {
     const form = (() => {
-      return <Form id="form" onSubmit={(e) => this.handleSubmit(e)} onClick={() => this.handleOutsideClick()}>
+      return <Form id="form" onSubmit={(e) => this.handleSubmit(e)}>
         <InputHeader>NAME :</InputHeader>
         <Input type='text' id="form-name"
           value={this.state.name || ''}
@@ -128,7 +129,7 @@ const FormMessage = styled.p`
   font-family: CardoItalic;
   letter-spacing: 2px;
   ${media.phone`
-    margin-top: 260px;
+    margin-top: 265px;
     margin-bottom: 35px;
   `}; 
 `
