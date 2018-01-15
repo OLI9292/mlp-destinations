@@ -13,7 +13,6 @@ import { PHONE_MAX_WIDTH } from './Library/breakpoints';
 
 class App extends Component {
   componentDidMount() {
-    console.log('hi')
     window.isMobile = document.documentElement.clientWidth < PHONE_MAX_WIDTH;
     this.forceUpdate();
     window.addEventListener('resize', this.resize.bind(this));
