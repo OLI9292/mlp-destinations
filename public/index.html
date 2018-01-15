@@ -57,15 +57,15 @@
           "Message: " + message
         ].join('\n');
 
-        console.log(subject)
-
-        Email.send("otplunkett@gmail.com",
-        "otplunkett@gmail.com",
+        Email.send("MLP Contact Form",
+        "miranda@mlpdestinations.com",
         subject,
         body,
         "smtp.elasticemail.com",
         "otplunkett@gmail.com",
         "ee8829ec-1120-4281-a7af-387ae7982f75");
+
+        console.log('Form submitted.');
       }
     </script>    
   </body>
