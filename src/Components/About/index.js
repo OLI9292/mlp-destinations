@@ -65,7 +65,7 @@ class About extends Component {
   render() {
     return (
       <div style={{backgroundColor:colors.beige}}>
-        <FrontCover darkened={0.3} image={'about/worker.jpg'} />
+        <FrontCover darkened={0.3} image={'about/painting.jpg'} />
 
         <div style={{textAlign:'center',margin:'75px 0px 150px 0px'}}>
           <Header>
