@@ -105,7 +105,7 @@ export default [
         inverted: false
       },
       {
-        title: 'RANCH',
+        title: 'ESTANCIA',
         location: 'Cordoba, Argentina',
         content: 'Cordoba is a region in the north west of Argentina primarily known for dove-shooting. There is also some amazing riding to be had, especially if you are looking for a really authentic estancia experience and a few days rest and relaxation. There are a couple of different but truly fantastic estancias to suit beginners and advanced riders.',
         imageUrl: require('../../Library/Images/destinations/south-america/horse.jpg'),

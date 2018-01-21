@@ -12,7 +12,7 @@ import InformationRow from '../Common/informationRow';
 const informations = [
   {
     title: 'ON ARRIVAL',
-    content: 'I always like to get the lay of the land when arriving somewhere for the first time and this is usually best done on foot. If you are in a location long enough I recommend slipping into a local church service as this will give you a real flavor of the language, dress and culture.',
+    content: 'I always like to get the lay of the land when arriving somewhere for the first time and this is best done on foot. If you are in a location long enough I recommend slipping into a local church service as this will give you a real flavor of the language, dress and culture.',
     imageUrl: require('../../Library/Images/about/dancing-girl.png'),
     frameColor: colors.green,
     orientFrame: ['top', 'left'],
@@ -36,7 +36,7 @@ const informations = [
   },
   {
     title: 'FAVORITE PLACES TO STAY',
-    content: 'I prefer independent hotels, the reason being they have the personal flair of the owner who is often not in the travel industry and treats you more like a house guest. I recently stayed in a charming posada in Argentina and while having dinner the owner came to join me from her house across the vineyard. She shared some extraordinary stories of her family\'s fascinating history and then proceeded to open a bottle of the house special reserve.',
+    content: 'I prefer independent hotels, the reason being they have the personal flair of the owner who is often not in the travel industry and treats you more like a house guest. The owner of a charming posada in Mendoza joined us at dinner and over a bottle of special reserve from the vines less than 20ft away told us fascinating stories of her family\'s history.',
     imageUrl: require('../../Library/Images/about/mirror.jpg'),
     frameColor: colors.red,
     orientFrame: ['top', 'right'],
@@ -52,9 +52,9 @@ const informations = [
   }
 ]
 
-const generalText = 'I have spent the last 40 years traveling extensively as well as working in the travel business, ' +
+const generalText = 'I have spent the last 30 years traveling extensively as well as working in the travel business, ' +
   'and there is nothing I enjoy more than using the knowledge I have acquired to help advise others. When not on a ' +
-  'research trip I divide my time between North America and the UK. Below are some personal insights I have picked up ' +
+  'research trip I divide my time between North America and the UK. Below are some insights I have picked up ' +
   'along the way:';
 
 class About extends Component {
@@ -65,7 +65,7 @@ class About extends Component {
   render() {
     return (
       <div style={{backgroundColor:colors.beige}}>
-        <FrontCover darkened={0.35} image={'about/painting.jpg'} />
+        <FrontCover darkened={0.3} image={'about/worker.jpg'} />
 
         <div style={{textAlign:'center',margin:'75px 0px 150px 0px'}}>
           <Header>

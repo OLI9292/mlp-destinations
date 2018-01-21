@@ -50,7 +50,7 @@ class Services extends Component {
   render() {
     return (
       <div style={{backgroundColor:colors.beige}}>
-        <FrontCover darkened={0.25} image={'services/woman.jpg'} />
+        <FrontCover darkened={0.3} image={'services/boat.jpg'} />
 
         <div style={{textAlign:'center',margin:'75px 0px 150px 0px'}}>
           <Header>
