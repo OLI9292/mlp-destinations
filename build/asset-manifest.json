@@ -1,12 +1,13 @@
 {
   "main.css": "static/css/main.b5a43d70.css",
   "main.css.map": "static/css/main.b5a43d70.css.map",
-  "main.js": "static/js/main.2c869d8a.js",
-  "main.js.map": "static/js/main.2c869d8a.js.map",
+  "main.js": "static/js/main.ff8229cc.js",
+  "main.js.map": "static/js/main.ff8229cc.js.map",
   "static/media/ATSackersGothic-Medium.ttf": "static/media/ATSackersGothic-Medium.89ff4d90.ttf",
   "static/media/Cardo-Italic.ttf": "static/media/Cardo-Italic.35e7a559.ttf",
   "static/media/EBGARAMOND12-REGULAR.TTF": "static/media/EBGARAMOND12-REGULAR.a8006b37.TTF",
   "static/media/alpine.jpg": "static/media/alpine.7f9db65b.jpg",
+  "static/media/boat.jpg": "static/media/boat.e9fe79c3.jpg",
   "static/media/boats.jpg": "static/media/boats.d35d54ac.jpg",
   "static/media/brush-stroke.svg": "static/media/brush-stroke.60641093.svg",
   "static/media/camel.jpg": "static/media/camel.a4f4279a.jpg",
@@ -40,11 +41,11 @@
   "static/media/mirror.jpg": "static/media/mirror.e28836c3.jpg",
   "static/media/monk.jpg": "static/media/monk.2845d71e.jpg",
   "static/media/mortar.png": "static/media/mortar.8c18c84b.png",
-  "static/media/painting.jpg": "static/media/painting.7d03942d.jpg",
   "static/media/palace.png": "static/media/palace.6bdc45d0.png",
   "static/media/rocks.png": "static/media/rocks.68b04624.png",
   "static/media/sandals.jpg": "static/media/sandals.c141870d.jpg",
   "static/media/soup.png": "static/media/soup.1feb7d16.png",
   "static/media/water.png": "static/media/water.3f42f732.png",
-  "static/media/woman.jpg": "static/media/woman.b1e4886e.jpg"
+  "static/media/woman.jpg": "static/media/woman.b1e4886e.jpg",
+  "static/media/worker.jpg": "static/media/worker.89016de4.jpg"
 }
