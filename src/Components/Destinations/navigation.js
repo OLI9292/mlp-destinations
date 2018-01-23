@@ -25,7 +25,7 @@ class Navigation extends Component {
           onMouseLeave={() => this.setState({ isHovered: null })}
           onClick={() => this.setState({ redirect: `/destinations/${destination.slug}`})}
           highlight={highlight}>
-          {destination.name}
+          {destination.name.toUpperCase()}
         </DestinationSpan>
       })
       .reduce((prev, curr) => [prev, '/', curr]);
@@ -40,10 +40,11 @@ class Navigation extends Component {
 
 const DestinationSpan = styled.span`
   color: ${props => props.highlight ? colors.red : 'black'};
-  font-family: CardoItalic;
+  font-family: ATSackersGothicMedium;
   margin: 0px 20px;
   letter-spacing: 2px;
   cursor: pointer;
+  font-size: 0.75em;
   transition: 0.2s;
 `
 

@@ -37,7 +37,10 @@ class Footer extends Component {
             </Link>            
           </LinksContainer>
           <ContactInfo>
-            MIRANDA@MLPDESTINATIONS.COM
+            <a style={{textDecoration:'none',color:'white'}} 
+              href="mailto:miranda@mlpdestinations.com">
+              MIRANDA@MLPDESTINATIONS.COM
+            </a>
             <br /><br />
             1-203-564-3974
           </ContactInfo>

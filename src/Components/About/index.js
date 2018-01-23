@@ -92,8 +92,8 @@ class About extends Component {
 }
 
 const ImageCropper = styled.div`
-  width: 125px;
-  height: 125px;
+  width: 175px;
+  height: 175px;
   position: relative;
   overflow: hidden;
   margin: 0 auto;

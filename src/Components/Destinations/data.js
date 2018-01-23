@@ -79,7 +79,7 @@ export default [
   },
   {
     name: 'Central & South America',
-    places: 'Antarctica, Argentina, Belize, Bolivia, Brazil, Chile, Colombia, Costa Rica, Cuba, Ecuador, Guatemala, Mexico, Panama, Peru, The Galapagos, The Turks & Caicos, Uruguay',
+    places: 'Antarctica, Argentina, Belize, Bolivia, Brazil, Chile, Colombia, Costa Rica, Cuba, Ecuador, Guatemala, Mexico, Panama, Peru, The Galapagos, The Turks & Caicos Islands, Uruguay',
     slug: 'central-and-south-america',
     image: require('../../Library/Images/destinations/south-america/cowboy.png'),
     imagePath: 'destinations/south-america/cowboy.png',
