@@ -89,7 +89,7 @@ export default [
       {
         title: 'FROMAGERIE',
         location: 'Vira,Vira, Chile',
-        content: 'Cheese is not highly rated in Chile but at this beautiful private lodge in the heart of the lake and volcano district, the owner decided to address this issue. Alongside their organic farm Michael built a fully-fledged fromagerie, imported cultures from Europe, and employed a full-time cheese-maker who is supervised by annual visits from a Swiss expert. The result is shavings of real Parmigiano served on farm-raised wild boar risotto.',
+        content: 'Cheese is not highly rated in Chile but at this beautiful private lodge in the heart of the lake and volcano district, the owner decided to address this issue. Alongside their organic farm Michael built a fully-fledged fromagerie, imported cultures from Europe, and employed a full-time cheese-maker who is supervised by annual visits from a Swiss expert. The result is shavings of Parmigiano served on wild boar risotto.',
         imageUrl: require('../../Library/Images/destinations/south-america/cheese.jpg'),
         frameColor: colors.green,
         orientFrame: ['bottom', 'right'],

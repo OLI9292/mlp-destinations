@@ -34,7 +34,7 @@ const informations = [
   },
   {
     title: 'SMALL GROUP TRIPS',
-    content: 'These trips are ideal for single travelers. The average group size is 8 people and individual accommodation is often available. I work with National Geographic photographer, Catherine Karnow and private yoga teacher, Andrea Curry who both lead their own trips each year to a variety of destinations. Please enquire for current schedules.',
+    content: 'These trips are ideal for single travelers. The average group size is 8 people and individual accommodation is often available. I work with National Geographic photographer, Catherine Karnow and private yoga teachers, Andrea and Christina Curry who both lead their own trips each year to a variety of destinations. Please enquire for current schedules.',
     imageUrl: require('../../Library/Images/services/sandals.jpg'),
     frameColor: colors.green,
     orientFrame: ['top', 'left'],
