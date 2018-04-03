@@ -1,36 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import * as firebase from 'firebase';
 
 import colors from '../../Library/colors';
 import { media } from '../../Library/breakpoints';
 import Footer from '../Common/footer';
 import FrontCover from '../Common/frontCover';
-
-const firebaseConfig = {
-  apiKey: 'AIzaSyDU5km1KpZIcDjt-lJAMianskQgPDYGT8o',
-  authDomain: 'mlp-destinations.firebaseapp.com',
-  databaseURL: 'https://mlp-destinations.firebaseio.com',
-  storageBucket: 'mlp-destinations.appspot.com'
-};
-
-const firebaseApp = firebase.initializeApp(firebaseConfig);
-
-const saveForm = data => {
-  if (!data.name) { return; }
-  const date = new Date();
-  
-  const object = {
-    name: data.name || '',
-    number: data.number || '',
-    destination: data.destination || '',
-    people: data.people || '',
-    message: data.message || '',
-    date: date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()
-  };
-
-  firebaseApp.database().ref().child(Date.now()).set(object);
-}
 
 class Contact extends Component {
   constructor(props) {
@@ -48,18 +22,15 @@ class Contact extends Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault();
     this.removeKeyboard();
 
     const formError = this.formError();
 
     if (formError) {
+      e.preventDefault();
       this.setState({ formMessage: formError, formError: true });
     } else {
-      const thankYou = 'Thank you.  I will be in touch soon.';
-      this.setState({ formMessage: thankYou, formError: false, submitted: true });
-      window.sendMail(e);
-      saveForm(this.state);      
+      this.setState({ formMessage: null, formError: false });
     }
   }
 
@@ -70,8 +41,29 @@ class Contact extends Component {
   }
     
   render() {
+    const {
+      name,
+      number,
+      destination,
+      people,
+      message
+    } = this.state;
+
     const form = (() => {
-      return <Form id="form" onSubmit={(e) => this.handleSubmit(e)}>
+      const subject = 'Travel Inquiry';
+      const newline = '%0D%0A';
+      const body = 'Hello Miranda,' + newline.repeat(2) + 'I am reaching out after visiting your website.' +
+        (message ? (newline.repeat(2) + message) : '') +
+        newline.repeat(2) + `From ${name}.` + newline.repeat(2) + '--------' + newline.repeat(2) +
+        `Number: ${number}` +
+        (people ? (newline.repeat(1) + `People: ${people}`) : '') +
+        (destination ? (newline.repeat(1) + `Destination: ${destination}`) : '');
+
+      const email = "mailto:miranda@mlpdestinations.com" + 
+        "?Subject=" + subject +
+        "&Body=" + body;
+
+      return <Form action={email} method="post" onSubmit={this.handleSubmit.bind(this)}>
         <InputHeader>NAME :</InputHeader>
         <Input type='text' id="form-name"
           value={this.state.name || ''}

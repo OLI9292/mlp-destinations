@@ -35,33 +35,6 @@
 
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-    <script src="https://smtpjs.com/v2/smtp.js"></script>
-    <script>
-      window.sendMail = function(e) {
-        const name = document.getElementById("form-name").value.trim();
-        const number = document.getElementById("form-number").value.trim();
-        const destination = document.getElementById("form-destination").value.trim();
-        const people = document.getElementById("form-people").value.trim();
-        const message = document.getElementById("form-message").value.trim();        
-
-        const subject = "New message from " + name + ".";
-
-        let body = "Name: " + name + ", Contact number: " + number;
-        if (destination.length) { body += ", Interested in: " + destination}
-        if (people.length)      { body += ", # of people: " + people}
-        if (message.length)     { body += ", Message: " + message}
-
-        Email.send("miranda@mlpdestinations.com",
-        "miranda@mlpdestinations.com",
-        subject,
-        body,
-        "smtp.elasticemail.com",
-        "otplunkett@gmail.com",
-        "ee8829ec-1120-4281-a7af-387ae7982f75");
-
-        console.log('Form submitted to smtp.');
-      }
-    </script>    
+    -->   
   </body>
 </html>
