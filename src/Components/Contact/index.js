@@ -55,7 +55,7 @@ class Contact extends Component {
       const body = [
         name && 'Name: ' + name + newline,
         number && 'Contact Number: ' + number + newline,
-        destination && 'destination: ' + destination + newline,
+        destination && 'Destination: ' + destination + newline,
         people && '# People: ' + people + newline,
         message && 'Message: ' + message
       ].filter(l => l).join('');
