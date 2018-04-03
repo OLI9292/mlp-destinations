@@ -50,14 +50,15 @@ class Contact extends Component {
     } = this.state;
 
     const form = (() => {
-      const subject = 'Travel Inquiry';
+      const subject = 'Travel enquiry';
       const newline = '%0D%0A';
-      const body = 'Hello Miranda,' + newline.repeat(2) + 'I am reaching out after visiting your website.' +
-        (message ? (newline.repeat(2) + message) : '') +
-        newline.repeat(2) + `From ${name}.` + newline.repeat(2) + '--------' + newline.repeat(2) +
-        `Number: ${number}` +
-        (people ? (newline.repeat(1) + `People: ${people}`) : '') +
-        (destination ? (newline.repeat(1) + `Destination: ${destination}`) : '');
+      const body = [
+        name && 'Name: ' + name + newline,
+        number && 'Contact Number: ' + number + newline,
+        destination && 'destination: ' + destination + newline,
+        people && '# People: ' + people + newline,
+        message && 'Message: ' + message
+      ].filter(l => l).join('');
 
       const email = "mailto:miranda@mlpdestinations.com" + 
         "?Subject=" + subject +
