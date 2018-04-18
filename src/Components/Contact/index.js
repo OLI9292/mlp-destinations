@@ -45,12 +45,11 @@ class Contact extends Component {
     const newline = '%0D%0A';
     
     const body = [
-      name && 'Name: ' + name + newline,
-      number && 'Contact Number: ' + number + newline,
-      destination && 'Destination: ' + destination + newline,
-      people && '# People: ' + people + newline,
-      message && 'Message: ' + message
-    ].filter(l => l).join('');
+      name && 'Name: ' + name,
+      number && 'Contact Number: ' + number,
+      destination && 'Destination: ' + destination,
+      people && '# People: ' + people,
+    ].filter(l => l).join('; ') + (message ? (newline + 'Message: ' + message) : '');
 
     return "mailto:miranda@mlpdestinations.com?subject=" + subject + "&body=" + body;    
   }
