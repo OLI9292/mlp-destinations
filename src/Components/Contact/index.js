@@ -39,6 +39,21 @@ class Contact extends Component {
       document.activeElement.blur();
     } 
   }
+
+  email(name, number, destination, people, message) {
+    const subject = 'Travel enquiry';
+    const newline = '%0D%0A';
+    
+    const body = [
+      name && 'Name: ' + name + newline,
+      number && 'Contact Number: ' + number + newline,
+      destination && 'Destination: ' + destination + newline,
+      people && '# People: ' + people + newline,
+      message && 'Message: ' + message
+    ].filter(l => l).join('');
+
+    return "mailto:miranda@mlpdestinations.com?subject=" + subject + "&body=" + body;    
+  }
     
   render() {
     const {
@@ -49,54 +64,43 @@ class Contact extends Component {
       message
     } = this.state;
 
-    const form = (() => {
-      const subject = 'Travel enquiry';
-      const newline = '%0D%0A';
-      const body = [
-        name && 'Name: ' + name + newline,
-        number && 'Contact Number: ' + number + newline,
-        destination && 'Destination: ' + destination + newline,
-        people && '# People: ' + people + newline,
-        message && 'Message: ' + message
-      ].filter(l => l).join('');
+    const form = <Form 
+      action={this.email(name, number, destination, people, message)}
+      method="post"
+      onSubmit={this.handleSubmit.bind(this)}>
+      <InputHeader>NAME :</InputHeader>
+      <Input type='text' id="form-name"
+        value={this.state.name || ''}
+        onChange={(e) => this.setState({ name: e.target.value })} />
 
-      const email = "mailto:miranda@mlpdestinations.com" + 
-        "?Subject=" + subject +
-        "&Body=" + body;
+      <InputHeader>CONTACT NUMBER :</InputHeader>
+      <Input type='text' id="form-number"
+        value={this.state.number || ''}
+        onChange={(e) => this.setState({ number: e.target.value })} />
 
-      return <Form action={email} method="post" onSubmit={this.handleSubmit.bind(this)}>
-        <InputHeader>NAME :</InputHeader>
-        <Input type='text' id="form-name"
-          value={this.state.name || ''}
-          onChange={(e) => this.setState({ name: e.target.value })} />
+      <InputHeader>WHERE DO YOU WANT TO TRAVEL ?</InputHeader>
+      <Input type='text' id="form-destination"
+        value={this.state.destination || ''}
+        onChange={(e) => this.setState({ destination: e.target.value })} />
 
-        <InputHeader>CONTACT NUMBER :</InputHeader>
-        <Input type='text' id="form-number"
-          value={this.state.number || ''}
-          onChange={(e) => this.setState({ number: e.target.value })} />
+      <InputHeader>HOW MANY PEOPLE ?</InputHeader>
+      <Input type='text' id="form-people"
+        value={this.state.people || ''}
+        onChange={(e) => this.setState({ people: e.target.value })} />
 
-        <InputHeader>WHERE DO YOU WANT TO TRAVEL ?</InputHeader>
-        <Input type='text' id="form-destination"
-          value={this.state.destination || ''}
-          onChange={(e) => this.setState({ destination: e.target.value })} />
+      <InputHeader>BRIEF MESSAGE :</InputHeader>
+      <Textarea type='text' id="form-message"
+        value={this.state.message || ''}
+        onChange={(e) => this.setState({ message: e.target.value })} />
 
-        <InputHeader>HOW MANY PEOPLE ?</InputHeader>
-        <Input type='text' id="form-people"
-          value={this.state.people || ''}
-          onChange={(e) => this.setState({ people: e.target.value })} />
-
-        <InputHeader>BRIEF MESSAGE :</InputHeader>
-        <Textarea type='text' id="form-message"
-          value={this.state.message || ''}
-          onChange={(e) => this.setState({ message: e.target.value })} />
-
-        <Submit type='submit' value='SEND' />    
-      </Form>
-    })();
+      <Submit type='submit' value='SEND' />    
+    </Form>;
 
     return (
       <div style={{backgroundColor:colors.beige}}>
-        <FrontCover darkened={0.5} image={'contact/monk.jpg'} />
+        <FrontCover
+          darkened={0.5}
+          image={'contact/monk.jpg'} />
         
         {form}
 
