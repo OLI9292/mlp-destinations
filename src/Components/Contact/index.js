@@ -17,8 +17,7 @@ class Contact extends Component {
   }
 
   formError() {
-    if (!this.state.name)   { return 'Please enter your name.'; }
-    if (!this.state.number) { return 'Please enter a contact number.'; }
+    if (!this.state.name) { return 'Please enter your name.'; }
   }
 
   handleSubmit(e) {
@@ -40,52 +39,27 @@ class Contact extends Component {
     } 
   }
 
-  email(name, number, destination, people, message) {
+  email(name, message) {
     const subject = 'Travel enquiry';
     const newline = '%0D%0A';
-    
-    const body = [
-      name && 'Name: ' + name,
-      number && 'Contact Number: ' + number,
-      destination && 'Destination: ' + destination,
-      people && '# People: ' + people,
-    ].filter(l => l).join('; ') + (message ? (newline + 'Message: ' + message) : '');
-
+    const body = 'Name: ' + name + (message ? (newline + 'Message: ' + message) : '');
     return "mailto:miranda@mlpdestinations.com?subject=" + subject + "&body=" + body;    
   }
     
   render() {
     const {
       name,
-      number,
-      destination,
-      people,
       message
     } = this.state;
 
     const form = <Form 
-      action={this.email(name, number, destination, people, message)}
+      action={this.email(name, message)}
       method="post"
       onSubmit={this.handleSubmit.bind(this)}>
       <InputHeader>NAME :</InputHeader>
       <Input type='text' id="form-name"
         value={this.state.name || ''}
         onChange={(e) => this.setState({ name: e.target.value })} />
-
-      <InputHeader>CONTACT NUMBER :</InputHeader>
-      <Input type='text' id="form-number"
-        value={this.state.number || ''}
-        onChange={(e) => this.setState({ number: e.target.value })} />
-
-      <InputHeader>WHERE DO YOU WANT TO TRAVEL ?</InputHeader>
-      <Input type='text' id="form-destination"
-        value={this.state.destination || ''}
-        onChange={(e) => this.setState({ destination: e.target.value })} />
-
-      <InputHeader>HOW MANY PEOPLE ?</InputHeader>
-      <Input type='text' id="form-people"
-        value={this.state.people || ''}
-        onChange={(e) => this.setState({ people: e.target.value })} />
 
       <InputHeader>BRIEF MESSAGE :</InputHeader>
       <Textarea type='text' id="form-message"
