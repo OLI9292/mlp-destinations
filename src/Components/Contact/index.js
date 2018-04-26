@@ -61,7 +61,7 @@ class Contact extends Component {
         value={this.state.name || ''}
         onChange={(e) => this.setState({ name: e.target.value })} />
 
-      <InputHeader>BRIEF MESSAGE :</InputHeader>
+      <InputHeader>MESSAGE :</InputHeader>
       <Textarea type='text' id="form-message"
         value={this.state.message || ''}
         onChange={(e) => this.setState({ message: e.target.value })} />
