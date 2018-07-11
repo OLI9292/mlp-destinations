@@ -1,8 +1,8 @@
 {
   "main.css": "static/css/main.b5a43d70.css",
   "main.css.map": "static/css/main.b5a43d70.css.map",
-  "main.js": "static/js/main.2531d06c.js",
-  "main.js.map": "static/js/main.2531d06c.js.map",
+  "main.js": "static/js/main.a56a1ba1.js",
+  "main.js.map": "static/js/main.a56a1ba1.js.map",
   "static/media/ATSackersGothic-Medium.ttf": "static/media/ATSackersGothic-Medium.89ff4d90.ttf",
   "static/media/Cardo-Italic.ttf": "static/media/Cardo-Italic.35e7a559.ttf",
   "static/media/EBGARAMOND12-REGULAR.TTF": "static/media/EBGARAMOND12-REGULAR.a8006b37.TTF",
@@ -11,6 +11,7 @@
   "static/media/boats.jpg": "static/media/boats.e7548754.jpg",
   "static/media/brush-stroke.svg": "static/media/brush-stroke.60641093.svg",
   "static/media/camel.jpg": "static/media/camel.a4f4279a.jpg",
+  "static/media/camels.jpg": "static/media/camels.0a5b71ab.jpg",
   "static/media/cheese.jpg": "static/media/cheese.c60e48fc.jpg",
   "static/media/clothes.png": "static/media/clothes.01a5cc8d.png",
   "static/media/colloseum.png": "static/media/colloseum.784b7877.png",
