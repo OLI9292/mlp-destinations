@@ -1,4 +1,4 @@
-import colors from "../../Library/colors";
+import colors from "../../Library/colors"
 
 export default [
   {
@@ -24,20 +24,20 @@ export default [
       },
       {
         title: "RELAX",
-        location: "BABYLONSTOREN SPA, CAPE WINELANDS",
+        location: "SPA FARNATCHI, MARRAKECH",
         content:
-          "The specialist for South Africa has the perfect antidote for travel fatigue - a day of recuperation at Babylonstoren Spa in the Winelands.  Tea rituals can also be booked.",
-        imageUrl: require("../../Library/Images/destinations/africa/mortar.png"),
+          "For a hammam treatment which will leave you floating on air visit the Farnatchi Spa, adjoining a riad hotel in a quiet part of the Medina. It is elegant and serene from the moment you arrive and greeted with herbal tea before being shown to a tiled changing room outside your private hammam. After a period in the steamy low-lit room a salt scrub is applied and rinsed off with cool water. A massage from Ahmed is the icing on the cake.",
+        imageUrl: require("../../Library/Images/destinations/africa/spa.jpg"),
         frameColor: colors.green,
         orientFrame: ["bottom", "left"],
         inverted: false
       },
       {
-        title: "CAMEL TREKKING",
-        location: "SAHARA",
+        title: "CAMP",
+        location: "SERENGETI SAFARI CAMP, TANZANIA",
         content:
-          "No-one loves their camels more than Karin Toutounji, a Swiss lady who leads private and group safaris in the Sahara. Each camel is accompanied by its own camelier to take care of its needs. Her clients are pretty pampered too with shower tents, a fantastic chef and full vehicle support if you feel like sitting soft. Trip lengths range from 3 to 11 days and include ancient historical sites, desert villages and dramatic landscape.",
-        imageUrl: require("../../Library/Images/destinations/africa/camels.jpg"),
+          "For a real sense of the bush, Nomad safaris set up a mobile camp in different parts of the Serengeti to track the migration throughout the year. Comfort and good food are not compromised. Sitting round the campfire with a pre-dinner drink and listening to the animal sounds bring you much closer to wildlife than staying in a permanent lodge.",
+        imageUrl: require("../../Library/Images/destinations/africa/camp.jpg"),
         frameColor: colors.red,
         orientFrame: ["bottom", "right"],
         inverted: true
@@ -205,21 +205,21 @@ export default [
     darkenImage: 0.2,
     informations: [
       {
-        title: "DESIGN",
-        location: "ALPINE MODERN, BOULDER",
+        title: "BEST BURGER",
+        location: "OXOMOCO, BROOKLY",
         content:
-          "For a touch of Nordic design a local couple has opened two locations in Boulder, CO. The store on the main drag has a small coffee bar so you can sip on their delicious house blend which has lingering chocolate flavors while browsing their original and carefully sourced products. Further up the hill is the café itself where you can indulge in a seasonal selection of waffles, tartines and salads.",
-        imageUrl: require("../../Library/Images/destinations/usa-and-canada/alpine.jpg"),
+          "Located in the Greenpoint section of Brooklyn Oxomoco is a low-key Mexican brasserie. Their menu includes innovative recreations of American fare, namely a Caesar salad and burger which are to die for. Maybe some of the Michelin star glamour of Daniela Soto-Innes has crossed the East River to her friends at Oxomoco who have also been awarded a star.",
+        imageUrl: require("../../Library/Images/destinations/usa-and-canada/oxomoco.jpg"),
         frameColor: colors.green,
         orientFrame: ["bottom", "right"],
         inverted: true
       },
       {
-        title: "EVENTS",
-        location: "THE FARM-CREATIVE, QUEBEC",
+        title: "WELLNESS",
+        location: "LES MONASTERE DES AUGUSTINES, QUEBEC CITY",
         content:
-          "This is the ideal location for a product launch, team building exercise or a discreet corporate event. A family property restored with an exquisite eye for detail by its owner and former businessman, Terry Kell, The Farm lies in a stunning part of the Eastern Townships, an hour outside Montreal. The Creative team works with famous chefs and can tailor entertainment and event activities.",
-        imageUrl: require("../../Library/Images/destinations/usa-and-canada/farm.jpg"),
+          "The nuns’ legacy of healing has been transferred to visitors looking for rest and a healthy retreat in this stunning conversion of a 350 year-old monastery in the heart of the old city. Yoga, meditation walks, an extensive museum and a first class restaurant are all part of the experience. There is also the option to stay in an updated nun’s bedroom.",
+        imageUrl: require("../../Library/Images/destinations/usa-and-canada/monastery.jpg"),
         frameColor: colors.red,
         orientFrame: ["bottom", "left"],
         inverted: false
@@ -236,4 +236,4 @@ export default [
       }
     ]
   }
-];
+]
