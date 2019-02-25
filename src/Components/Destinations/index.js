@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { Redirect } from 'react-router';
-import styled from 'styled-components';
+import React, { Component } from "react"
+import { Redirect } from "react-router"
+import styled from "styled-components"
 
-import destinations from './data';
-import colors from '../../Library/colors';
+import destinations from "./data"
+import colors from "../../Library/colors"
 
 class Destinations extends Component {
   constructor(props) {
     super(props)
-    
+
     this.state = {
       destinations: destinations,
       mobileIndex: 0
@@ -16,79 +16,103 @@ class Destinations extends Component {
   }
 
   move(left) {
-    const mobileIndex = this.state.mobileIndex + (left ? -1 : 1);
-    this.setState({ mobileIndex });
+    const mobileIndex = this.state.mobileIndex + (left ? -1 : 1)
+    this.setState({ mobileIndex })
   }
 
   render() {
-    if (this.state.redirect && !window.location.href.endsWith(this.state.redirect)) { 
-      return <Redirect push to={this.state.redirect} />;
+    if (
+      this.state.redirect &&
+      !window.location.href.endsWith(this.state.redirect)
+    ) {
+      return <Redirect push to={this.state.redirect} />
     }
 
     const Navigation = (() => {
-      return <div>
-        <MoveButton 
-          left
-          disabled={this.state.mobileIndex === 0}
-          onClick={() => this.move('left')}
-          src={require('../../Library/Images/arrow-right.png')} />
-        <MoveButton 
-          onClick={() => this.move()}
-          disabled={this.state.mobileIndex === this.state.destinations.length - 1}
-          src={require('../../Library/Images/arrow-right.png')} />
-      </div>
+      return (
+        <div>
+          <MoveButton
+            left
+            disabled={this.state.mobileIndex === 0}
+            onClick={() => this.move("left")}
+            src={require("../../Library/Images/arrow-right.png")}
+          />
+          <MoveButton
+            onClick={() => this.move()}
+            disabled={
+              this.state.mobileIndex === this.state.destinations.length - 1
+            }
+            src={require("../../Library/Images/arrow-right.png")}
+          />
+        </div>
+      )
     })()
 
     const destinationBlocks = () => {
       const destinations = window.isMobile
         ? [this.state.destinations[this.state.mobileIndex]]
-        : this.state.destinations;
+        : this.state.destinations
 
-      return destinations.map((d,i) => {
-        return <div key={i} style={{height:'100%',width:'100%',overflow:'hidden',position:'relative',textAlign:'center'}}>
-          <DestinationContainer 
-            image={d.image}
-            mobile={window.isMobile}
-            onClick={() => this.setState({ redirect: `/destinations/${d.slug}`})}>
-            <Mask />    
-          </DestinationContainer>
+      return destinations.map((d, i) => {
+        return (
+          <div
+            key={i}
+            style={{
+              height: "100%",
+              width: "100%",
+              overflow: "hidden",
+              position: "relative",
+              textAlign: "center"
+            }}
+          >
+            <DestinationContainer
+              image={d.image}
+              mobile={window.isMobile}
+              onClick={() =>
+                this.setState({ redirect: `/destinations/${d.slug}` })
+              }
+            >
+              <Mask />
+            </DestinationContainer>
 
-          {window.isMobile && Navigation}
+            {window.isMobile && Navigation}
 
-          <DestinationContent mobile={window.isMobile}>
-            <h3 style={{fontFamily:'EBGARAMOND12REGULAR',color:'white',letterSpacing:'3px',lineHeight:'25px'}}>
-              {d.name.toUpperCase()}
-            </h3>
+            <DestinationContent mobile={window.isMobile}>
+              <h3
+                style={{
+                  fontFamily: "EBGARAMOND12REGULAR",
+                  color: "white",
+                  letterSpacing: "3px",
+                  lineHeight: "25px"
+                }}
+              >
+                {d.name.toUpperCase()}
+              </h3>
 
-            <PlacesParagraph>
-              {d.places}
-            </PlacesParagraph>
+              <PlacesParagraph>{d.places}</PlacesParagraph>
 
-            <ReadMoreButton>
-              <p>READ MORE</p>
-            </ReadMoreButton>            
-          </DestinationContent>              
-        </div>
+              <ReadMoreButton>
+                <p>READ MORE</p>
+              </ReadMoreButton>
+            </DestinationContent>
+          </div>
+        )
       })
     }
 
-    const Container = window.isMobile ? SingleContainer : MultiContainer;
+    const Container = window.isMobile ? SingleContainer : MultiContainer
 
-    return (
-      <Container>
-        {destinationBlocks()}
-      </Container>
-    );
+    return <Container>{destinationBlocks()}</Container>
   }
 }
 
 const MoveButton = styled.img`
   position: absolute;
-  left: ${props => props.left ? '0' : ''};
-  right: ${props => !props.left ? '0' : ''};
-  transform: ${props => props.left ? 'scaleX(-1)' : ''};
-  opacity: ${props => props.disabled ? '0.7' : '1'};
-  pointer-events: ${props => props.disabled ? 'none' : 'auto'};
+  left: ${props => (props.left ? "0" : "")};
+  right: ${props => (!props.left ? "0" : "")};
+  transform: ${props => (props.left ? "scaleX(-1)" : "")};
+  opacity: ${props => (props.disabled ? "0.7" : "1")};
+  pointer-events: ${props => (props.disabled ? "none" : "auto")};
   top: 40%;
   height: 7.5%;
   z-index: 10;
@@ -124,7 +148,7 @@ const Mask = styled.div`
   right: 0;
   left: 0;
   bottom: 0;
-  background:rgba(0,0,0,0.35);
+  background: rgba(0, 0, 0, 0.15);
 `
 
 const DestinationContainer = styled.div`
@@ -132,13 +156,13 @@ const DestinationContainer = styled.div`
   z-index: 0;
   background: url(${props => props.image}) no-repeat center center;
   background-size: auto 100%;
-  width: ${props => props.mobile ? '80%' : '100%'};
+  width: ${props => (props.mobile ? "80%" : "100%")};
   margin: 0 auto;
-  height: 100%;  
+  height: 100%;
   cursor: pointer;
-  transition-duration: ${props => props.mobile ? '0' : '0.7s'};
+  transition-duration: ${props => (props.mobile ? "0" : "0.7s")};
   &:hover {
-    transform: ${props => props.mobile ? 'scale(1)' : 'scale(1.1)'};
+    transform: ${props => (props.mobile ? "scale(1)" : "scale(1.1)")};
   }
 `
 
@@ -147,8 +171,8 @@ const DestinationContent = styled.div`
   position: absolute;
   margin: 0 auto;
   top: 0;
-  width: ${props => props.mobile ? '80%' : '100%'};
-  margin-left: ${props => props.mobile ? '10%' : ''};
+  width: ${props => (props.mobile ? "80%" : "100%")};
+  margin-left: ${props => (props.mobile ? "10%" : "")};
   height: 100%;
   pointer-events: none;
 `
@@ -176,4 +200,4 @@ const ReadMoreButton = styled.div`
   line-height: 20px;
 `
 
-export default Destinations;
+export default Destinations

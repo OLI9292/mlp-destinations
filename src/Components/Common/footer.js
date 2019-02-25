@@ -1,52 +1,62 @@
-import React, { Component } from 'react';
-import { Redirect } from 'react-router';
-import styled from 'styled-components';
+import React, { Component } from "react"
+import { Redirect } from "react-router"
+import styled from "styled-components"
 
-import colors from '../../Library/colors';
-import { media } from '../../Library/breakpoints';
+import colors from "../../Library/colors"
+import { media } from "../../Library/breakpoints"
 
 class Footer extends Component {
   constructor(props) {
-    super(props);
-    this.state = {};
+    super(props)
+    this.state = {}
   }
 
   render() {
-    if (this.state.redirect && !window.location.href.endsWith(this.state.redirect)) { 
-      return <Redirect push to={this.state.redirect} />;
+    if (
+      this.state.redirect &&
+      !window.location.href.endsWith(this.state.redirect)
+    ) {
+      return <Redirect push to={this.state.redirect} />
     }
-    
+
     return (
       <Container>
         <InnerContainer>
           <LinksContainer>
-            <Link onClick={() => this.setState({ redirect: '/services' })}>
+            <Link onClick={() => this.setState({ redirect: "/services" })}>
               SERVICES
             </Link>
 
-            <Link onClick={() => this.setState({ redirect: '/destinations' })}>
+            <Link onClick={() => this.setState({ redirect: "/destinations" })}>
               DESTINATIONS
             </Link>
 
-            <Link onClick={() => this.setState({ redirect: '/about' })}>
+            <Link onClick={() => this.setState({ redirect: "/about" })}>
               ABOUT
             </Link>
 
-            <Link onClick={() => this.setState({ redirect: '/contact' })}>
+            <Link onClick={() => this.setState({ redirect: "/stories" })}>
+              STORIES
+            </Link>
+
+            <Link onClick={() => this.setState({ redirect: "/contact" })}>
               CONTACT
-            </Link>            
+            </Link>
           </LinksContainer>
           <ContactInfo>
-            <a style={{textDecoration:'none',color:'white'}} 
-              href="mailto:miranda@mlpdestinations.com">
+            <a
+              style={{ textDecoration: "none", color: "white" }}
+              href="mailto:miranda@mlpdestinations.com"
+            >
               MIRANDA@MLPDESTINATIONS.COM
             </a>
-            <br /><br />
+            <br />
+            <br />
             1-203-564-3974
           </ContactInfo>
         </InnerContainer>
       </Container>
-    );
+    )
   }
 }
 
@@ -57,7 +67,7 @@ const Container = styled.div`
   text-align: left;
   ${media.phone`
     height: 100px;
-  `}  
+  `}
 `
 
 const InnerContainer = styled.div`
@@ -67,7 +77,7 @@ const InnerContainer = styled.div`
     margin: 0 auto;
     padding-top: 0px;
     text-align: center;
-  `}  
+  `}
 `
 
 const Link = styled.p`
@@ -85,7 +95,7 @@ const LinksContainer = styled.div`
   margin-top: 5px;
   ${media.phone`
     display: none;
-  `}  
+  `}
 `
 
 const ContactInfo = styled.p`
@@ -104,7 +114,7 @@ const ContactInfo = styled.p`
     text-align: center;
     float: none;
     font-size: 0.55em;
-  `}  
+  `}
 `
 
-export default Footer;
+export default Footer

@@ -85,6 +85,7 @@ class Services extends Component {
 const Text = styled.p`
   font-family: CardoItalic;
   width: 65%;
+  max-width: 600px;
   margin: 0 auto;
   letter-spacing: 2px;
   line-height: 30px;

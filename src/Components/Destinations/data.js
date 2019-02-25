@@ -6,9 +6,9 @@ export default [
     places:
       "Botswana, Ethiopia, Kenya, Madagascar, Malawi, Mauritius, Morocco, Mozambique, Namibia, Rwanda, Seychelles, South Africa, Tanzania, Uganda, Zambia, Zimbabwe",
     slug: "africa",
-    image: require("../../Library/Images/destinations/africa/lions.jpg"),
-    imagePath: "destinations/africa/lions.jpg",
-    darkenImage: 0.35,
+    image: require("../../Library/Images/destinations/africa/giraffe.png"),
+    imagePath: "destinations/africa/giraffe.png",
+    darkenImage: 0.2,
     description:
       "The breadth and scope of diversity in Africa requires a number of specialists. Aside from the individual country differences the safari options are also abundant, and it is essential to have a knowledgeable and trustworthy resource. The specialists I work with have often lived and worked in their regions of expertise and each have a deep love of Africa which translates to the service they provide. Whether it is a self-drive safari in Namibia, a tour of the souks in Fez or a gorilla trek you will be connected to a true expert.",
     informations: [
@@ -80,7 +80,7 @@ export default [
         location: "SUKOON, KASHMIR",
         content:
           "The houseboat tradition in Kashmir was begun by the British as a ploy to avoid Indian regulations about foreigners owning land. Today, the banks of Dal Lake are cheek by jowl with houseboats and the one to stay on is Sukoon. It has the most serene setting close to the floating markets and the Mughal gardens. The nine suites are large enough to make you question whether you are in fact on a boat, and the chef's coconut/ginger lake fish is utterly delicious. ",
-        imageUrl: require("../../Library/Images/destinations/asia/man.png"),
+        imageUrl: require("../../Library/Images/destinations/asia/house-boat.jpg"),
         frameColor: colors.green,
         orientFrame: ["bottom", "right"],
         inverted: true
@@ -92,8 +92,8 @@ export default [
     places:
       "Antarctica, Argentina, Belize, Bolivia, Brazil, Chile, Colombia, Costa Rica, Cuba, Ecuador, Guatemala, Mexico, Panama, Peru, The Galapagos, The Turks & Caicos Islands, Uruguay",
     slug: "central-and-south-america",
-    image: require("../../Library/Images/destinations/south-america/cowboy.png"),
-    imagePath: "destinations/south-america/cowboy.png",
+    image: require("../../Library/Images/destinations/south-america/sky.jpg"),
+    imagePath: "destinations/south-america/sky.jpg",
     description:
       "As part of the world I have frequented the most I am always excited to share my knowledge of its vast range of possibilities. For travelers from North America it is an ideal year-round vacation spot as much closer than many realize with a number of direct flights from US hubs, and no jet-lag. It is also a region where two countries often combine well, such as Peru with Bolivia and Argentina with Uruguay. And now there are an exciting number of independent, design-worthy lodges in the more extreme and stunningly beautiful areas so you don’t have to rough it. Whether traveling as a family or as a couple the diversity of activities is abundant, and even a 7 day trip can include a large range of different experiences.",
     darkenImage: 0.25,
@@ -132,7 +132,8 @@ export default [
   },
   {
     name: "Europe",
-    places: "Denmark, Finland, Greenland, Iceland, Italy, Norway, Sweden",
+    places:
+      "Denmark, Finland, Greenland, Iceland, Italy, Malta, Norway, Romania, Sweden",
     slug: "europe",
     image: require("../../Library/Images/destinations/europe/doorways.jpg"),
     imagePath: "destinations/europe/doorways.jpg",
@@ -206,7 +207,7 @@ export default [
     informations: [
       {
         title: "BEST BURGER",
-        location: "OXOMOCO, BROOKLY",
+        location: "OXOMOCO, BROOKLYN",
         content:
           "Located in the Greenpoint section of Brooklyn Oxomoco is a low-key Mexican brasserie. Their menu includes innovative recreations of American fare, namely a Caesar salad and burger which are to die for. Maybe some of the Michelin star glamour of Daniela Soto-Innes has crossed the East River to her friends at Oxomoco who have also been awarded a star.",
         imageUrl: require("../../Library/Images/destinations/usa-and-canada/oxomoco.jpg"),
@@ -216,7 +217,7 @@ export default [
       },
       {
         title: "WELLNESS",
-        location: "LES MONASTERE DES AUGUSTINES, QUEBEC CITY",
+        location: "LE MONASTÈRE DES AUGUSTINES, QUEBEC",
         content:
           "The nuns’ legacy of healing has been transferred to visitors looking for rest and a healthy retreat in this stunning conversion of a 350 year-old monastery in the heart of the old city. Yoga, meditation walks, an extensive museum and a first class restaurant are all part of the experience. There is also the option to stay in an updated nun’s bedroom.",
         imageUrl: require("../../Library/Images/destinations/usa-and-canada/monastery.jpg"),

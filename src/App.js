@@ -9,6 +9,7 @@ import Destinations from "./Components/Destinations/all"
 import Destination from "./Components/Destinations/individual"
 import About from "./Components/About/index"
 import Contact from "./Components/Contact/index"
+import Stories from "./Components/Stories/index"
 import "./index.css"
 import { PHONE_MAX_WIDTH } from "./Library/breakpoints"
 
@@ -41,6 +42,7 @@ class App extends Component {
             component={({ match }) => <Destination name={match.params.name} />}
           />
           <Route exact path="/about" component={About} />
+          <Route exact path="/stories" component={Stories} />
           <Route exact path="/contact" component={Contact} />
           <Route render={() => <Redirect to="/" />} />
         </Switch>
