@@ -18,7 +18,12 @@ class Stories extends Component {
   render() {
     const link = data => (
       <Text
-        style={{ marginTop: "15px", marginBottom: "15px" }}
+        style={{
+          marginTop: "15px",
+          marginBottom: "15px",
+          fontFamily: "EBGARAMOND12",
+          letterSpacing: "1px"
+        }}
         underline
         onClick={() => this.setState({ redirect: data.url })}
       >
@@ -32,11 +37,25 @@ class Stories extends Component {
 
     return (
       <div style={{ backgroundColor: colors.beige }}>
-        <FrontCover darkened={0.1} image={"about/painting.jpg"} />
+        <FrontCover darkened={0.1} image={"stories.jpg"} />
 
         <div style={{ textAlign: "center", margin: "75px 0px" }}>
           <Header>STORIES</Header>
-          <Text>{mirandaOnTravelText}</Text>
+          <Text>
+            I am a regular contributor for{" "}
+            <a
+              style={{ textDecoration: "none", color: colors.red }}
+              href="https://www.lustre.net"
+              target="_blank"
+            >
+              Lustre.net
+            </a>
+            , a platform which redefines the image of retirement for
+            professional women worldwide
+            <br />
+            <br />
+            Below are my stories:
+          </Text>
         </div>
 
         {articles.map(link)}
@@ -50,7 +69,7 @@ class Stories extends Component {
 }
 
 const Link = styled.a`
-  color: ${colors.red};
+  color: black;
   text-decoration: none;
   &:hover {
     text-decoration: underline;
