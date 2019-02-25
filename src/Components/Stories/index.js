@@ -51,7 +51,7 @@ class Stories extends Component {
               Lustre.net
             </a>
             , a platform which redefines the image of retirement for
-            professional women worldwide
+            professional women worldwide.
             <br />
             <br />
             Below are my stories:
