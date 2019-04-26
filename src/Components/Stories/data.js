@@ -1,5 +1,17 @@
 export const articles = [
   {
+    title: "The English Countryside: An Insider's Guide",
+    date: "April, 2019",
+    url:
+      "https://www.lustre.net/home/2019/1/14/miranda-on-travel-safari-basics-kawsf-7e8hI-gjmnF-uPjsE-yzxcp"
+  },
+  {
+    title: "A Trip to Puglia Is Pure Flavor",
+    date: "March, 2019",
+    url:
+      "https://www.lustre.net/home/2019/1/14/miranda-on-travel-safari-basics-kawsf-7e8hI-gjmnF-uPjsE"
+  },
+  {
     title: "Safari Basics",
     date: "January, 2019",
     url: "https://www.lustre.net/home/2019/1/14/miranda-on-travel-safari-basics"
