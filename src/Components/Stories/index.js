@@ -64,11 +64,17 @@ class Stories extends Component {
         underline
         onClick={() => this.setState({ redirect: data.url })}
       >
-        <Link target="_blank" rel="noopener noreferrer" href={data.url}>
-          {data.title}
+        <Link
+          target="_blank"
+          rel="noopener noreferrer"
+          href={data.url.replace(/['"]+/g, "")}
+        >
+          {data.title.replace(/['"]+/g, "")}
         </Link>
 
-        <span style={{ float: "right", color: colors.gray }}>{data.date}</span>
+        <span style={{ float: "right", color: colors.gray }}>
+          {data.date.replace(/['"]+/g, "")}
+        </span>
       </Text>
     );
 
