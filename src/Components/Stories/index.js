@@ -1,76 +1,76 @@
-import React, { Component } from "react"
-import styled from "styled-components"
+import React, { Component } from "react";
+import styled from "styled-components";
 
-import { media } from "../../Library/breakpoints"
-import colors from "../../Library/colors"
-import Header from "../Common/header"
-import CTA from "../Common/cta"
-import Footer from "../Common/footer"
-import FrontCover from "../Common/frontCover"
+import { media } from "../../Library/breakpoints";
+import colors from "../../Library/colors";
+import Header from "../Common/header";
+import CTA from "../Common/cta";
+import Footer from "../Common/footer";
+import FrontCover from "../Common/frontCover";
 
 const DATA_URL =
-  "https://docs.google.com/spreadsheets/d/1mHWf6x0f8oB-EkEOAFZ0dDmAH5_0-xdY3u4MrOGaZcw/export?format=csv&id=1mHWf6x0f8oB-EkEOAFZ0dDmAH5_0-xdY3u4MrOGaZcw&gid=0"
+  "https://docs.google.com/spreadsheets/d/1mHWf6x0f8oB-EkEOAFZ0dDmAH5_0-xdY3u4MrOGaZcw/gviz/tq?tqx=out:csv&sheet=Sheet1";
 
 class Stories extends Component {
   constructor(props) {
-    super(props)
-    this.state = { stories: [] }
+    super(props);
+    this.state = { stories: [] };
   }
 
   componentDidMount() {
-    this.loadStories()
+    this.loadStories();
   }
 
   componentWillMount() {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   }
 
   parseLine(line) {
     const components = line
       .split(",")
-      .map(str => str.trim())
-      .filter(str => str)
-    if (components.length !== 4) return
+      .map((str) => str.trim())
+      .filter((str) => str);
+    if (components.length !== 4) return;
 
-    const title = components[0]
-    const date = components[1] + ", " + components[2]
-    const url = components[3]
+    const title = components[0];
+    const date = components[1] + ", " + components[2];
+    const url = components[3];
 
-    return { title, date, url }
+    return { title, date, url };
   }
 
   loadStories() {
     fetch(DATA_URL)
-      .then(res => res.text())
-      .then(rows => {
+      .then((res) => res.text())
+      .then((rows) => {
         const stories = rows
           .split("\n")
           .slice(1)
           .reverse()
           .map(this.parseLine)
-          .filter(story => story)
-        this.setState({ stories })
-      })
+          .filter((story) => story);
+        this.setState({ stories });
+      });
   }
 
   render() {
-    const link = data => (
+    const link = (data) => (
       <Text
         style={{
           fontFamily: "EBGARAMOND12",
           fontSize: "1.15em",
-          letterSpacing: "1px"
+          letterSpacing: "1px",
         }}
         underline
         onClick={() => this.setState({ redirect: data.url })}
       >
-        <Link target="_blank" href={data.url}>
+        <Link target="_blank" rel="noopener noreferrer" href={data.url}>
           {data.title}
         </Link>
 
         <span style={{ float: "right", color: colors.gray }}>{data.date}</span>
       </Text>
-    )
+    );
 
     return (
       <div style={{ backgroundColor: colors.beige }}>
@@ -84,10 +84,12 @@ class Stories extends Component {
               style={{ textDecoration: "none", color: colors.red }}
               href="https://www.lustre.net"
               target="_blank"
+              rel="noopener noreferrer"
             >
               Lustre.net
             </a>
-            , a platform which redefines the image of retirement for professional women worldwide.
+            , a platform which redefines the image of retirement for
+            professional women worldwide.
             <br />
             <br />
             Below are my stories:
@@ -100,7 +102,7 @@ class Stories extends Component {
 
         <Footer />
       </div>
-    )
+    );
   }
 }
 
@@ -110,7 +112,7 @@ const Link = styled.a`
   &:hover {
     text-decoration: underline;
   }
-`
+`;
 
 const Text = styled.p`
   font-family: CardoItalic;
@@ -124,6 +126,6 @@ const Text = styled.p`
   ${media.phone`
     width: calc(100% - 40px);
   `}
-`
+`;
 
-export default Stories
+export default Stories;
