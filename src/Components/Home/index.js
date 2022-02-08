@@ -7,7 +7,6 @@ import { media } from "../../Library/breakpoints"
 import CTA from "../Common/cta"
 import Footer from "../Common/footer"
 import FrontCover from "../Common/frontCover"
-import Header from "../Common/header"
 import Destinations from "../Destinations/index"
 import Testimonial from "../Common/testimonial"
 
@@ -16,7 +15,7 @@ const conceptText =
 
 const testimonialText =
   "Miranda has a unique gift for listening to and understanding " +
-  "her clients.  She knows that the terms holiday, travel, and exploration do not mean " +
+  "her clients. She knows that the terms holiday, travel, and exploration do not mean " +
   "'one size fits all',"
 
 class Home extends Component {

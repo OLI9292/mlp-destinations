@@ -16,7 +16,7 @@ export default [
         title: "DINE",
         location: "IKOYI, LONDON",
         content:
-          "For some regional west African cooking try Iyoki which has opened in London's Westend.  Ex-Noma chef and his childhood mate are firing up a storm with fermented chilis, plantain and smoky peppercorns in a neighborhood more familiar with shepherd's pie.",
+          "For some regional west African cooking try Iyoki which has opened in London's Westend. Ex-Noma chef and his childhood mate are firing up a storm with fermented chilis, plantain and smoky peppercorns in a neighborhood more familiar with shepherd's pie.",
         imageUrl: require("../../Library/Images/destinations/africa/lamp.jpg"),
         frameColor: colors.red,
         orientFrame: ["bottom", "right"],
