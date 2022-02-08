@@ -9,10 +9,7 @@ class MobileMenu extends Component {
   }
 
   render() {
-    if (
-      this.state.redirect &&
-      !window.location.href.endsWith(this.state.redirect)
-    ) {
+    if (this.state.redirect && !window.location.href.endsWith(this.state.redirect)) {
       return <Redirect push to={this.state.redirect} />
     }
 
@@ -20,21 +17,11 @@ class MobileMenu extends Component {
       <OuterContainer show={this.props.display}>
         <InnerContainer>
           <Text onClick={() => this.setState({ redirect: "/" })}>HOME</Text>
-          <Text onClick={() => this.setState({ redirect: "/services" })}>
-            SERVICES
-          </Text>
-          <Text onClick={() => this.setState({ redirect: "/destinations" })}>
-            DESTINATIONS
-          </Text>
-          <Text onClick={() => this.setState({ redirect: "/about" })}>
-            ABOUT
-          </Text>
-          <Text onClick={() => this.setState({ redirect: "/stories" })}>
-            STORIES
-          </Text>
-          <Text onClick={() => this.setState({ redirect: "/contact" })}>
-            CONTACT
-          </Text>
+          <Text onClick={() => this.setState({ redirect: "/travel" })}>TRAVEL</Text>
+          <Text onClick={() => this.setState({ redirect: "/destinations" })}>DESTINATIONS</Text>
+          <Text onClick={() => this.setState({ redirect: "/about" })}>ABOUT</Text>
+          <Text onClick={() => this.setState({ redirect: "/stories" })}>STORIES</Text>
+          <Text onClick={() => this.setState({ redirect: "/contact" })}>CONTACT</Text>
         </InnerContainer>
       </OuterContainer>
     )
@@ -42,8 +29,8 @@ class MobileMenu extends Component {
 }
 
 const OuterContainer = styled.div`
-  pointer-events: ${props => (props.show ? "auto" : "none")};
-  display: ${props => (props.show ? "" : "none")};
+  pointer-events: ${(props) => (props.show ? "auto" : "none")};
+  display: ${(props) => (props.show ? "" : "none")};
   position: fixed;
   width: 100vh;
   height: 100vh;

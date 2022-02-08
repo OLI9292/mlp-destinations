@@ -20,7 +20,7 @@ export default [
         imageUrl: require("../../Library/Images/destinations/africa/lamp.jpg"),
         frameColor: colors.red,
         orientFrame: ["bottom", "right"],
-        inverted: true
+        inverted: true,
       },
       {
         title: "RELAX",
@@ -30,7 +30,7 @@ export default [
         imageUrl: require("../../Library/Images/destinations/africa/spa.jpg"),
         frameColor: colors.green,
         orientFrame: ["bottom", "left"],
-        inverted: false
+        inverted: false,
       },
       {
         title: "CAMP",
@@ -40,14 +40,13 @@ export default [
         imageUrl: require("../../Library/Images/destinations/africa/camp.jpg"),
         frameColor: colors.red,
         orientFrame: ["bottom", "right"],
-        inverted: true
-      }
-    ]
+        inverted: true,
+      },
+    ],
   },
   {
     name: "Asia",
-    places:
-      "Bhutan, Burma, Cambodia, India, Indonesia, Japan, Laos, Malaysia, Nepal, Sri Lanka, Thailand, The Maldives, Vietnam",
+    places: "Bhutan, Burma, Cambodia, India, Indonesia, Japan, Laos, Malaysia, Nepal, Sri Lanka, Thailand, The Maldives, Vietnam",
     slug: "asia",
     image: require("../../Library/Images/destinations/asia/boats.jpg"),
     imagePath: "destinations/asia/boats.jpg",
@@ -63,7 +62,7 @@ export default [
         imageUrl: require("../../Library/Images/destinations/asia/crab.jpg"),
         frameColor: colors.green,
         orientFrame: ["bottom", "right"],
-        inverted: true
+        inverted: true,
       },
       {
         title: "ART",
@@ -73,7 +72,7 @@ export default [
         imageUrl: require("../../Library/Images/destinations/asia/woman.jpg"),
         frameColor: colors.red,
         orientFrame: ["bottom", "left"],
-        inverted: false
+        inverted: false,
       },
       {
         title: "FLOAT",
@@ -83,9 +82,9 @@ export default [
         imageUrl: require("../../Library/Images/destinations/asia/house-boat.jpg"),
         frameColor: colors.green,
         orientFrame: ["bottom", "right"],
-        inverted: true
-      }
-    ]
+        inverted: true,
+      },
+    ],
   },
   {
     name: "Central & South America",
@@ -106,7 +105,7 @@ export default [
         imageUrl: require("../../Library/Images/destinations/south-america/cheese.jpg"),
         frameColor: colors.green,
         orientFrame: ["bottom", "right"],
-        inverted: true
+        inverted: true,
       },
       {
         title: "WINERY",
@@ -116,7 +115,7 @@ export default [
         imageUrl: require("../../Library/Images/destinations/south-america/fruit.jpg"),
         frameColor: colors.red,
         orientFrame: ["bottom", "left"],
-        inverted: false
+        inverted: false,
       },
       {
         title: "ESTANCIA",
@@ -126,14 +125,13 @@ export default [
         imageUrl: require("../../Library/Images/destinations/south-america/horse.jpg"),
         frameColor: colors.green,
         orientFrame: ["bottom", "right"],
-        inverted: true
-      }
-    ]
+        inverted: true,
+      },
+    ],
   },
   {
     name: "Europe",
-    places:
-      "Denmark, Finland, Greenland, Iceland, Italy, Malta, Norway, Romania, Sweden",
+    places: "Denmark, Finland, Greece, Greenland, Iceland, Italy, Malta, Norway, Romania, Sweden",
     slug: "europe",
     image: require("../../Library/Images/destinations/europe/doorways.jpg"),
     imagePath: "destinations/europe/doorways.jpg",
@@ -149,29 +147,29 @@ export default [
         imageUrl: require("../../Library/Images/destinations/europe/woman.jpg"),
         frameColor: colors.green,
         orientFrame: ["bottom", "right"],
-        inverted: true
+        inverted: true,
       },
       {
-        title: "ACTIVITY",
+        title: "NORDIC LIFE",
         location: "29/2 AURLAND, NORWAY",
         content:
-          "In the Norwegian fjords this family run estate offers plenty of activity and the best part is when you return there is a warm welcome and delicious meal waiting for you. Guided biking and hiking day trips for 2 to 6 people, kayaking or row boat expeditions, fjord skiing and fly-fishing are all on the menu.",
-        imageUrl: require("../../Library/Images/destinations/europe/goat.jpg"),
+          "An inherited family farm on one of the largest fjords accessible by ferry from Bergen and train from Oslo. A perfect introduction to the Norwegian lifestyle: hiking of course, a visit to a picturesque goat farm, kayaking and a tour of Stave churches in the area. The small number of guests eat together in the evenings and compare their daily adventures.",
+        imageUrl: require("../../Library/Images/destinations/europe/church.jpg"),
         frameColor: colors.red,
         orientFrame: ["bottom", "left"],
-        inverted: false
+        inverted: false,
       },
       {
-        title: "EAT",
-        location: "OAXEN SLIP BISTRO, STOCKHOLM",
+        title: "CULTURE",
+        location: "ISLAND OF SKYROS, GREECE",
         content:
-          "This casual, fun bistro is a great spot for brunch, lunch or dinner in Djurgarden, an island in central Stockholm. Their personal take on traditional Swedish fare is seasonal and the crispy kale and yellow beets now come from their own farm. ABBA fans can browse memorabilia at the nearby museum after.",
-        imageUrl: require("../../Library/Images/destinations/europe/soup.png"),
+          "The most remote of the Sporades islands in northern Greece. The southern half of the island is a protected nature reserve where the eponymous Skyrian horses roam free, and the north is the cultural hub centered around the hilltop town of Chora with its Byzantine castle and 10th century monastery. Mythology and folklore are rich and reflected in the food, art and annual festivals.",
+        imageUrl: require("../../Library/Images/destinations/europe/skyros.jpg"),
         frameColor: colors.green,
         orientFrame: ["bottom", "right"],
-        inverted: true
-      }
-    ]
+        inverted: true,
+      },
+    ],
   },
   {
     name: "Middle East",
@@ -191,9 +189,9 @@ export default [
         imageUrl: require("../../Library/Images/destinations/middle-east/jesus.jpg"),
         frameColor: colors.green,
         orientFrame: ["bottom", "right"],
-        inverted: true
-      }
-    ]
+        inverted: true,
+      },
+    ],
   },
   {
     name: "USA & Canada",
@@ -206,14 +204,14 @@ export default [
     darkenImage: 0.2,
     informations: [
       {
-        title: "BEST BURGER",
-        location: "OXOMOCO, BROOKLYN",
+        title: "ROAD TRIPS",
+        location: "ALL ROADS NORTH",
         content:
-          "Located in the Greenpoint section of Brooklyn Oxomoco is a low-key Mexican brasserie. Their menu includes innovative recreations of American fare, namely a Caesar salad and burger which are to die for. Maybe some of the Michelin star glamour of Daniela Soto-Innes has crossed the East River to her friends at Oxomoco who have also been awarded a star.",
-        imageUrl: require("../../Library/Images/destinations/usa-and-canada/oxomoco.jpg"),
+          "For the ultimate American road trip with every detail outlined look no further than this Los Angeles-based company. Families have raved about West coast trips paced with children in mind and navigating National Parks to avoid the crowds.",
+        imageUrl: require("../../Library/Images/destinations/usa-and-canada/all-roads-north.jpg"),
         frameColor: colors.green,
         orientFrame: ["bottom", "right"],
-        inverted: true
+        inverted: true,
       },
       {
         title: "WELLNESS",
@@ -223,7 +221,7 @@ export default [
         imageUrl: require("../../Library/Images/destinations/usa-and-canada/monastery.jpg"),
         frameColor: colors.red,
         orientFrame: ["bottom", "left"],
-        inverted: false
+        inverted: false,
       },
       {
         title: "OUTPOST",
@@ -233,8 +231,8 @@ export default [
         imageUrl: require("../../Library/Images/destinations/usa-and-canada/fogo.png"),
         frameColor: colors.green,
         orientFrame: ["bottom", "right"],
-        inverted: true
-      }
-    ]
-  }
+        inverted: true,
+      },
+    ],
+  },
 ]

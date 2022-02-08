@@ -12,10 +12,7 @@ class Footer extends Component {
   }
 
   render() {
-    if (
-      this.state.redirect &&
-      !window.location.href.endsWith(this.state.redirect)
-    ) {
+    if (this.state.redirect && !window.location.href.endsWith(this.state.redirect)) {
       return <Redirect push to={this.state.redirect} />
     }
 
@@ -23,31 +20,18 @@ class Footer extends Component {
       <Container>
         <InnerContainer>
           <LinksContainer>
-            <Link onClick={() => this.setState({ redirect: "/services" })}>
-              SERVICES
-            </Link>
+            <Link onClick={() => this.setState({ redirect: "/travel" })}>TRAVEL</Link>
 
-            <Link onClick={() => this.setState({ redirect: "/destinations" })}>
-              DESTINATIONS
-            </Link>
+            <Link onClick={() => this.setState({ redirect: "/destinations" })}>DESTINATIONS</Link>
 
-            <Link onClick={() => this.setState({ redirect: "/about" })}>
-              ABOUT
-            </Link>
+            <Link onClick={() => this.setState({ redirect: "/about" })}>ABOUT</Link>
 
-            <Link onClick={() => this.setState({ redirect: "/stories" })}>
-              STORIES
-            </Link>
+            <Link onClick={() => this.setState({ redirect: "/stories" })}>STORIES</Link>
 
-            <Link onClick={() => this.setState({ redirect: "/contact" })}>
-              CONTACT
-            </Link>
+            <Link onClick={() => this.setState({ redirect: "/contact" })}>CONTACT</Link>
           </LinksContainer>
           <ContactInfo>
-            <a
-              style={{ textDecoration: "none", color: "white" }}
-              href="mailto:miranda@mlpdestinations.com"
-            >
+            <a style={{ textDecoration: "none", color: "white" }} href="mailto:miranda@mlpdestinations.com">
               MIRANDA@MLPDESTINATIONS.COM
             </a>
             <br />

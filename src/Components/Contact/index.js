@@ -1,99 +1,88 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { Component } from "react"
+import styled from "styled-components"
 
-import colors from '../../Library/colors';
-import { media } from '../../Library/breakpoints';
-import Footer from '../Common/footer';
-import FrontCover from '../Common/frontCover';
+import colors from "../../Library/colors"
+import { media } from "../../Library/breakpoints"
+import Footer from "../Common/footer"
+import FrontCover from "../Common/frontCover"
 
 class Contact extends Component {
   constructor(props) {
-    super(props);
-    this.state = {};
+    super(props)
+    this.state = {}
   }
 
   componentWillMount() {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0)
   }
 
   formError() {
-    if (!this.state.name) { return 'Please enter your name.'; }
+    if (!this.state.name) {
+      return "Please enter your name."
+    }
   }
 
   handleSubmit(e) {
-    this.removeKeyboard();
+    this.removeKeyboard()
 
-    const formError = this.formError();
+    const formError = this.formError()
 
     if (formError) {
-      e.preventDefault();
-      this.setState({ formMessage: formError, formError: true });
+      e.preventDefault()
+      this.setState({ formMessage: formError, formError: true })
     } else {
-      this.setState({ formMessage: null, formError: false });
+      this.setState({ formMessage: null, formError: false })
     }
   }
 
   removeKeyboard() {
     if (document.activeElement && window.isMobile) {
-      document.activeElement.blur();
-    } 
+      document.activeElement.blur()
+    }
   }
 
   email(name, message) {
-    const subject = 'Travel enquiry';
-    const newline = '%0D%0A';
-    const body = 'Name: ' + name + (message ? (newline + 'Message: ' + message) : '');
-    return "mailto:miranda@mlpdestinations.com?subject=" + subject + "&body=" + body;    
+    const subject = "Travel enquiry"
+    const newline = "%0D%0A"
+    const body = "Name: " + name + (message ? newline + "Message: " + message : "")
+    return "mailto:miranda@mlpdestinations.com?subject=" + subject + "&body=" + body
   }
-    
+
   render() {
-    const {
-      name,
-      message
-    } = this.state;
+    const { name, message } = this.state
 
-    const form = <Form 
-      action={this.email(name, message)}
-      method="post"
-      onSubmit={this.handleSubmit.bind(this)}>
-      <InputHeader>NAME :</InputHeader>
-      <Input type='text' id="form-name"
-        value={this.state.name || ''}
-        onChange={(e) => this.setState({ name: e.target.value })} />
+    const form = (
+      <Form action={this.email(name, message)} method="post" onSubmit={this.handleSubmit.bind(this)}>
+        <InputHeader>NAME :</InputHeader>
+        <Input type="text" id="form-name" value={this.state.name || ""} onChange={(e) => this.setState({ name: e.target.value })} />
 
-      <InputHeader>MESSAGE :</InputHeader>
-      <Textarea type='text' id="form-message"
-        value={this.state.message || ''}
-        onChange={(e) => this.setState({ message: e.target.value })} />
+        <InputHeader>MESSAGE :</InputHeader>
+        <Textarea type="text" id="form-message" value={this.state.message || ""} onChange={(e) => this.setState({ message: e.target.value })} />
 
-      <Submit type='submit' value='SEND' />    
-    </Form>;
+        <Submit type="submit" value="SEND" />
+      </Form>
+    )
 
     return (
-      <div style={{backgroundColor:colors.beige}}>
-        <FrontCover
-          darkened={0.5}
-          image={'contact/monk.jpg'} />
-        
+      <div style={{ backgroundColor: colors.beige }}>
+        <FrontCover darkened={0.25} image={"contact/monk.jpg"} />
+
         {form}
 
-        <FormMessage
-          isVisible={this.state.formMessage}
-          isError={this.state.formError}
-          disable={this.state.submitted}>
-          {this.state.formMessage || 'blank'}
+        <FormMessage isVisible={this.state.formMessage} isError={this.state.formError} disable={this.state.submitted}>
+          {this.state.formMessage || "blank"}
         </FormMessage>
-        
+
         <Footer />
       </div>
-    );
+    )
   }
 }
 
 const FormMessage = styled.p`
-  pointer-events: ${props => props.disable ? 'none' : 'auto'};
-  visibility: ${props => props.isVisible ? 'visible' : 'hidden'};
-  color: ${props => props.isError ? colors.red : 'black'};
+  pointer-events: ${(props) => (props.disable ? "none" : "auto")};
+  visibility: ${(props) => (props.isVisible ? "visible" : "hidden")};
+  color: ${(props) => (props.isError ? colors.red : "black")};
   text-align: center;
   margin-bottom: 60px;
   font-family: CardoItalic;
@@ -101,7 +90,7 @@ const FormMessage = styled.p`
   ${media.phone`
     margin-top: 265px;
     margin-bottom: 35px;
-  `}; 
+  `};
 `
 
 const Form = styled.form`
@@ -121,7 +110,7 @@ const Form = styled.form`
     padding: 0;
     position: absolute;
     top: 14%;
-  `}     
+  `}
 `
 
 const Input = styled.input`
@@ -136,7 +125,7 @@ const Input = styled.input`
   border-radius: 0px;
   height: 40px;
   font-size: 1.05em;
-  margin-bottom: ${props => props.extraMargin ? '25px' : '10px'};
+  margin-bottom: ${(props) => (props.extraMargin ? "25px" : "10px")};
 `
 
 const Submit = styled.input`
@@ -161,7 +150,7 @@ const Submit = styled.input`
   ${media.phone`
     bottom: -50px;
     margin-bottom: 0px;
-  `};  
+  `};
 `
 
 const Textarea = styled.textarea`
@@ -189,4 +178,4 @@ const InputHeader = styled.p`
   letter-spacing: 2px;
 `
 
-export default Contact;
+export default Contact

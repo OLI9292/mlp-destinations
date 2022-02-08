@@ -12,13 +12,7 @@ import Destinations from "../Destinations/index"
 import Testimonial from "../Common/testimonial"
 
 const conceptText =
-  "To act as an internet filter to navigate you through " +
-  "the maze of travel providers and link you to the right individual to plan your " +
-  "trip.  Over the years I have built up a network of true specialists who only " +
-  "cover one region or country.  They all run their own companies and have over 15 " +
-  "years of experience.  This specialization is key to being able to provide you with " +
-  "the best service and most up to date information on where you want to travel, for the " +
-  "following destinations..."
+  "Based on the belief that a travel planner can only truly advise on countries they are personally familiar with I restrict my coverage to those and for other destinations I work alongside a small group of specialists who follow a similar approach. This focus is key to being able to provide you with the best service and most up to date information on the following destinations......"
 
 const testimonialText =
   "Miranda has a unique gift for listening to and understanding " +
@@ -36,7 +30,6 @@ class Home extends Component {
         <FrontCover page={"home"} darkened={0.35} image={"home/elephant.jpg"} />
 
         <div style={{ textAlign: "center", margin: "75px 0px 100px 0px" }}>
-          <Header>CONCEPT</Header>
           <Text>{conceptText}</Text>
         </div>
 
