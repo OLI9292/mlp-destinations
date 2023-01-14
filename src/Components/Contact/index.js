@@ -23,14 +23,13 @@ class Contact extends Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault()
     this.removeKeyboard()
-
     const formError = this.formError()
-
     if (formError) {
-      e.preventDefault()
       this.setState({ formMessage: formError, formError: true })
     } else {
+      window.open(this.email(this.state.name, this.state.message))
       this.setState({ formMessage: null, formError: false })
     }
   }
@@ -49,10 +48,8 @@ class Contact extends Component {
   }
 
   render() {
-    const { name, message } = this.state
-
     const form = (
-      <Form action={this.email(name, message)} method="post" onSubmit={this.handleSubmit.bind(this)}>
+      <Form method="post" onSubmit={this.handleSubmit.bind(this)}>
         <InputHeader>NAME :</InputHeader>
         <Input type="text" id="form-name" value={this.state.name || ""} onChange={(e) => this.setState({ name: e.target.value })} />
 
