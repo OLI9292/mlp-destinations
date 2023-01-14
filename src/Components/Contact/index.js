@@ -49,14 +49,16 @@ class Contact extends Component {
 
   render() {
     const form = (
-      <Form method="post" onSubmit={this.handleSubmit.bind(this)}>
+      <Form>
         <InputHeader>NAME :</InputHeader>
         <Input type="text" id="form-name" value={this.state.name || ""} onChange={(e) => this.setState({ name: e.target.value })} />
 
         <InputHeader>MESSAGE :</InputHeader>
         <Textarea type="text" id="form-message" value={this.state.message || ""} onChange={(e) => this.setState({ message: e.target.value })} />
 
-        <Submit type="submit" value="SEND" />
+        <Submit onClick={this.handleSubmit.bind(this)}>
+          <p style={{ margin: 0 }}>SEND</p>
+        </Submit>
       </Form>
     )
 
@@ -90,7 +92,7 @@ const FormMessage = styled.p`
   `};
 `
 
-const Form = styled.form`
+const Form = styled.div`
   background-color: ${colors.green};
   margin: 0 auto;
   margin-bottom: 100px;
@@ -125,7 +127,7 @@ const Input = styled.input`
   margin-bottom: ${(props) => (props.extraMargin ? "25px" : "10px")};
 `
 
-const Submit = styled.input`
+const Submit = styled.div`
   position: absolute;
   bottom: -100px;
   width: 100%;
