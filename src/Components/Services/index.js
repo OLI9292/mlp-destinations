@@ -29,15 +29,6 @@ const informations = [
     orientFrame: ["top", "left"],
     inverted: true,
   },
-  {
-    title: "SCHEDULED GROUP DEPARTURES",
-    content:
-      "I work with a small company called Arcadia Expeditions who redefine the concept of group travel. Their trips are suited to experienced travelers with an interest in ancient cultures. Each group is accompanied by an expert be it historian, archaeologist or other specialist who will lead you on a trail of discovery far deeper than a regular tour guide. Comfort is not compromised and personal time is included. Please contact me directly for details on their departures.",
-    imageUrl: require("../../Library/Images/services/Scheduled-Group-Departures.jpg"),
-    frameColor: colors.red,
-    orientFrame: ["top", "right"],
-    inverted: false,
-  },
 ]
 
 class Services extends Component {
