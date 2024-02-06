@@ -62,10 +62,10 @@ class FrontCover extends Component {
               <img alt={"underline"} src={underline} style={{ display: path.includes("about") ? "" : "none" }} />
             </Link>
 
-            <Link flex={1} onClick={() => this.setState({ redirect: "/stories" })}>
+            {/* <Link flex={1} onClick={() => this.setState({ redirect: "/stories" })}>
               STORIES
               <img alt={"underline"} src={underline} style={{ display: path.includes("stories") ? "" : "none" }} />
-            </Link>
+            </Link> */}
 
             <Link flex={1} onClick={() => this.setState({ redirect: "/contact" })}>
               CONTACT

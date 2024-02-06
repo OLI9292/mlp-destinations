@@ -20,7 +20,7 @@ class MobileMenu extends Component {
           <Text onClick={() => this.setState({ redirect: "/travel" })}>TRAVEL</Text>
           <Text onClick={() => this.setState({ redirect: "/destinations" })}>DESTINATIONS</Text>
           <Text onClick={() => this.setState({ redirect: "/about" })}>ABOUT</Text>
-          <Text onClick={() => this.setState({ redirect: "/stories" })}>STORIES</Text>
+          {/* <Text onClick={() => this.setState({ redirect: "/stories" })}>STORIES</Text> */}
           <Text onClick={() => this.setState({ redirect: "/contact" })}>CONTACT</Text>
         </InnerContainer>
       </OuterContainer>

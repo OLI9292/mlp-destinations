@@ -26,7 +26,7 @@ class Footer extends Component {
 
             <Link onClick={() => this.setState({ redirect: "/about" })}>ABOUT</Link>
 
-            <Link onClick={() => this.setState({ redirect: "/stories" })}>STORIES</Link>
+            {/* <Link onClick={() => this.setState({ redirect: "/stories" })}>STORIES</Link> */}
 
             <Link onClick={() => this.setState({ redirect: "/contact" })}>CONTACT</Link>
           </LinksContainer>

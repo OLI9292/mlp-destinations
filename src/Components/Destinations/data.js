@@ -129,48 +129,48 @@ export default [
       },
     ],
   },
-  {
-    name: "Europe",
-    places: "Denmark, Finland, Greece, Greenland, Iceland, Italy, Malta, Norway, Romania, Sweden",
-    slug: "europe",
-    image: require("../../Library/Images/destinations/europe/doorways.jpg"),
-    imagePath: "destinations/europe/doorways.jpg",
-    description:
-      "Unlike other destinations, the 'full service' treatment with guides, transport and an itinerary is often not necessary for European travel. However, for Italy and the Nordic countries I work with two out-standing specialists who can make all the difference to your trip.",
-    darkenImage: 0.2,
-    informations: [
-      {
-        title: "SHOP",
-        location: "IJO DESIGN, PUGLIA",
-        content:
-          "Puglia is my current favorite area in Italy. Ijo Design has two locations in Ostuni, and Lecce, the Baroque City. Traditional looms are used to weave their stunning creations and one is on display in the larger Lecce store. Both shops are worth a visit for women's fashion, accessories and home décor.",
-        imageUrl: require("../../Library/Images/destinations/europe/woman.jpg"),
-        frameColor: colors.green,
-        orientFrame: ["bottom", "right"],
-        inverted: true,
-      },
-      {
-        title: "NORDIC LIFE",
-        location: "29/2 AURLAND, NORWAY",
-        content:
-          "An inherited family farm on one of the largest fjords accessible by ferry from Bergen and train from Oslo. A perfect introduction to the Norwegian lifestyle: hiking of course, a visit to a picturesque goat farm, kayaking and a tour of Stave churches in the area. The small number of guests eat together in the evenings and compare their daily adventures.",
-        imageUrl: require("../../Library/Images/destinations/europe/church.jpg"),
-        frameColor: colors.red,
-        orientFrame: ["bottom", "left"],
-        inverted: false,
-      },
-      {
-        title: "CULTURE",
-        location: "ISLAND OF SKYROS, GREECE",
-        content:
-          "The most remote of the Sporades islands in northern Greece. The southern half of the island is a protected nature reserve where the eponymous Skyrian horses roam free, and the north is the cultural hub centered around the hilltop town of Chora with its Byzantine castle and 10th century monastery. Mythology and folklore are rich and reflected in the food, art and annual festivals.",
-        imageUrl: require("../../Library/Images/destinations/europe/skyros.jpg"),
-        frameColor: colors.green,
-        orientFrame: ["bottom", "right"],
-        inverted: true,
-      },
-    ],
-  },
+  // {
+  //   name: "Europe",
+  //   places: "Denmark, Finland, Greece, Greenland, Iceland, Italy, Malta, Norway, Romania, Sweden",
+  //   slug: "europe",
+  //   image: require("../../Library/Images/destinations/europe/doorways.jpg"),
+  //   imagePath: "destinations/europe/doorways.jpg",
+  //   description:
+  //     "Unlike other destinations, the 'full service' treatment with guides, transport and an itinerary is often not necessary for European travel. However, for Italy and the Nordic countries I work with two out-standing specialists who can make all the difference to your trip.",
+  //   darkenImage: 0.2,
+  //   informations: [
+  //     {
+  //       title: "SHOP",
+  //       location: "IJO DESIGN, PUGLIA",
+  //       content:
+  //         "Puglia is my current favorite area in Italy. Ijo Design has two locations in Ostuni, and Lecce, the Baroque City. Traditional looms are used to weave their stunning creations and one is on display in the larger Lecce store. Both shops are worth a visit for women's fashion, accessories and home décor.",
+  //       imageUrl: require("../../Library/Images/destinations/europe/woman.jpg"),
+  //       frameColor: colors.green,
+  //       orientFrame: ["bottom", "right"],
+  //       inverted: true,
+  //     },
+  //     {
+  //       title: "NORDIC LIFE",
+  //       location: "29/2 AURLAND, NORWAY",
+  //       content:
+  //         "An inherited family farm on one of the largest fjords accessible by ferry from Bergen and train from Oslo. A perfect introduction to the Norwegian lifestyle: hiking of course, a visit to a picturesque goat farm, kayaking and a tour of Stave churches in the area. The small number of guests eat together in the evenings and compare their daily adventures.",
+  //       imageUrl: require("../../Library/Images/destinations/europe/church.jpg"),
+  //       frameColor: colors.red,
+  //       orientFrame: ["bottom", "left"],
+  //       inverted: false,
+  //     },
+  //     {
+  //       title: "CULTURE",
+  //       location: "ISLAND OF SKYROS, GREECE",
+  //       content:
+  //         "The most remote of the Sporades islands in northern Greece. The southern half of the island is a protected nature reserve where the eponymous Skyrian horses roam free, and the north is the cultural hub centered around the hilltop town of Chora with its Byzantine castle and 10th century monastery. Mythology and folklore are rich and reflected in the food, art and annual festivals.",
+  //       imageUrl: require("../../Library/Images/destinations/europe/skyros.jpg"),
+  //       frameColor: colors.green,
+  //       orientFrame: ["bottom", "right"],
+  //       inverted: true,
+  //     },
+  //   ],
+  // },
   {
     name: "Middle East",
     places: "Egypt, Iran, Jordan, Oman, UAE",
